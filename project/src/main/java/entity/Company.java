@@ -18,7 +18,13 @@ public class Company {
     private String address;
 
     public Company(){
-        System.out.println("Wadup");
+        System.out.println("Check");
+    }
+
+    // needs a constructor without Id in order to use the auto strategy
+    public Company(String name, String address){
+        this.setCompanyName(name);
+        this.setCompanyAddress(address);
     }
 
     public Company(int id, String name, String address){
