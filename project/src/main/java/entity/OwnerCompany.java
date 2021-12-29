@@ -38,7 +38,7 @@ public class OwnerCompany{
     }
 
     private void setOwnerId(long id){
-        if(id<=0) throw new IllegalArgumentException("Id for company must be positive");
+        if(id<=0) throw new IllegalArgumentException("Id for owner must be positive");
         this.ownerId=id;
     }
 
