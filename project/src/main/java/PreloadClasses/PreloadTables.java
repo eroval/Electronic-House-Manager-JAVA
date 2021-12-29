@@ -49,7 +49,7 @@ public class PreloadTables {
     }
 
     public static  void preloadOwnerCompanies(){
-        OwnerCompany oc = new OwnerCompany(1,2);
+        OwnerCompany oc = new OwnerCompany(1,7);
         OwnerCompany oc2 = new OwnerCompany(1,1);
 
         OwnerCompanyDAO.saveOrUpdateOwnerCompany(oc);
