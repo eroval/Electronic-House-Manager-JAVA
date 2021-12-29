@@ -1,20 +1,20 @@
 package PreloadClasses;
 
-import configuration.ConfigNames;
 import dao.CompanyDAO;
+import dao.EmployeeDAO;
 import dao.OwnerCompanyDAO;
 import dao.OwnerDAO;
 import entity.Company;
+import entity.Employee;
 import entity.Owner;
 import entity.OwnerCompany;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class PreloadTables {
 
-    public static void preloadOwners(){
+    private static void preloadOwners(){
         Owner owner = new Owner(1,"7602040567","Stefan","Landzhev");
         Owner owner2= new Owner(2,"7503040567","Angel","Krustev");
         Owner owner3= new Owner(3,"6523052367","Petar","Petkov");
@@ -25,18 +25,18 @@ public class PreloadTables {
         OwnerDAO.saveOwners(list);
     }
 
-    public static  void preloadCompanies(){
-        Company company = new Company("Cisco","Sofia");
-        Company company2 = new Company("DXC","Sofia");
-        Company company3 = new Company("Hyperscience","Sofia");
-        Company company4 = new Company("Uber","Sofia");
-        Company company5 = new Company("IBM","Sofia");
+    private  static  void preloadCompanies(){
+        Company company = new Company(1,"Cisco","Sofia");
+        Company company2 = new Company(2,"DXC","Sofia");
+        Company company3 = new Company(3,"Hyperscience","Sofia");
+        Company company4 = new Company(4,"Uber","Sofia");
+        Company company5 = new Company(5,"IBM","Sofia");
 
         List<Company> list = Arrays.asList(company, company2, company3, company4, company5);
         CompanyDAO.saveCompanies(list);
     }
 
-    public static  void preloadOwnerCompanies(){
+    private static  void preloadOwnerCompanies(){
         OwnerCompany oc = new OwnerCompany(1,3);
         OwnerCompany oc2 = new OwnerCompany(1,4);
         OwnerCompany oc3 = new OwnerCompany(2,1);
@@ -47,6 +47,13 @@ public class PreloadTables {
         OwnerCompanyDAO.saveOwnerCompanies(list);
     }
 
+    private  static void preloadEmployees(){
+        Employee e = new Employee(1,"Larry","Gasparov",2,1);
+
+        List<Employee> list = Arrays.asList(e);
+        EmployeeDAO.saveEmployees(list);
+    }
+
     public static void load(){
         preloadOwners();
         preloadCompanies();
@@ -54,6 +61,6 @@ public class PreloadTables {
     }
 
     public static void customLoad(){
-
+        preloadEmployees();
     }
 }

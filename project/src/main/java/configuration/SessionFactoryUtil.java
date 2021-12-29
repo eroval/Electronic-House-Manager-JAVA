@@ -1,6 +1,7 @@
 package configuration;
 
 import entity.Company;
+import entity.Employee;
 import entity.Owner;
 import entity.OwnerCompany;
 import org.hibernate.SessionFactory;
@@ -18,6 +19,7 @@ public class SessionFactoryUtil {
             configuration.addAnnotatedClass(Company.class);
             configuration.addAnnotatedClass(Owner.class);
             configuration.addAnnotatedClass(OwnerCompany.class);
+            configuration.addAnnotatedClass(Employee.class);
             ServiceRegistry serviceRegistry
                     = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties()).build();

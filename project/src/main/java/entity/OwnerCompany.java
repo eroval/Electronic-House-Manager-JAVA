@@ -28,6 +28,9 @@ public class OwnerCompany{
     @JoinColumn (name=ConfigNames.OwnerCompany.IdOwner, insertable = false, updatable = false)
     private entity.Owner owner;
 
+    @OneToMany (mappedBy = ConfigNames.OwnerCompany.Table)
+    private List<Employee> employees;
+
     public OwnerCompany(){
 
     }

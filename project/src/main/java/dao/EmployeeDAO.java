@@ -1,88 +1,87 @@
 package dao;
 
-import IdClasses.OwnerCompanyId;
+import IdClasses.EmployeeId;
 import entity.Company;
+import entity.Employee;
 import entity.Owner;
-import entity.OwnerCompany;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class OwnerCompanyDAO {
-
-    public static void saveOwnerCompany(entity.OwnerCompany ownerCompany) {
+public class EmployeeDAO {
+    public static void saveEmployee(entity.Employee employee) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            session.save(ownerCompany);
+            session.save(employee);
             transaction.commit();
         }
     }
 
-    public static void saveOrUpdateOwnerCompany(OwnerCompany ownerCompany) {
+    public static void saveOrUpdateEmployee(Employee employee) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            session.saveOrUpdate(ownerCompany);
+            session.saveOrUpdate(employee);
             transaction.commit();
         }
     }
 
-    public static void saveOwnerCompanies(List<OwnerCompany> ownerCompanyList) {
+    public static void saveEmployees(List<Employee> employeeList) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            ownerCompanyList.stream().forEach((com) -> session.save(com));
+            employeeList.stream().forEach((com) -> session.save(com));
             transaction.commit();
         }
     }
 
-    public static List<OwnerCompany> readOwnerCompanies() {
+    public static List<Employee> readEmployees() {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
-            return session.createQuery("SELECT a FROM entities.OwnerCompany a", entity.OwnerCompany.class).getResultList();
+            return session.createQuery("SELECT a FROM entities.Employee a", entity.Employee.class).getResultList();
         }
     }
 
-    public static OwnerCompany getOwnerCompany(long companyId, long ownerId) {
-        OwnerCompany ownerCompany;
+    public static Employee getEmployee(long employeeId, long companyId, long ownerId) {
+        Employee employee;
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            ownerCompany = session.get(OwnerCompany.class, new OwnerCompanyId(companyId, ownerId));
+            employee = session.get(Employee.class, new EmployeeId(employeeId, companyId, ownerId));
             transaction.commit();
         }
-        return ownerCompany;
+        return employee;
     }
 
-    public static void deleteOwnerCompany(OwnerCompany ownerCompany) {
+    public static void deleteEmployee(Employee employee) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            session.delete(ownerCompany);
-            transaction.commit();
-        }
-    }
-
-    public static void deleteOwnerCompany(long companyId, long ownerId) {
-        try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.beginTransaction();
-            OwnerCompany ownerCompany = session.get(OwnerCompany.class, new OwnerCompanyId(companyId, ownerId));
-            session.delete(ownerCompany);
+            session.delete(employee);
             transaction.commit();
         }
     }
 
-    public static Owner getOwner(OwnerCompany ownerCompany){
+    public static void deleteEmployee(long employeeId, long companyId, long ownerId) {
+        try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            Employee employee = session.get(Employee.class, new EmployeeId(employeeId, companyId, ownerId));
+            session.delete(employee);
+            transaction.commit();
+        }
+    }
+
+    public static Owner getOwner(Employee employee){
         Owner owner;
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            owner = session.get(Owner.class, ownerCompany.getOwnerId());
+            owner = session.get(Owner.class, employee.getOwnerId());
             transaction.commit();
         }
         return owner;
     }
 
-    public static Company getCompany(OwnerCompany ownerCompany){
+    public static Company getCompany(Employee employee){
         Company company;
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            company = session.get(Company.class, ownerCompany.getCompanyId());
+            company = session.get(Company.class, employee.getCompanyId());
             transaction.commit();
         }
         return company;
