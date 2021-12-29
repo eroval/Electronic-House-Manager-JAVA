@@ -3,12 +3,18 @@ package entity;
 import special_validators.egn_validator;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 public class Owner {
 
     @Id
-    private String ownerId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int ownerId;
+
+    @Column(name="egn", nullable = false)
+    private String egn;
 
     @Column(name="f_name", nullable = false)
     private String fName;
@@ -16,16 +22,28 @@ public class Owner {
     @Column(name="l_name", nullable = false)
     private String lName;
 
-    Owner(String ownerId, String fName, String lName){
-        this.setOwnerId(ownerId);
+    Owner(String egn, String fName, String lName){
+        this.setEGN(egn);
+        this.setFName(fName);
+        this.setLName(lName);
+    }
+
+    Owner(int ownerId, String egn, String fName, String lName){
+        this.setId(ownerId);
+        this.setEGN(egn);
         this.setFName(fName);
         this.setLName(lName);
     }
 
 
-    private void setOwnerId(String ownerId){
-        if(!egn_validator.checkId(ownerId)) throw new IllegalArgumentException("Owner id is incorrect!");
-        this.ownerId=ownerId;
+    private void setId(int id){
+        if(id<=0) throw new IllegalArgumentException("Id for company must be positive");
+        this.ownerId=id;
+    }
+
+    private void setEGN(String egn){
+        if(!egn_validator.checkId(egn)) throw new IllegalArgumentException("Owner id is incorrect!");
+        this.egn=egn;
     }
 
     private void setFName(String fName){
@@ -38,9 +56,9 @@ public class Owner {
         this.lName=lName;
     }
 
-    public String getOwnerId(){
-        return this.ownerId;
-    }
+    public int getId(){return this.ownerId;}
+
+    public String getEgn() {return this.egn;}
 
     public String getFName(){
         return this.fName;
