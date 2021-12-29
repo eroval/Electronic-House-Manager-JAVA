@@ -55,6 +55,16 @@ public class CompanyDAO {
         }
     }
 
+    public static void deleteCompanies(List<Company> list){
+        try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            for (Company company : list) {
+                session.delete(company);
+            }
+            transaction.commit();
+        }
+    }
+
     public static void deleteCompany(long id) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();

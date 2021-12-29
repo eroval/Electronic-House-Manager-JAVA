@@ -1,12 +1,12 @@
 package dao;
 
+import entity.Company;
 import entity.Owner;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import javax.persistence.Query;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class OwnerDAO {
 
@@ -77,6 +77,16 @@ public class OwnerDAO {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             session.delete(owner);
+            transaction.commit();
+        }
+    }
+
+    public static void deleteOwners(List<Owner> list){
+        try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            for (Owner owner : list) {
+                session.delete(owner);
+            }
             transaction.commit();
         }
     }

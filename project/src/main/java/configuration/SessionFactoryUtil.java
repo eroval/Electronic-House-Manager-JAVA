@@ -2,6 +2,7 @@ package configuration;
 
 import entity.Company;
 import entity.Owner;
+import entity.OwnerCompany;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -16,6 +17,7 @@ public class SessionFactoryUtil {
             Configuration configuration = new Configuration();
             configuration.addAnnotatedClass(Company.class);
             configuration.addAnnotatedClass(Owner.class);
+            configuration.addAnnotatedClass(OwnerCompany.class);
             ServiceRegistry serviceRegistry
                     = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties()).build();

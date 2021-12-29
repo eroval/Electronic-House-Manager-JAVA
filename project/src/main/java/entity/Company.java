@@ -1,24 +1,32 @@
 package entity;
 
+import configuration.ConfigNames;
+
 import javax.persistence.*;
+import java.io.ObjectInputFilter;
 
 @Entity
-@Table(name="company")
+@Table(name= ConfigNames.Company.Table)
 public class Company {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int company_id;
+    @Column(name = ConfigNames.Company.Id, nullable = false)
+    private long companyId;
 
-    @Column(name="name", nullable = false)
+    @Column(name=ConfigNames.Company.Name, nullable = false)
     private String name;
 
 
-    @Column(name="address", nullable = false)
+    @Column(name=ConfigNames.Company.Address, nullable = false)
     private String address;
 
+    @OneToOne (mappedBy = ConfigNames.Company.Table)
+    private OwnerCompany ownerCompany;
+
+
     public Company(){
-        System.out.println("Check");
+
     }
 
     // needs a constructor without Id in order to use the auto strategy
@@ -27,15 +35,15 @@ public class Company {
         this.setCompanyAddress(address);
     }
 
-    public Company(int id, String name, String address){
+    public Company(long id, String name, String address){
         this.setId(id);
         this.setCompanyName(name);
         this.setCompanyAddress(address);
     }
 
-    private void setId(int id){
+    private void setId(long  id){
         if(id<=0) throw new IllegalArgumentException("Id for company must be positive");
-        this.company_id=id;
+        this.companyId=id;
     }
 
     private void setCompanyName(String name){
@@ -48,8 +56,8 @@ public class Company {
         this.address=address;
     }
 
-    public int  getCompanyId(){
-        return this.company_id;
+    public long getCompanyId(){
+        return this.companyId;
     }
 
     public String getCompanyName(){

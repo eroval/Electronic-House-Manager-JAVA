@@ -8,8 +8,10 @@ import java.util.List;
 
 public class main {
     public static void main(String args[]) {
-        //PreloadTables.preloadCompanies();
+        PreloadTables.preloadCompanies();
         PreloadTables.preloadOwners();
+//        PreloadTables.preloadOwnerCompanies();
+
     }
 
 }

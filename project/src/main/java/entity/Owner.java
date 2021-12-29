@@ -1,26 +1,31 @@
 package entity;
 
+import configuration.ConfigNames;
 import special_validators.egn_validator;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name="owner")
+@Table(name= ConfigNames.Owner.Table)
 public class Owner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="owner_id", nullable = false)
-    private int id;
+    @Column(name=ConfigNames.Owner.Id, nullable = false)
+    private long id;
 
-    @Column(name="egn", nullable = false)
+    @Column(name=ConfigNames.Owner.EGN, nullable = false)
     private String egn;
 
-    @Column(name="f_name", nullable = false)
+    @Column(name=ConfigNames.Owner.FName, nullable = false)
     private String fName;
 
-    @Column(name="l_name", nullable = false)
+    @Column(name=ConfigNames.Owner.LName, nullable = false)
     private String lName;
+
+    @OneToMany (mappedBy = ConfigNames.Owner.Table)
+    private List<OwnerCompany> ownerCompanies;
 
     public Owner(){
 
@@ -51,7 +56,7 @@ public class Owner {
     }
 
 
-    private void setId(int id){
+    private void setId(long id){
         if(id<=0) throw new IllegalArgumentException("Id for company must be positive");
         this.id=id;
     }
@@ -71,7 +76,7 @@ public class Owner {
         this.lName=lName;
     }
 
-    public int getId(){return this.id;}
+    public long getId(){return this.id;}
 
     public String getEgn() {return this.egn;}
 
