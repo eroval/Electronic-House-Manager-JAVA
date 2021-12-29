@@ -1,11 +1,15 @@
+import PreloadClasses.PreloadTables;
 import dao.CompanyDAO;
+import dao.OwnerDAO;
 import entity.Company;
+import entity.Owner;
+
 import java.util.List;
 
 public class main {
     public static void main(String args[]) {
-        Company companyOne = new Company(1,"best", "company");
-        CompanyDAO.saveOrUpdateCompany(companyOne);
+        //PreloadTables.preloadCompanies();
+        PreloadTables.preloadOwners();
     }
 
 }
