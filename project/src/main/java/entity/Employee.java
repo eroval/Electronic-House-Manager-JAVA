@@ -1,12 +1,12 @@
 package entity;
 
-import IdClasses.EmployeeId;
+import IdClasses.OwnerCompanyId;
 import configuration.ConfigNames;
 
 import javax.persistence.*;
 
 @Entity
-@IdClass(EmployeeId.class)
+@IdClass(OwnerCompanyId.class)
 @Table(name= ConfigNames.Employee.Table)
 public class Employee {
 
@@ -22,12 +22,12 @@ public class Employee {
     private String lName;
 
     @Id
-    @Column(name = ConfigNames.Employee.IdCompany, nullable = false)
-    private long companyId;
-
-    @Id
     @Column(name = ConfigNames.Employee.IdOwner, nullable = false)
     private long ownerId;
+
+    @Id
+    @Column(name = ConfigNames.Employee.IdCompany, nullable = false)
+    private long companyId;
 
 
     @ManyToOne
@@ -100,5 +100,17 @@ public class Employee {
 
     public long getCompanyId(){
         return this.companyId;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId=" + employeeId +
+                ", fName='" + fName + '\'' +
+                ", lName='" + lName + '\'' +
+                ", ownerId=" + ownerId +
+                ", companyId=" + companyId +
+                ", owner_company=" + owner_company +
+                '}';
     }
 }

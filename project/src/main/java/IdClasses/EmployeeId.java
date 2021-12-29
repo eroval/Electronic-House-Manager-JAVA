@@ -1,15 +1,10 @@
 package IdClasses;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import java.io.Serializable;
 import java.util.Objects;
 
 public class EmployeeId implements Serializable {
-
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
     protected long employeeId;
-
     protected long ownerId;
     protected long companyId;
 

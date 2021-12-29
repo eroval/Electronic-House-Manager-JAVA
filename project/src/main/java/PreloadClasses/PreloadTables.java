@@ -51,6 +51,7 @@ public class PreloadTables {
         Employee e = new Employee(1,"Larry","Gasparov",2,1);
 
         List<Employee> list = Arrays.asList(e);
+        System.out.println(e);
         EmployeeDAO.saveEmployees(list);
     }
 
