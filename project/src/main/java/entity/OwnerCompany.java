@@ -29,7 +29,7 @@ public class OwnerCompany implements Serializable {
     private entity.Owner owner;
 
     @OneToMany (mappedBy = ConfigNames.OwnerCompany.Table)
-    private List<Employee> employees;
+    private List<Employee> employee;
 
     public OwnerCompany(){
 

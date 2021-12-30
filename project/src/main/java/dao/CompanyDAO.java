@@ -33,7 +33,7 @@ public class CompanyDAO {
 
     public static List<Company> readCompanies() {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
-            return session.createQuery("SELECT a FROM entities.Company a", entity.Company.class).getResultList();
+            return session.createQuery("SELECT a FROM Company a", entity.Company.class).getResultList();
         }
     }
 

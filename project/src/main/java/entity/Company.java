@@ -22,7 +22,7 @@ public class Company {
     private String address;
 
     @OneToOne (mappedBy = ConfigNames.Company.Table)
-    private OwnerCompany ownerCompany;
+    private OwnerCompany owner_company;
 
 
     public Company(){

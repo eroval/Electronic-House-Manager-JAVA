@@ -13,7 +13,7 @@ import java.util.List;
 public class Employee  implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.AUTO)
     @Column(name= ConfigNames.Employee.Id, nullable = false)
     private long employeeId;
 
@@ -24,18 +24,20 @@ public class Employee  implements Serializable {
     private String lName;
 
     @Id
+    @Column(name = ConfigNames.Employee.IdCompany, nullable = false)
+    private long companyId;
+
+    @Id
     @Column(name = ConfigNames.Employee.IdOwner, nullable = false)
     private long ownerId;
 
-    @Id
-    @Column(name = ConfigNames.Employee.IdCompany, nullable = false)
-    private long companyId;
 
 
     @ManyToOne
     @JoinColumns({
-            @JoinColumn (name=ConfigNames.Employee.IdOwner, insertable = false, updatable = false),
-            @JoinColumn (name=ConfigNames.Employee.IdCompany, insertable = false, updatable = false)
+            @JoinColumn (name=ConfigNames.Employee.IdCompany,referencedColumnName = ConfigNames.OwnerCompany.IdOwner, insertable = false, updatable = false),
+            @JoinColumn (name=ConfigNames.Employee.IdOwner,referencedColumnName = ConfigNames.OwnerCompany.IdCompany, insertable = false, updatable = false)
+
     })
     private entity.OwnerCompany owner_company;
 
@@ -46,20 +48,19 @@ public class Employee  implements Serializable {
 
     }
 
-    public Employee(long employeeId, String fName, String lName,long ownerId, long companyId){
+    public Employee(long employeeId, String fName, String lName, long companyId ,long ownerId){
         this.setEmployeeId(employeeId);
         this.setFName(fName);
         this.setLName(lName);
-        this.setOwnerId(ownerId);
         this.setCompanyId(companyId);
+        this.setOwnerId(ownerId);
     }
 
-    public Employee(String fName, String lName,long ownerId, long companyId){
-        this.setEmployeeId(employeeId);
+    public Employee(String fName, String lName, long companyId,long ownerId){
         this.setFName(fName);
         this.setLName(lName);
-        this.setOwnerId(ownerId);
         this.setCompanyId(companyId);
+        this.setOwnerId(ownerId);
     }
 
     private void setFName(String fName){
@@ -77,14 +78,14 @@ public class Employee  implements Serializable {
         this.employeeId=id;
     }
 
-    private void setOwnerId(long id){
-        if(id<=0) throw new IllegalArgumentException("Id for owner must be positive");
-        this.ownerId=id;
-    }
-
     private void setCompanyId(long id){
         if(id<=0) throw new IllegalArgumentException("Id for company must be positive");
         this.companyId=id;
+    }
+
+    private void setOwnerId(long id){
+        if(id<=0) throw new IllegalArgumentException("Id for owner must be positive");
+        this.ownerId=id;
     }
 
     public long getEmployeeId(){
@@ -99,13 +100,14 @@ public class Employee  implements Serializable {
         return this.lName;
     }
 
+    public long getCompanyId(){
+        return this.companyId;
+    }
+
     public long getOwnerId(){
         return this.ownerId;
     }
 
-    public long getCompanyId(){
-        return this.companyId;
-    }
 
     @Override
     public String toString() {

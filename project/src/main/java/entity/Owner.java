@@ -25,7 +25,7 @@ public class Owner {
     private String lName;
 
     @OneToMany (mappedBy = ConfigNames.Owner.Table)
-    private List<OwnerCompany> ownerCompanies;
+    private List<OwnerCompany> owner_company;
 
     public Owner(){
 

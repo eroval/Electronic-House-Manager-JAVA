@@ -1,13 +1,7 @@
 package PreloadClasses;
 
-import dao.CompanyDAO;
-import dao.EmployeeDAO;
-import dao.OwnerCompanyDAO;
-import dao.OwnerDAO;
-import entity.Company;
-import entity.Employee;
-import entity.Owner;
-import entity.OwnerCompany;
+import dao.*;
+import entity.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -58,14 +52,49 @@ public class PreloadTables {
         EmployeeDAO.saveEmployees(list);
     }
 
+    private static void preloadBuildings(){
+        Building b = new Building(1,"Sofia", 10, 2, 1000, 40);
+        Building b2 = new Building(2,"Sofia", 12, 4, 1200, 10);
+        Building b3 = new Building(3,"Sofia", 15, 15, 1536, 35);
+        Building b4 = new Building(3,"Sofia", 3, 2, 290, 32);
+        Building b5 = new Building(3,"Sofia", 10, 10, 2903, 47);
+
+        List<Building> list = Arrays.asList(b,b2,b3,b4,b5);
+        BuildingDAO.saveBuildings(list);
+    }
+
+    private static void preloadTaxes(){
+        Taxes t = new Taxes(1,20,0.5,10,25);
+        Taxes t2 = new Taxes(2,20,0.5,10,25);
+        Taxes t3 = new Taxes(3,22,0.8,15,25);
+        Taxes t4 = new Taxes(4,26,0.45,12,25);
+        Taxes t5 = new Taxes(5,13,1,11,25);
+
+        List<Taxes> list = Arrays.asList(t,t2,t3,t4,t5);
+        TaxesDAO.saveTaxess(list);
+    }
+
+    private static void preloadEmployeeBuildings(){
+        EmployeeBuilding eb = new EmployeeBuilding(1,4,1,2);
+        EmployeeBuilding eb2 = new EmployeeBuilding(2,2,1,2);
+        EmployeeBuilding eb3 = new EmployeeBuilding(3,5,5,1);
+        EmployeeBuilding eb4 = new EmployeeBuilding(5,3,1,2);
+        EmployeeBuilding eb5 = new EmployeeBuilding(4,4,1,2);
+
+        List<EmployeeBuilding> list = Arrays.asList(eb,eb2,eb3,eb4,eb5);
+        EmployeeBuildingDAO.saveEmployeeBuildings(list);
+    }
+
     public static void load(){
         preloadOwners();
         preloadCompanies();
         preloadOwnerCompanies();
         preloadEmployees();
+        preloadBuildings();
+        preloadTaxes();
+        preloadEmployeeBuildings();
     }
 
     public static void customLoad(){
-
     }
 }

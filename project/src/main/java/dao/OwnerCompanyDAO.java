@@ -37,15 +37,15 @@ public class OwnerCompanyDAO {
 
     public static List<OwnerCompany> readOwnerCompanies() {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
-            return session.createQuery("SELECT a FROM entities.OwnerCompany a", entity.OwnerCompany.class).getResultList();
+            return session.createQuery("SELECT a FROM OwnerCompany a", entity.OwnerCompany.class).getResultList();
         }
     }
 
-    public static OwnerCompany getOwnerCompany(long companyId, long ownerId) {
+    public static OwnerCompany getOwnerCompany(long ownerId, long companyId) {
         OwnerCompany ownerCompany;
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            ownerCompany = session.get(OwnerCompany.class, new OwnerCompanyId(companyId, ownerId));
+            ownerCompany = session.get(OwnerCompany.class, new OwnerCompanyId(ownerId, companyId));
             transaction.commit();
         }
         return ownerCompany;
@@ -59,10 +59,10 @@ public class OwnerCompanyDAO {
         }
     }
 
-    public static void deleteOwnerCompany(long companyId, long ownerId) {
+    public static void deleteOwnerCompany(long ownerId, long companyId) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            OwnerCompany ownerCompany = session.get(OwnerCompany.class, new OwnerCompanyId(companyId, ownerId));
+            OwnerCompany ownerCompany = session.get(OwnerCompany.class, new OwnerCompanyId(ownerId, companyId));
             session.delete(ownerCompany);
             transaction.commit();
         }

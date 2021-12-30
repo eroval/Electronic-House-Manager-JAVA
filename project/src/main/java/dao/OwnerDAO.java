@@ -49,7 +49,7 @@ public class OwnerDAO {
 
     public static List<Owner> readOwners() {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
-            return session.createQuery("SELECT a FROM entities.Owner a", entity.Owner.class).getResultList();
+            return session.createQuery("SELECT a FROM Owner a", entity.Owner.class).getResultList();
         }
     }
 

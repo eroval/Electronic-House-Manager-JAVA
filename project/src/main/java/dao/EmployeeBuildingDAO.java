@@ -38,11 +38,11 @@ public class EmployeeBuildingDAO {
         }
     }
 
-    public static EmployeeBuilding getEmployeeBuilding(long buildingId, long employeeId) {
+    public static EmployeeBuilding getEmployeeBuilding(long buildingId, long employeeId, long companyId, long ownerId) {
         EmployeeBuilding employeeBuilding;
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            employeeBuilding = session.get(EmployeeBuilding.class, new EmployeeBuildingId(buildingId, employeeId));
+            employeeBuilding = session.get(EmployeeBuilding.class, new EmployeeBuildingId(buildingId, employeeId, companyId, ownerId));
             transaction.commit();
         }
         return employeeBuilding;
@@ -56,10 +56,10 @@ public class EmployeeBuildingDAO {
         }
     }
 
-    public static void deleteEmployeeBuilding(long buildingId, long employeeId) {
+    public static void deleteEmployeeBuilding(long buildingId, long employeeId, long companyId, long ownerId) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            EmployeeBuilding employeeBuilding = session.get(EmployeeBuilding.class, new EmployeeBuildingId(buildingId, employeeId));
+            EmployeeBuilding employeeBuilding = session.get(EmployeeBuilding.class, new EmployeeBuildingId(buildingId, employeeId, companyId, ownerId));
             session.delete(employeeBuilding);
             transaction.commit();
         }

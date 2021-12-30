@@ -104,4 +104,17 @@ public class Building{
 
     public double getAreaCommon(){return this.areaCommon;}
 
+    @Override
+    public String toString() {
+        return "Building{" +
+                "buildingId=" + buildingId +
+                ", address='" + address + '\'' +
+                ", numberOfApartments=" + numberOfApartments +
+                ", numberOfFloors=" + numberOfFloors +
+                ", areaTotal=" + areaTotal +
+                ", areaCommon=" + areaCommon +
+                ", taxes=" + taxes +
+                ", employee_building=" + employee_building +
+                '}';
+    }
 }

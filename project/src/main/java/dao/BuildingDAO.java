@@ -33,15 +33,15 @@ public class BuildingDAO {
 
     public static List<Building> readBuildings() {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
-            return session.createQuery("SELECT a FROM entities.Building a", entity.Building.class).getResultList();
+            return session.createQuery("SELECT a FROM Building a", entity.Building.class).getResultList();
         }
     }
 
-    public static Building getBuilding(long buildingId) {
+    public static Building getBuilding(long id) {
         Building building;
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            building = session.get(Building.class, buildingId);
+            building = session.get(Building.class, id);
             transaction.commit();
         }
         return building;

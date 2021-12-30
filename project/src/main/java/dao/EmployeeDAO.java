@@ -35,16 +35,18 @@ public class EmployeeDAO {
     }
 
     public static List<Employee> readEmployees() {
+        List<Employee> e;
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
-            return session.createQuery("SELECT a FROM entities.Employee a", entity.Employee.class).getResultList();
+            e = session.createQuery("SELECT a FROM Employee a", entity.Employee.class).getResultList();
         }
+        return e;
     }
 
-    public static Employee getEmployee(long employee_id, long company_id, long owner_id) {
+    public static Employee getEmployee(long employeeId, long companyId, long ownerId) {
         Employee employee;
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            employee = session.get(Employee.class, new EmployeeId(employee_id, company_id, owner_id));
+            employee = session.get(Employee.class, new EmployeeId(employeeId, companyId, ownerId));
             transaction.commit();
         }
         return employee;
@@ -58,10 +60,10 @@ public class EmployeeDAO {
         }
     }
 
-    public static void deleteEmployee(long employee_id, long company_id, long owner_id) {
+    public static void deleteEmployee(long employeeId, long companyId, long ownerId) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            Employee employee = session.get(Employee.class, new EmployeeId(employee_id, company_id, owner_id));
+            Employee employee = session.get(Employee.class, new EmployeeId(employeeId, companyId, ownerId));
             session.delete(employee);
             transaction.commit();
         }

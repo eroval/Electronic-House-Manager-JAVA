@@ -13,15 +13,15 @@ public class EmployeeId implements Serializable {
     public EmployeeId(){
     }
 
-    public EmployeeId(long ownerId, long companyId){
-        this.ownerId=ownerId;
+    public EmployeeId( long companyId, long ownerId){
         this.companyId=companyId;
+        this.ownerId=ownerId;
     }
 
-    public EmployeeId(long employeeId, long ownerId, long companyId){
+    public EmployeeId(long employeeId, long companyId, long ownerId){
         this.employeeId=employeeId;
-        this.ownerId=ownerId;
         this.companyId=companyId;
+        this.ownerId=ownerId;
     }
 
     @Override
