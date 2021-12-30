@@ -1,5 +1,7 @@
 package IdClasses;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -9,6 +11,11 @@ public class EmployeeId implements Serializable {
     protected long companyId;
 
     public EmployeeId(){
+    }
+
+    public EmployeeId(long ownerId, long companyId){
+        this.ownerId=ownerId;
+        this.companyId=companyId;
     }
 
     public EmployeeId(long employeeId, long ownerId, long companyId){

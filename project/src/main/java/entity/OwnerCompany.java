@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @IdClass(OwnerCompanyId.class)
 @Table(name= ConfigNames.OwnerCompany.Table)
-public class OwnerCompany{
+public class OwnerCompany implements Serializable {
 
     @Id
     @Column(name=ConfigNames.OwnerCompany.IdOwner, nullable = false)

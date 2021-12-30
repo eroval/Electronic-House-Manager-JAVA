@@ -1,17 +1,19 @@
 package entity;
 
-import IdClasses.OwnerCompanyId;
+import IdClasses.EmployeeId;
 import configuration.ConfigNames;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
-@IdClass(OwnerCompanyId.class)
+@IdClass(EmployeeId.class)
 @Table(name= ConfigNames.Employee.Table)
-public class Employee {
+public class Employee  implements Serializable {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name= ConfigNames.Employee.Id, nullable = false)
     private long employeeId;
 
@@ -36,6 +38,9 @@ public class Employee {
             @JoinColumn (name=ConfigNames.Employee.IdCompany, insertable = false, updatable = false)
     })
     private entity.OwnerCompany owner_company;
+
+    @OneToMany (mappedBy = ConfigNames.Employee.Table)
+    private List<EmployeeBuilding> employee_building;
 
     public Employee(){
 

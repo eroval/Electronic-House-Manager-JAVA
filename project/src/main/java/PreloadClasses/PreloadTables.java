@@ -49,9 +49,12 @@ public class PreloadTables {
 
     private  static void preloadEmployees(){
         Employee e = new Employee(1,"Larry","Gasparov",2,1);
+        Employee e2 = new Employee(2,"Garry", "Saddov",2,1);
+        Employee e3 = new Employee(3,"Sad", "Lothar",2,1);
+        Employee e4 = new Employee(4,"Sad", "Lothar",2,1);
+        Employee e5 = new Employee(5,"Looper", "Dooper",1,5);
 
-        List<Employee> list = Arrays.asList(e);
-        System.out.println(e);
+        List<Employee> list = Arrays.asList(e,e2,e3,e4,e5);
         EmployeeDAO.saveEmployees(list);
     }
 
@@ -59,9 +62,10 @@ public class PreloadTables {
         preloadOwners();
         preloadCompanies();
         preloadOwnerCompanies();
+        preloadEmployees();
     }
 
     public static void customLoad(){
-        preloadEmployees();
+
     }
 }
