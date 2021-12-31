@@ -3,6 +3,7 @@ package PreloadClasses;
 import dao.*;
 import entity.*;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 
@@ -86,14 +87,14 @@ public class PreloadTables {
     }
 
     private static void preloadApartments(){
-        Apartment a = new Apartment(1,30,null,null);
-        Apartment a2 = new Apartment(1,53,null,null);
-        Apartment a3 = new Apartment(1,55,null,null);
-        Apartment a4 = new Apartment(2,65,null,null);
-        Apartment a5 = new Apartment(2,87,null,null);
-        Apartment a6 = new Apartment(2,103,null,null);
+        Apartment a = new Apartment(1,30,null,null, null);
+        Apartment a2 = new Apartment(1,53,null,null, null);
+        Apartment a3 = new Apartment(1,55,null,null, null);
+        Apartment a4 = new Apartment(2,65,null,null, null);
+        Apartment a5 = new Apartment(2,87,null,null, null);
+        Apartment a6 = new Apartment(2,103,null,null, null);
 
-        List<Apartment> list = Arrays.asList(a,a2,a3,a4,a5,a6 );
+        List<Apartment> list = Arrays.asList(a,a2,a3,a4,a5,a6);
         ApartmentDAO.saveApartments(list);
     }
 
@@ -108,6 +109,25 @@ public class PreloadTables {
         TaxesHistoryDAO.saveTaxesHistorys(list);
     }
 
+    private static void preloadPersons(){
+        Person p = new Person("5424053487","Lazar","Looner","24/05/1954");
+        Person p2 = new Person("2613073566","Eugene","Darius","13/07/1926");
+        Person p3 = new Person("6506053276","Sandra","Zaralik","06/05/1965");
+        Person p4 = new Person("3508113276","Harry","Potter","08/11/1935");
+        Person p5 = new Person("4424033276","Peter","Parker","24/03/1944");
+        List<Person> list = Arrays.asList(p, p2, p3, p4, p5);
+        PersonDAO.savePersons(list);
+    }
+
+    private static void preloadFamilies(){
+        Family f= new Family(1,"5424053487",false);
+        Family f1= new Family(1,"2613073566",false);
+        Family f2= new Family(1,"4424033276",false);
+
+        List<Family> list = Arrays.asList(f,f1,f2);
+        FamilyDAO.saveFamilys(list);
+    }
+
     public static void load(){
         preloadOwners();
         preloadCompanies();
@@ -117,9 +137,11 @@ public class PreloadTables {
         preloadTaxes();
         preloadEmployeeBuildings();
         preloadApartments();
+        preloadTaxesHistory();
+        preloadPersons();
+        preloadFamilies();
     }
 
     public static void customLoad(){
-        preloadTaxesHistory();
     }
 }
