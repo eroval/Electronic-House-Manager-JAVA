@@ -108,4 +108,14 @@ public class Employee  implements Serializable {
         return this.lName;
     }
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId=" + employeeId +
+                ", companyId=" + companyId +
+                ", ownerId=" + ownerId +
+                ", fName='" + fName + '\'' +
+                ", lName='" + lName + '\'' +
+                '}';
+    }
 }

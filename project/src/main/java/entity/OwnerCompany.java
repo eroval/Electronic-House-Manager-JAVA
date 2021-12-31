@@ -57,4 +57,11 @@ public class OwnerCompany implements Serializable {
         return this.ownerId;
     }
 
+    @Override
+    public String toString() {
+        return "OwnerCompany{" +
+                "companyId=" + companyId +
+                ", ownerId=" + ownerId +
+                '}';
+    }
 }

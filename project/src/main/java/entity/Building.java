@@ -114,8 +114,6 @@ public class Building implements Serializable {
                 ", numberOfFloors=" + numberOfFloors +
                 ", areaTotal=" + areaTotal +
                 ", areaCommon=" + areaCommon +
-                ", taxes=" + taxes +
-                ", employee_building=" + employee_building +
                 '}';
     }
 }

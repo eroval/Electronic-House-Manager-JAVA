@@ -67,4 +67,13 @@ public class Company {
     public String getCompanyAddress(){
         return this.address;
     }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "companyId=" + companyId +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }

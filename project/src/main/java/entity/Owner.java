@@ -87,4 +87,14 @@ public class Owner {
     public String getLName(){
         return this.lName;
     }
+
+    @Override
+    public String toString() {
+        return "Owner{" +
+                "id=" + id +
+                ", egn='" + egn + '\'' +
+                ", fName='" + fName + '\'' +
+                ", lName='" + lName + '\'' +
+                '}';
+    }
 }

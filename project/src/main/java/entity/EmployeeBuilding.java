@@ -58,4 +58,13 @@ public class EmployeeBuilding implements Serializable {
 
     public long getOwnerId(){return this.ownerId;}
 
+    @Override
+    public String toString() {
+        return "EmployeeBuilding{" +
+                "buildingId=" + buildingId +
+                ", employeeId=" + employeeId +
+                ", companyId=" + companyId +
+                ", ownerId=" + ownerId +
+                '}';
+    }
 }

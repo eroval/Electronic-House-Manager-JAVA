@@ -77,4 +77,14 @@ public class Taxes implements Serializable {
 
     public double getTaxDay(){return this.taxDay;}
 
+    @Override
+    public String toString() {
+        return "Taxes{" +
+                "buildingId=" + buildingId +
+                ", baseTax=" + baseTax +
+                ", appBaseTax=" + appBaseTax +
+                ", appPetTax=" + appPetTax +
+                ", taxDay=" + taxDay +
+                '}';
+    }
 }
