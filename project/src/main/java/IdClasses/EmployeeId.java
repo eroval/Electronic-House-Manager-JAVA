@@ -1,7 +1,5 @@
 package IdClasses;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import java.io.Serializable;
 import java.util.Objects;
 

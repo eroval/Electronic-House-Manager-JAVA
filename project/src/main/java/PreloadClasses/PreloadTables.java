@@ -85,6 +85,18 @@ public class PreloadTables {
         EmployeeBuildingDAO.saveEmployeeBuildings(list);
     }
 
+    private static void preloadApartments(){
+        Apartment a = new Apartment(1,30,null,null);
+        Apartment a2 = new Apartment(1,53,null,null);
+        Apartment a3 = new Apartment(1,55,null,null);
+        Apartment a4 = new Apartment(2,65,null,null);
+        Apartment a5 = new Apartment(2,87,null,null);
+        Apartment a6 = new Apartment(2,103,null,null);
+
+        List<Apartment> list = Arrays.asList(a,a2,a3,a4,a5,a6 );
+        ApartmentDAO.saveApartments(list);
+    }
+
     public static void load(){
         preloadOwners();
         preloadCompanies();
@@ -93,8 +105,10 @@ public class PreloadTables {
         preloadBuildings();
         preloadTaxes();
         preloadEmployeeBuildings();
+        preloadApartments();
     }
 
     public static void customLoad(){
+
     }
 }

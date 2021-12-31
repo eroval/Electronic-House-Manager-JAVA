@@ -13,7 +13,7 @@ import java.util.List;
 public class Employee  implements Serializable {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.SEQUENCE)
+    @GeneratedValue (strategy =  GenerationType.SEQUENCE, generator = "employees")
     @Column(name= ConfigNames.Employee.Id, nullable = false)
     private long employeeId;
 

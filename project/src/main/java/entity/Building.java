@@ -4,13 +4,14 @@ import configuration.ConfigNames;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name= ConfigNames.Building.Table)
 public class Building implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "buildings")
     @Column(name= ConfigNames.Building.Id, nullable = false)
     private long buildingId;
 
@@ -36,8 +37,8 @@ public class Building implements Serializable {
     @OneToOne (mappedBy = ConfigNames.Building.Table, fetch = FetchType.LAZY)
     private entity.EmployeeBuilding employee_building;
 
-//    @OneToOne (mappedBy = ConfigNames.Building.Table)
-//    private Apartment apartment;
+    @OneToMany (mappedBy = ConfigNames.Building.Table, fetch = FetchType.LAZY)
+    private List<Apartment> apartment;
 
     public Building(){
 

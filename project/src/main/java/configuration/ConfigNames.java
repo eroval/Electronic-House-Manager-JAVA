@@ -59,4 +59,13 @@ public class ConfigNames {
         public static final String IdOwner = "owner_id";
     }
 
+    public static class Apartment{
+        public static final String Table="apartment";
+        public static final String IdApp="apartment_id";
+        public static final String IdBuilding="building_id";
+        public static final String Area="area";
+        public static final String OIdLandlord="landlord_id";
+        public static final String OIdFamily="family_name";
+    }
+
 }
