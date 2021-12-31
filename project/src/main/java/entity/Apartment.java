@@ -5,6 +5,7 @@ import configuration.ConfigNames;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @IdClass(ApartmentId.class)
@@ -12,7 +13,7 @@ import java.io.Serializable;
 public class Apartment implements Serializable {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "apartments")
+    @GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "_generator_apartments")
     @Column(name=ConfigNames.Apartment.IdApp, nullable = false)
     private long apartmentId;
 
@@ -32,6 +33,9 @@ public class Apartment implements Serializable {
     @ManyToOne
     @JoinColumn(name=ConfigNames.Apartment.IdBuilding, referencedColumnName = ConfigNames.Building.Id, insertable = false, updatable = false)
     private Building building;
+
+    @OneToMany (mappedBy = ConfigNames.Apartment.Table, fetch = FetchType.LAZY)
+    private List<TaxesHistory> taxes_history;
 
     public Apartment(){
 

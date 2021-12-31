@@ -68,4 +68,14 @@ public class ConfigNames {
         public static final String OIdFamily="family_name";
     }
 
+    public static  class TaxesHistory{
+        public static final String Table="taxes_history";
+        public static final String IDTax="tax_id";
+        public static final String IDApartment="apartment_id";
+        public static final String IDBuilding="building_id";
+        public static final String Amount="amount";
+        public static final String Paid="paid";
+        public static final String Date="date";
+    }
+
 }

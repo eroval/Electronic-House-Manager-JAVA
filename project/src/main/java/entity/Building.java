@@ -11,7 +11,7 @@ import java.util.List;
 public class Building implements Serializable {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "buildings")
+    @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "_generator_buildings")
     @Column(name= ConfigNames.Building.Id, nullable = false)
     private long buildingId;
 

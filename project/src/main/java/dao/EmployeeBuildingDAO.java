@@ -34,7 +34,7 @@ public class EmployeeBuildingDAO {
 
     public static List<EmployeeBuilding> readEmployeeBuildings() {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
-            return session.createQuery("SELECT a FROM entities.EmployeeBuilding a", entity.EmployeeBuilding.class).getResultList();
+            return session.createQuery("SELECT a FROM EmployeeBuilding a", entity.EmployeeBuilding.class).getResultList();
         }
     }
 

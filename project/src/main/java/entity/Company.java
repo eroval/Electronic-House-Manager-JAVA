@@ -10,7 +10,7 @@ import java.io.ObjectInputFilter;
 public class Company {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "companies")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "_generator_companies")
     @Column(name = ConfigNames.Company.Id, nullable = false)
     private long companyId;
 

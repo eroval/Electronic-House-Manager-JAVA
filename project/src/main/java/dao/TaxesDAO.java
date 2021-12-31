@@ -33,7 +33,7 @@ public class TaxesDAO {
 
     public static List<Taxes> readTaxess() {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
-            return session.createQuery("SELECT a FROM entities.Taxes a", entity.Taxes.class).getResultList();
+            return session.createQuery("SELECT a FROM Taxes a", entity.Taxes.class).getResultList();
         }
     }
 
