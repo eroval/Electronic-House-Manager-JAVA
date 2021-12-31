@@ -11,14 +11,13 @@ import java.util.List;
 @IdClass(OwnerCompanyId.class)
 @Table(name= ConfigNames.OwnerCompany.Table)
 public class OwnerCompany implements Serializable {
+    @Id
+    @Column(name=ConfigNames.OwnerCompany.IdCompany, nullable = false)
+    private long companyId;
 
     @Id
     @Column(name=ConfigNames.OwnerCompany.IdOwner, nullable = false)
     private long ownerId;
-
-    @Id
-    @Column(name=ConfigNames.OwnerCompany.IdCompany, nullable = false)
-    private long companyId;
 
     @OneToOne
     @JoinColumn (name = ConfigNames.OwnerCompany.IdCompany, insertable = false, updatable = false)
@@ -28,21 +27,16 @@ public class OwnerCompany implements Serializable {
     @JoinColumn (name=ConfigNames.OwnerCompany.IdOwner, insertable = false, updatable = false)
     private entity.Owner owner;
 
-    @OneToMany (mappedBy = ConfigNames.OwnerCompany.Table)
+    @OneToMany (mappedBy = ConfigNames.OwnerCompany.Table, fetch = FetchType.LAZY)
     private List<Employee> employee;
 
     public OwnerCompany(){
 
     }
 
-    public OwnerCompany(long ownerId, long companyId){
+    public OwnerCompany(long companyId, long ownerId){
         this.setOwnerId(ownerId);
         this.setCompanyId(companyId);
-    }
-
-    private void setOwnerId(long id){
-        if(id<=0) throw new IllegalArgumentException("Id for owner must be positive");
-        this.ownerId=id;
     }
 
     private void setCompanyId(long id){
@@ -50,11 +44,17 @@ public class OwnerCompany implements Serializable {
         this.companyId=id;
     }
 
-    public long getOwnerId(){
-        return this.ownerId;
+    private void setOwnerId(long id){
+        if(id<=0) throw new IllegalArgumentException("Id for owner must be positive");
+        this.ownerId=id;
     }
 
     public long getCompanyId(){
         return this.companyId;
     }
+
+    public long getOwnerId(){
+        return this.ownerId;
+    }
+
 }

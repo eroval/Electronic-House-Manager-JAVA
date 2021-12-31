@@ -41,11 +41,11 @@ public class OwnerCompanyDAO {
         }
     }
 
-    public static OwnerCompany getOwnerCompany(long ownerId, long companyId) {
+    public static OwnerCompany getOwnerCompany(long companyId,long ownerId ) {
         OwnerCompany ownerCompany;
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            ownerCompany = session.get(OwnerCompany.class, new OwnerCompanyId(ownerId, companyId));
+            ownerCompany = session.get(OwnerCompany.class, new OwnerCompanyId(companyId, ownerId));
             transaction.commit();
         }
         return ownerCompany;
@@ -59,10 +59,10 @@ public class OwnerCompanyDAO {
         }
     }
 
-    public static void deleteOwnerCompany(long ownerId, long companyId) {
+    public static void deleteOwnerCompany(long companyId,long ownerId ) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            OwnerCompany ownerCompany = session.get(OwnerCompany.class, new OwnerCompanyId(ownerId, companyId));
+            OwnerCompany ownerCompany = session.get(OwnerCompany.class, new OwnerCompanyId(companyId, ownerId));
             session.delete(ownerCompany);
             transaction.commit();
         }

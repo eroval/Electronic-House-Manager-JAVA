@@ -3,10 +3,11 @@ package entity;
 import configuration.ConfigNames;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name= ConfigNames.Taxes.Table)
-public class Taxes{
+public class Taxes implements Serializable {
 
     @Id
     @Column(name= ConfigNames.Taxes.Id, nullable = false)
@@ -25,7 +26,7 @@ public class Taxes{
     private int taxDay;
 
     @OneToOne
-    @JoinColumn (name=ConfigNames.Taxes.Id, updatable = false, insertable = false)
+    @JoinColumn (name=ConfigNames.Taxes.Id, referencedColumnName = ConfigNames.Building.Id ,updatable = false, insertable = false)
     private entity.Building building;
 
     public Taxes(){

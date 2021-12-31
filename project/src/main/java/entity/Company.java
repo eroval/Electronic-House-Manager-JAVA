@@ -21,7 +21,7 @@ public class Company {
     @Column(name=ConfigNames.Company.Address, nullable = false)
     private String address;
 
-    @OneToOne (mappedBy = ConfigNames.Company.Table)
+    @OneToOne (mappedBy = ConfigNames.Company.Table, fetch = FetchType.LAZY)
     private OwnerCompany owner_company;
 
 

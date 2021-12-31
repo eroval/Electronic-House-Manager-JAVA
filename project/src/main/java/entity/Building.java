@@ -3,10 +3,11 @@ package entity;
 import configuration.ConfigNames;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name= ConfigNames.Building.Table)
-public class Building{
+public class Building implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,10 +30,10 @@ public class Building{
     private  double areaCommon;
 
 
-    @OneToOne (mappedBy = ConfigNames.Building.Table)
+    @OneToOne (mappedBy = ConfigNames.Building.Table, fetch = FetchType.LAZY)
     private entity.Taxes taxes;
 
-    @OneToOne (mappedBy = ConfigNames.Building.Table)
+    @OneToOne (mappedBy = ConfigNames.Building.Table, fetch = FetchType.LAZY)
     private entity.EmployeeBuilding employee_building;
 
 //    @OneToOne (mappedBy = ConfigNames.Building.Table)

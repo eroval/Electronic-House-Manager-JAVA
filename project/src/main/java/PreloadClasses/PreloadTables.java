@@ -42,11 +42,11 @@ public class PreloadTables {
     }
 
     private  static void preloadEmployees(){
-        Employee e = new Employee(1,"Larry","Gasparov",2,1);
-        Employee e2 = new Employee(2,"Garry", "Saddov",2,1);
-        Employee e3 = new Employee(3,"Sad", "Lothar",2,1);
-        Employee e4 = new Employee(4,"Sad", "Lothar",2,1);
-        Employee e5 = new Employee(5,"Looper", "Dooper",1,5);
+        Employee e = new Employee(1,2,1,"Larry","Gasparov");
+        Employee e2 = new Employee(2,2,1,"Garry", "Saddov");
+        Employee e3 = new Employee(3,2,1,"Sad", "Lothar");
+        Employee e4 = new Employee(4,2,1,"Sad", "Lothar");
+        Employee e5 = new Employee(5,1,5,"Looper", "Dooper");
 
         List<Employee> list = Arrays.asList(e,e2,e3,e4,e5);
         EmployeeDAO.saveEmployees(list);
@@ -75,11 +75,11 @@ public class PreloadTables {
     }
 
     private static void preloadEmployeeBuildings(){
-        EmployeeBuilding eb = new EmployeeBuilding(1,4,1,2);
-        EmployeeBuilding eb2 = new EmployeeBuilding(2,2,1,2);
-        EmployeeBuilding eb3 = new EmployeeBuilding(3,5,5,1);
-        EmployeeBuilding eb4 = new EmployeeBuilding(5,3,1,2);
-        EmployeeBuilding eb5 = new EmployeeBuilding(4,4,1,2);
+        EmployeeBuilding eb = new EmployeeBuilding(1,4,2,1);
+        EmployeeBuilding eb2 = new EmployeeBuilding(2,2,2,1);
+        EmployeeBuilding eb3 = new EmployeeBuilding(3,5,1,5);
+        EmployeeBuilding eb4 = new EmployeeBuilding(5,3,2,1);
+        EmployeeBuilding eb5 = new EmployeeBuilding(4,4,2,1);
 
         List<EmployeeBuilding> list = Arrays.asList(eb,eb2,eb3,eb4,eb5);
         EmployeeBuildingDAO.saveEmployeeBuildings(list);

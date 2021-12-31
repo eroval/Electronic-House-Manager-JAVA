@@ -13,15 +13,9 @@ import java.util.List;
 public class Employee  implements Serializable {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue (strategy = GenerationType.SEQUENCE)
     @Column(name= ConfigNames.Employee.Id, nullable = false)
     private long employeeId;
-
-    @Column(name=ConfigNames.Employee.FName, nullable = false)
-    private String fName;
-
-    @Column(name=ConfigNames.Employee.LName, nullable = false)
-    private String lName;
 
     @Id
     @Column(name = ConfigNames.Employee.IdCompany, nullable = false)
@@ -31,47 +25,43 @@ public class Employee  implements Serializable {
     @Column(name = ConfigNames.Employee.IdOwner, nullable = false)
     private long ownerId;
 
+    @Column(name=ConfigNames.Employee.FName, nullable = false)
+    private String fName;
+
+    @Column(name=ConfigNames.Employee.LName, nullable = false)
+    private String lName;
+
 
 
     @ManyToOne
     @JoinColumns({
-            @JoinColumn (name=ConfigNames.Employee.IdCompany,referencedColumnName = ConfigNames.OwnerCompany.IdOwner, insertable = false, updatable = false),
-            @JoinColumn (name=ConfigNames.Employee.IdOwner,referencedColumnName = ConfigNames.OwnerCompany.IdCompany, insertable = false, updatable = false)
+            @JoinColumn (name=ConfigNames.Employee.IdCompany,referencedColumnName = ConfigNames.OwnerCompany.IdCompany, insertable = false, updatable = false),
+            @JoinColumn (name=ConfigNames.Employee.IdOwner,referencedColumnName = ConfigNames.OwnerCompany.IdOwner, insertable = false, updatable = false)
 
     })
     private entity.OwnerCompany owner_company;
 
-    @OneToMany (mappedBy = ConfigNames.Employee.Table)
+    @OneToMany (mappedBy = ConfigNames.Employee.Table, fetch = FetchType.LAZY)
     private List<EmployeeBuilding> employee_building;
 
     public Employee(){
 
     }
 
-    public Employee(long employeeId, String fName, String lName, long companyId ,long ownerId){
+    public Employee(long employeeId, long companyId, long ownerId, String fName, String lName){
         this.setEmployeeId(employeeId);
-        this.setFName(fName);
-        this.setLName(lName);
         this.setCompanyId(companyId);
         this.setOwnerId(ownerId);
-    }
-
-    public Employee(String fName, String lName, long companyId,long ownerId){
         this.setFName(fName);
         this.setLName(lName);
+    };
+
+    public Employee(long companyId, long ownerId, String fName, String lName){
         this.setCompanyId(companyId);
         this.setOwnerId(ownerId);
-    }
-
-    private void setFName(String fName){
-        if(fName.isBlank()) throw new IllegalArgumentException("First name cannot be blank!");
-        this.fName=fName;
-    }
-
-    private void setLName(String lName){
-        if(lName.isBlank()) throw new IllegalArgumentException("Last name cannot be blank!");
-        this.lName=lName;
-    }
+        this.setFName(fName);
+        this.setLName(lName);
+    };
 
     private void setEmployeeId(long id){
         if(id<=0) throw new IllegalArgumentException("Id for employee must be positive");
@@ -88,16 +78,18 @@ public class Employee  implements Serializable {
         this.ownerId=id;
     }
 
+    private void setFName(String fName){
+        if(fName.isBlank()) throw new IllegalArgumentException("First name cannot be blank!");
+        this.fName=fName;
+    }
+
+    private void setLName(String lName){
+        if(lName.isBlank()) throw new IllegalArgumentException("Last name cannot be blank!");
+        this.lName=lName;
+    }
+
     public long getEmployeeId(){
         return this.employeeId;
-    }
-
-    public String getFName(){
-        return this.fName;
-    }
-
-    public String getLName(){
-        return this.lName;
     }
 
     public long getCompanyId(){
@@ -108,16 +100,12 @@ public class Employee  implements Serializable {
         return this.ownerId;
     }
 
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "employeeId=" + employeeId +
-                ", fName='" + fName + '\'' +
-                ", lName='" + lName + '\'' +
-                ", ownerId=" + ownerId +
-                ", companyId=" + companyId +
-                ", owner_company=" + owner_company +
-                '}';
+    public String getFName(){
+        return this.fName;
     }
+
+    public String getLName(){
+        return this.lName;
+    }
+
 }

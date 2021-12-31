@@ -24,7 +24,7 @@ public class Owner {
     @Column(name=ConfigNames.Owner.LName, nullable = false)
     private String lName;
 
-    @OneToMany (mappedBy = ConfigNames.Owner.Table)
+    @OneToMany (mappedBy = ConfigNames.Owner.Table, fetch = FetchType.LAZY)
     private List<OwnerCompany> owner_company;
 
     public Owner(){

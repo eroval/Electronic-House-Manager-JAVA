@@ -7,8 +7,8 @@ import java.util.Objects;
 
 public class EmployeeId implements Serializable {
     protected long employeeId;
-    protected long ownerId;
     protected long companyId;
+    protected long ownerId;
 
     public EmployeeId(){
     }
@@ -29,11 +29,11 @@ public class EmployeeId implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         EmployeeId that = (EmployeeId) o;
-        return employeeId == that.employeeId && ownerId == that.ownerId && companyId == that.companyId;
+        return employeeId == that.employeeId && companyId == that.companyId && ownerId == that.ownerId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employeeId, ownerId, companyId);
+        return Objects.hash(employeeId, companyId, ownerId);
     }
 }
