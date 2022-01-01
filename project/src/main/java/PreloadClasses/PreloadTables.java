@@ -12,8 +12,8 @@ public class PreloadTables {
     private static void preloadOwners(){
         Owner owner = new Owner(1,"7602040567","Stefan","Landzhev");
         Owner owner2= new Owner(2,"7503040567","Angel","Krustev");
-        Owner owner3= new Owner(3,"6523052367","Petar","Petkov");
-        Owner owner4= new Owner(4,"8523124456","Stefan","Ivanov");
+        Owner owner3= new Owner(3,"6505232367","Petar","Petkov");
+        Owner owner4= new Owner(4,"8512234456","Stefan","Ivanov");
         Owner owner5= new Owner(5,"7702054456","Isaac","Clarke");
 
         List<Owner> list= Arrays.asList(owner, owner2, owner3, owner4, owner5);
@@ -32,22 +32,22 @@ public class PreloadTables {
     }
 
     private static  void preloadOwnerCompanies(){
-        OwnerCompany oc = new OwnerCompany(1,3);
-        OwnerCompany oc2 = new OwnerCompany(1,4);
-        OwnerCompany oc3 = new OwnerCompany(2,1);
-        OwnerCompany oc4 = new OwnerCompany(1,5);
-        OwnerCompany oc5 = new OwnerCompany(5,2);
+        OwnerCompany oc = new OwnerCompany(3,1);
+        OwnerCompany oc2 = new OwnerCompany(4,1);
+        OwnerCompany oc3 = new OwnerCompany(1,2);
+        OwnerCompany oc4 = new OwnerCompany(5,1);
+        OwnerCompany oc5 = new OwnerCompany(2,5);
 
         List<OwnerCompany> list = Arrays.asList(oc, oc2, oc3, oc4, oc5);
         OwnerCompanyDAO.saveOwnerCompanies(list);
     }
 
     private  static void preloadEmployees(){
-        Employee e = new Employee(1,2,1,"Larry","Gasparov");
-        Employee e2 = new Employee(2,2,1,"Garry", "Saddov");
-        Employee e3 = new Employee(3,2,1,"Sad", "Lothar");
-        Employee e4 = new Employee(4,2,1,"Sad", "Lothar");
-        Employee e5 = new Employee(5,1,5,"Looper", "Dooper");
+        Employee e = new Employee(1,1,2,"Larry","Gasparov");
+        Employee e2 = new Employee(2,1,2,"Garry", "Saddov");
+        Employee e3 = new Employee(3,1,2,"Sad", "Lothar");
+        Employee e4 = new Employee(4,1,2,"Sad", "Lothar");
+        Employee e5 = new Employee(5,5,1,"Looper", "Dooper");
 
         List<Employee> list = Arrays.asList(e,e2,e3,e4,e5);
         EmployeeDAO.saveEmployees(list);
@@ -76,23 +76,23 @@ public class PreloadTables {
     }
 
     private static void preloadEmployeeBuildings(){
-        EmployeeBuilding eb = new EmployeeBuilding(1,4,2,1);
-        EmployeeBuilding eb2 = new EmployeeBuilding(2,2,2,1);
-        EmployeeBuilding eb3 = new EmployeeBuilding(3,5,1,5);
-        EmployeeBuilding eb4 = new EmployeeBuilding(5,3,2,1);
-        EmployeeBuilding eb5 = new EmployeeBuilding(4,4,2,1);
+        EmployeeBuilding eb = new EmployeeBuilding(1,4,1,2);
+        EmployeeBuilding eb2 = new EmployeeBuilding(2,2,1,2);
+        EmployeeBuilding eb3 = new EmployeeBuilding(3,5,5,1);
+        EmployeeBuilding eb4 = new EmployeeBuilding(5,3,1,2);
+        EmployeeBuilding eb5 = new EmployeeBuilding(4,4,1,2);
 
         List<EmployeeBuilding> list = Arrays.asList(eb,eb2,eb3,eb4,eb5);
         EmployeeBuildingDAO.saveEmployeeBuildings(list);
     }
 
     private static void preloadApartments(){
-        Apartment a = new Apartment(1,30,null,null, null);
-        Apartment a2 = new Apartment(1,53,null,null, null);
-        Apartment a3 = new Apartment(1,55,null,null, null);
-        Apartment a4 = new Apartment(2,65,null,null, null);
-        Apartment a5 = new Apartment(2,87,null,null, null);
-        Apartment a6 = new Apartment(2,103,null,null, null);
+        Apartment a = new Apartment(1,30,null,null);
+        Apartment a2 = new Apartment(1,53,null,null);
+        Apartment a3 = new Apartment(1,55,null,null);
+        Apartment a4 = new Apartment(2,65,null,null);
+        Apartment a5 = new Apartment(2,87,null,null);
+        Apartment a6 = new Apartment(2,103,null,null);
 
         List<Apartment> list = Arrays.asList(a,a2,a3,a4,a5,a6);
         ApartmentDAO.saveApartments(list);
@@ -110,23 +110,57 @@ public class PreloadTables {
     }
 
     private static void preloadPersons(){
-        Person p = new Person("5424053487","Lazar","Looner","24/05/1954");
-        Person p2 = new Person("2613073566","Eugene","Darius","13/07/1926");
-        Person p3 = new Person("6506053276","Sandra","Zaralik","06/05/1965");
-        Person p4 = new Person("3508113276","Harry","Potter","08/11/1935");
-        Person p5 = new Person("4424033276","Peter","Parker","24/03/1944");
-        List<Person> list = Arrays.asList(p, p2, p3, p4, p5);
+        Person p = new Person("5405243487","Lazar","Looner","24/05/1954");
+        Person p2 = new Person("2607133566","Eugene","Darius","13/07/1926");
+        Person p3 = new Person("6505063276","Sandra","Zaralik","06/05/1965");
+        Person p4 = new Person("3511083276","Harry","Potter","08/11/1935");
+        Person p5 = new Person("4403243276","Peter","Parker","24/03/1944");
+        Person p6 = new Person("7001041162","Ivan","Looner","04/01/1970");
+        Person p7 = new Person("7002020170","Petar","Darius","02/02/1970");
+        Person p8 = new Person("6402206837","Vanya","Zaralik","20/02/1964");
+        Person p9 = new Person("8605121040","Loren","Potter","12/05/1986");
+        Person p10 = new Person("9506089805","Spider","Man","08/06/1995");
+
+        List<Person> list = Arrays.asList(p, p2, p3, p4, p5, p6, p7, p8, p9, p10);
         PersonDAO.savePersons(list);
     }
 
     private static void preloadFamilies(){
-        Family f= new Family(1,"5424053487",false);
-        Family f1= new Family(1,"2613073566",false);
-        Family f2= new Family(1,"4424033276",false);
+        Family f = new Family(1,false);
+        Family f2 = new Family(2, true);
+        Family f3 = new Family(3, true);
+        Family f4 = new Family(4, true);
 
-        List<Family> list = Arrays.asList(f,f1,f2);
+        List<Family> list = Arrays.asList(f, f2, f3, f4);
         FamilyDAO.saveFamilys(list);
     }
+
+    private static void preloadPersonFamilies(){
+        PersonFamily f= new PersonFamily("5405243487",1);
+        PersonFamily f1= new PersonFamily("2607133566",1);
+        PersonFamily f2= new PersonFamily("6505063276",1);
+        PersonFamily f3= new PersonFamily("6402206837",2);
+
+        List<PersonFamily> list = Arrays.asList(f,f1,f2);
+        PersonFamilyDAO.savePersonFamilys(list);
+    }
+
+    private static void preloadLandlords(){
+        Landlord l = new Landlord("3511083276");
+        Landlord l2 = new Landlord("6402206837");
+
+        List<Landlord> list = Arrays.asList(l, l2);
+        LandlordDAO.saveLandlords(list);
+    }
+
+    private static void preloadApartmentsWithFamilies(){
+        Apartment a = new Apartment(3,30,"3511083276",1);
+        Apartment a2 = new Apartment(1,45,"6402206837",2);
+
+        List<Apartment> list = Arrays.asList(a,a2);
+        ApartmentDAO.saveApartments(list);
+    }
+
 
     public static void load(){
         preloadOwners();
@@ -140,8 +174,8 @@ public class PreloadTables {
         preloadTaxesHistory();
         preloadPersons();
         preloadFamilies();
-    }
-
-    public static void customLoad(){
+        preloadPersonFamilies();
+        preloadLandlords();
+        preloadApartmentsWithFamilies();
     }
 }

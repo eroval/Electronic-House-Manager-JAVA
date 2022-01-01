@@ -1,26 +1,24 @@
 package IdClasses;
 
-import entity.Family;
-
 import java.io.Serializable;
 import java.util.Objects;
 
-public class FamilyId implements Serializable {
-    protected Long familyId;
+public class PersonFamilyId implements Serializable {
     protected String personId;
+    protected Long familyId;
 
-    public FamilyId(){
+    public PersonFamilyId(){
 
     }
 
-    public FamilyId(Long familyId, String personId){
-        this.setFamilyId(familyId);
+    public PersonFamilyId( String personId, Long familyId){
         this.personId=personId;
+        this.setFamilyId(familyId);
     }
 
-    public FamilyId(long familyId, String personId){
-        this.setFamilyId(familyId);
+    public PersonFamilyId(String personId,long familyId ){
         this.personId=personId;
+        this.setFamilyId(familyId);
     }
 
     private void setFamilyId(Long familyId) { this.familyId=familyId;}
@@ -30,12 +28,12 @@ public class FamilyId implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        FamilyId familyId1 = (FamilyId) o;
-        return familyId.equals(familyId1.familyId) && personId.equals(familyId1.personId);
+        PersonFamilyId that = (PersonFamilyId) o;
+        return Objects.equals(personId, that.personId) && Objects.equals(familyId, that.familyId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(familyId, personId);
+        return Objects.hash(personId, familyId);
     }
 }

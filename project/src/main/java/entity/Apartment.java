@@ -30,53 +30,56 @@ public class Apartment implements Serializable {
     @Column(name=ConfigNames.Apartment.OIdFamily, nullable = true)
     private Long familyId;
 
-    @Column(name=ConfigNames.Apartment.OIdPerson, nullable = true)
-    private Long personId;
+    @OneToMany (mappedBy = ConfigNames.Apartment.Table, fetch = FetchType.LAZY)
+    private List<TaxesHistory> taxes_history;
 
     @ManyToOne
     @JoinColumn(name=ConfigNames.Apartment.IdBuilding, referencedColumnName = ConfigNames.Building.Id, insertable = false, updatable = false)
     private Building building;
 
-    @OneToMany (mappedBy = ConfigNames.Apartment.Table, fetch = FetchType.LAZY)
-    private List<TaxesHistory> taxes_history;
+    @OneToOne
+    @JoinColumn(name=ConfigNames.Apartment.OIdLandlord, referencedColumnName = ConfigNames.Landlord.Id, insertable = false, updatable = false)
+    private Landlord landlord;
+
+    @OneToOne
+    @JoinColumn(name=ConfigNames.Apartment.OIdFamily, referencedColumnName = ConfigNames.Family.Id, insertable = false, updatable = false)
+    private Family family;
 
     public Apartment(){
 
     }
 
-    public Apartment(long apartmentId, long buildingId, double area, String landlordId, Long familyId, Long personId){
+    public Apartment(long apartmentId, long buildingId, double area, String landlordId, Long familyId){
         this.setApartmentId(apartmentId);
         this.setBuildingId(buildingId);
         this.setArea(area);
         this.setLandlordId(landlordId);
         this.setFamilyId(familyId);
-        this.setPersonId(personId);
     }
 
-    public Apartment(long apartmentId, long buildingId, double area, String landlordId, long familyId, long personId){
+    public Apartment(long apartmentId, long buildingId, double area, String landlordId, long familyId){
         this.setApartmentId(apartmentId);
         this.setBuildingId(buildingId);
         this.setArea(area);
         this.setLandlordId(landlordId);
         this.setFamilyId(familyId);
-        this.setPersonId(personId);
     }
 
-    public Apartment(long buildingId, double area, String landlordId, Long familyId, Long personId){
+    public Apartment(long buildingId, double area, String landlordId, Long familyId){
         this.setBuildingId(buildingId);
         this.setArea(area);
         this.setLandlordId(landlordId);
         this.setFamilyId(familyId);
-        this.setPersonId(personId);
     }
 
-    public Apartment(long buildingId, double area, String landlordId, long familyId, long personId){
+    public Apartment(long buildingId, double area, String landlordId, long familyId){
         this.setBuildingId(buildingId);
         this.setArea(area);
         this.setLandlordId(landlordId);
         this.setFamilyId(familyId);
-        this.setPersonId(personId);
     }
+
+
 
     private void setApartmentId(long apartmentId){
         if(apartmentId<=0) throw new IllegalArgumentException("Id for apartment must be positive");
@@ -100,9 +103,7 @@ public class Apartment implements Serializable {
 
     private void setFamilyId(long familyId) { this.familyId=Long.valueOf(familyId); }
 
-    private void setPersonId(Long personId) { this.personId=personId; }
 
-    private void setPersonId(long personId) { this.personId=Long.valueOf(personId); }
 
     public long getApartmentId() { return this.apartmentId; }
 
@@ -113,6 +114,8 @@ public class Apartment implements Serializable {
     public String getLandlordId() { return this.landlordId; }
 
     public long getFamilyId() { return this.familyId; }
+
+
 
     @Override
     public String toString() {

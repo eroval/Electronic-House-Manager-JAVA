@@ -24,10 +24,10 @@ public class Person {
     private Date birthday;
 
     @OneToOne (mappedBy = ConfigNames.Person.Table, fetch = FetchType.LAZY)
-    private Family family;
+    private PersonFamily person_family;
 
-//    @OneToOne (mappedBy = ConfigNames.Person.Table, fetch = FetchType.LAZY)
-//    private Landlord landlord;
+    @OneToOne (mappedBy = ConfigNames.Person.Table, fetch = FetchType.LAZY)
+    private Landlord landlord;
 
     public Person(){
 

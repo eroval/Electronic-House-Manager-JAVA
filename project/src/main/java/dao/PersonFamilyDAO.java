@@ -1,71 +1,67 @@
 package dao;
 
-import IdClasses.ApartmentId;
-import entity.Apartment;
+import IdClasses.PersonFamilyId;
+import entity.PersonFamily;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class ApartmentDAO {
-    public static void saveApartment(entity.Apartment apartment) {
+public class PersonFamilyDAO {
+    public static void savePersonFamily(PersonFamily personFamily) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            session.save(apartment);
+            session.save(personFamily);
             transaction.commit();
         }
     }
 
-    public static void saveOrUpdateApartment(Apartment apartment) {
+    public static void saveOrUpdatePersonFamily(PersonFamily personFamily) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            session.saveOrUpdate(apartment);
+            session.saveOrUpdate(personFamily);
             transaction.commit();
         }
     }
 
-    public static void saveApartments(List<Apartment> apartmentList) {
+    public static void savePersonFamilys(List<PersonFamily> personFamilyList) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            apartmentList.stream().forEach((com) -> session.save(com));
+            personFamilyList.stream().forEach((com) -> session.save(com));
             transaction.commit();
         }
     }
 
-    public static List<Apartment> readApartments() {
+    public static List<PersonFamily> readPersonFamilys() {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
-            return session.createQuery("SELECT a FROM Apartment a", entity.Apartment.class).getResultList();
+            return session.createQuery("SELECT a FROM PersonFamily a", PersonFamily.class).getResultList();
         }
     }
 
-    public static Apartment getApartment(long apartmentId, long buildingId) {
-        Apartment apartment;
+    public static PersonFamily getPersonFamily(String personId, Long familyId) {
+        PersonFamily personFamily;
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            apartment = session.get(Apartment.class, new ApartmentId(apartmentId, buildingId));
+            personFamily = session.get(PersonFamily.class, new PersonFamilyId(personId, familyId));
             transaction.commit();
         }
-        return apartment;
+        return personFamily;
     }
 
-    public static void deleteApartment(Apartment apartment) {
+    public static void deletePersonFamily(PersonFamily personFamily) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            session.delete(apartment);
-            transaction.commit();
-        }
-    }
-
-    public static void deleteApartment(long apartmentId, long buildingId) {
-        try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.beginTransaction();
-            Apartment apartment = session.get(Apartment.class, new ApartmentId(apartmentId, buildingId));
-            session.delete(apartment);
+            session.delete(personFamily);
             transaction.commit();
         }
     }
 
-    public static void deleteAllApartments(){
-
+    public static void deletePersonFamily(String personId, Long familyId) {
+        try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            PersonFamily personFamily = session.get(PersonFamily.class, new PersonFamilyId(personId, familyId));
+            session.delete(personFamily);
+            transaction.commit();
+        }
     }
 }

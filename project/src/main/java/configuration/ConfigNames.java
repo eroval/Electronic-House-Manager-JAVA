@@ -66,7 +66,6 @@ public class ConfigNames {
         public static final String Area="area";
         public static final String OIdLandlord="landlord_id";
         public static final String OIdFamily="family_id";
-        public static final String OIdPerson="person_id";
     }
 
     public static  class TaxesHistory{
@@ -89,8 +88,18 @@ public class ConfigNames {
 
     public static class Family{
         public static final String Table="family";
-        public static final String IDFamily = "family_id";
+        public static final String Id = "family_id";
+        public static final String Pet = "pet";
+    }
+
+    public static class PersonFamily{
+        public static final String Table="person_family";
         public static final String IDPerson="person_id";
-        public static final String Pet="pet";
+        public static final String IDFamily = "family_id";
+    }
+
+    public static class Landlord{
+        public static final String Table="landlord";
+        public static final String Id="landlord_id";
     }
 }

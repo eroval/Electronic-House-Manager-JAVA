@@ -19,8 +19,8 @@ public class egn_validator {
     }};
 
     private static boolean checkDate(String id){
-        String day =id.substring(2,4);
-        String month =id.substring(4,6);
+        String month =id.substring(2,4);
+        String day =id.substring(4,6);
         String match = egn_validator.calendar.get(month);
         if(match==null) return false;
         if(day.charAt(0)>match.charAt(0)) return false;

@@ -1,59 +1,50 @@
 package entity;
 
-import IdClasses.FamilyId;
 import configuration.ConfigNames;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
-@IdClass(FamilyId.class)
 @Table(name= ConfigNames.Family.Table)
-public class Family implements Serializable {
+public class Family {
     @Id
-    @Column(name=ConfigNames.Family.IDFamily, nullable = false)
-    private Long familyId;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "_generator_families")
+    @Column(name=ConfigNames.Family.Id, nullable = false)
+    private long familyId;
 
-    @Id
-    @Column(name=ConfigNames.Family.IDPerson, nullable = false)
-    private String personId;
-
-    @Column(name=ConfigNames.Family.Pet, nullable = false)
+    @Column(name = ConfigNames.Family.Pet, nullable = false)
     private boolean pet;
 
-    @OneToOne
-    @JoinColumn(name=ConfigNames.Family.IDPerson, insertable = false, updatable = false)
-    private Person person;
+    @OneToOne(mappedBy = ConfigNames.Family.Table, fetch = FetchType.LAZY)
+    private PersonFamily person_family;
+
+    @OneToOne(mappedBy = ConfigNames.Family.Table, fetch = FetchType.LAZY)
+    private Apartment apartment;
 
     public Family(){
+
     }
 
-    public Family(Long familyId, String personId, boolean pet){
-        this.setFamilyId(familyId);
-        this.setPersonId(personId);
-        this.setPet(pet);
+    public Family(boolean pet){
+        this.pet=pet;
     }
 
-    public Family(long familyId, String personId, boolean pet){
-        this.setFamilyId(familyId);
-        this.setPersonId(personId);
-        this.setPet(pet);
+    public Family(long familyId, boolean pet){
+
     }
 
-    private void setFamilyId(long familyId){this.familyId=Long.valueOf(familyId);}
-    private void setFamilyId(Long familyId){this.familyId=familyId;}
-    private void setPersonId(String personId){this.personId=personId;}
-    private void setPet(boolean pet){this.pet=pet;}
+    private void setFamilyId(long familyId){
+        if(familyId<=0) throw new IllegalArgumentException("Id for family must be above 0.");
+        this.familyId=familyId;
+    }
 
-    public long getFamilyId(){return this.familyId.longValue();}
-    public String getPersonId(){return this.personId;}
+    public long getFamilyId(){ return this.familyId;}
     public boolean getPet(){return this.pet;}
 
     @Override
     public String toString() {
         return "Family{" +
                 "familyId=" + familyId +
-                ", personId='" + personId + '\'' +
                 ", pet=" + pet +
                 '}';
     }

@@ -1,65 +1,65 @@
 package dao;
 
-import entity.Family;
+import entity.Landlord;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class FamilyDAO {
-    public static void saveFamily(entity.Family family) {
-    try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
-        Transaction transaction = session.beginTransaction();
-        session.save(family);
-        transaction.commit();
-    }
-}
-
-    public static void saveOrUpdateFamily(Family family) {
+public class LandlordDAO {
+    public static void saveLandlord(entity.Landlord Landlord) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            session.saveOrUpdate(family);
+            session.save(Landlord);
             transaction.commit();
         }
     }
 
-    public static void saveFamilys(List<Family> familyList) {
+    public static void saveOrUpdateLandlord(Landlord Landlord) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            familyList.stream().forEach((com) -> session.save(com));
+            session.saveOrUpdate(Landlord);
             transaction.commit();
         }
     }
 
-    public static List<Family> readFamilys() {
-        try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
-            return session.createQuery("SELECT a FROM Family a", entity.Family.class).getResultList();
-        }
-    }
-
-    public static Family getFamily(String familyId) {
-        Family Family;
+    public static void saveLandlords(List<Landlord> LandlordList) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            Family = session.get(Family.class, familyId);
-            transaction.commit();
-        }
-        return Family;
-    }
-
-    public static void deleteFamily(Family family) {
-        try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.beginTransaction();
-            session.delete(family);
+            LandlordList.stream().forEach((com) -> session.save(com));
             transaction.commit();
         }
     }
 
-    public static void deleteFamily(String familyId) {
+    public static List<Landlord> readLandlords() {
+        try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
+            return session.createQuery("SELECT a FROM Landlord a", entity.Landlord.class).getResultList();
+        }
+    }
+
+    public static Landlord getLandlord(String landlordId) {
+        Landlord Landlord;
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            Family Family = session.get(Family.class, familyId);
-            session.delete(Family);
+            Landlord = session.get(Landlord.class, landlordId);
+            transaction.commit();
+        }
+        return Landlord;
+    }
+
+    public static void deleteLandlord(Landlord Landlord) {
+        try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.delete(Landlord);
+            transaction.commit();
+        }
+    }
+
+    public static void deleteLandlord(String landlordId) {
+        try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            Landlord Landlord = session.get(Landlord.class, landlordId);
+            session.delete(Landlord);
             transaction.commit();
         }
     }
