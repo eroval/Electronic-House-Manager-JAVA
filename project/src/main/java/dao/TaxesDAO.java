@@ -1,9 +1,11 @@
 package dao;
 
+import entity.Building;
 import entity.Taxes;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TaxesDAO {
@@ -63,4 +65,20 @@ public class TaxesDAO {
             transaction.commit();
         }
     }
+
+    public static List<Taxes> readSpecificBuildingTaxes(List<Building> buildings){
+        List<Taxes> taxes;
+        try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
+            Transaction transaction = session.beginTransaction();
+            List<Long> buildingIds = new ArrayList<>();
+            for(Building b : buildings){
+                buildingIds.add(b.getBuildingId());
+            }
+            taxes = session.createQuery("FROM Taxes t WHERE t.buildingId in (:buildingIds)")
+                                        .setParameterList("buildingIds",buildingIds).getResultList();
+            transaction.commit();
+        }
+        return taxes;
+    }
+
 }

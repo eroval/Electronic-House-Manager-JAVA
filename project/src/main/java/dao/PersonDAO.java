@@ -1,9 +1,12 @@
 package dao;
 
+import entity.Building;
 import entity.Person;
+import entity.Taxes;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PersonDAO {
@@ -62,5 +65,16 @@ public class PersonDAO {
             session.delete(person);
             transaction.commit();
         }
+    }
+
+    public static List<Person> getSpecificPeopleData(List<String> peopleIds){
+        List<Person> people;
+        try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
+            Transaction transaction = session.beginTransaction();
+            people = session.createQuery("FROM Person p WHERE p.personId in (:peopleIds)")
+                    .setParameterList("peopleIds",peopleIds).getResultList();
+            transaction.commit();
+        }
+        return people;
     }
 }

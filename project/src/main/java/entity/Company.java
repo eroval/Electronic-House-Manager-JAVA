@@ -1,6 +1,7 @@
 package entity;
 
 import configuration.ConfigNames;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.ObjectInputFilter;
@@ -10,7 +11,8 @@ import java.io.ObjectInputFilter;
 public class Company {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "_generator_companies")
+    @SequenceGenerator(name="gencomp", sequenceName = "generatorcompanies")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorcompanies")
     @Column(name = ConfigNames.Company.Id, nullable = false)
     private long companyId;
 
@@ -29,7 +31,6 @@ public class Company {
 
     }
 
-    // needs a constructor without Id in order to use the auto strategy
     public Company(String name, String address){
         this.setCompanyName(name);
         this.setCompanyAddress(address);

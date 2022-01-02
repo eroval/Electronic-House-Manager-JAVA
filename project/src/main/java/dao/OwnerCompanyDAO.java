@@ -1,9 +1,7 @@
 package dao;
 
 import IdClasses.OwnerCompanyId;
-import entity.Company;
-import entity.Owner;
-import entity.OwnerCompany;
+import entity.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -36,9 +34,11 @@ public class OwnerCompanyDAO {
     }
 
     public static List<OwnerCompany> readOwnerCompanies() {
+        List<OwnerCompany> ownerCompanies;
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
-            return session.createQuery("SELECT a FROM OwnerCompany a", entity.OwnerCompany.class).getResultList();
+            ownerCompanies = session.createQuery("SELECT a FROM OwnerCompany a", entity.OwnerCompany.class).getResultList();
         }
+        return ownerCompanies;
     }
 
     public static OwnerCompany getOwnerCompany(long companyId,long ownerId ) {
@@ -87,4 +87,31 @@ public class OwnerCompanyDAO {
         }
         return company;
     }
+
+    public static void addBuilding(long companyId,long ownerId ,long buildingId){
+        Building building = BuildingDAO.getBuilding(buildingId);
+        OwnerCompany ownerCompany = OwnerCompanyDAO.getOwnerCompany(companyId, ownerId);
+        if(building==null) throw new IllegalArgumentException("No such building");
+        if(ownerCompany==null) throw new IllegalArgumentException("No such company associated with owner");
+        List<Employee> employees = EmployeeDAO.getEmployeesBelongingToOwnerCompany(companyId,ownerId);
+
+
+        long min = EmployeeBuildingDAO.getNumberOfAssociatedBuildings(employees.get(0).getEmployeeId());
+        long id = employees.get(0).getEmployeeId();
+        long tmp;
+        for(Employee e : employees){
+            tmp = EmployeeBuildingDAO.getNumberOfAssociatedBuildings(e.getEmployeeId());
+            if(tmp<min){
+                min = tmp;
+                id = e.getEmployeeId();
+            }
+        }
+        EmployeeBuilding eb = new EmployeeBuilding(buildingId,id,companyId,ownerId);
+        EmployeeBuildingDAO.saveEmployeeBuilding(eb);
+    }
+
+    public static void addBuilding(OwnerCompany ownerCompany, Building building){
+        OwnerCompanyDAO.addBuilding(ownerCompany.getCompanyId(), ownerCompany.getOwnerId(), building.getBuildingId());
+    }
+
 }

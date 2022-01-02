@@ -1,15 +1,16 @@
 package entity;
 
-import IdClasses.PersonFamilyId;
+import IdClasses.VeryVerySpecialId;
 import configuration.ConfigNames;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@IdClass(PersonFamilyId.class)
 @Table(name= ConfigNames.PersonFamily.Table)
+@IdClass(VeryVerySpecialId.class)
 public class PersonFamily implements Serializable {
+
     @Id
     @Column(name=ConfigNames.PersonFamily.IDPerson, nullable = false)
     private String personId;
@@ -48,9 +49,9 @@ public class PersonFamily implements Serializable {
 
     @Override
     public String toString() {
-        return "Family{" +
-                "familyId=" + familyId +
-                ", personId='" + personId + '\'' +
+        return "PersonFamily{" +
+                "personId='" + personId + '\'' +
+                ", familyId=" + familyId +
                 '}';
     }
 }

@@ -1,6 +1,7 @@
 package entity;
 
 import configuration.ConfigNames;
+import org.hibernate.annotations.GenericGenerator;
 import special_validators.egn_validator;
 
 import javax.persistence.*;
@@ -11,7 +12,8 @@ import java.util.List;
 public class Owner {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "_generator_owners")
+    @SequenceGenerator(name="genowners", sequenceName = "generatorowners")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorowners")
     @Column(name=ConfigNames.Owner.Id, nullable = false)
     private long id;
 

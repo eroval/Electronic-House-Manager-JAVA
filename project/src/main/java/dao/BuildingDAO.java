@@ -1,6 +1,8 @@
 package dao;
 
+import entity.Apartment;
 import entity.Building;
+import entity.Taxes;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -61,6 +63,15 @@ public class BuildingDAO {
             Building building = session.get(Building.class, buildingId);
             session.delete(building);
             transaction.commit();
+        }
+    }
+
+    public static void paySpecificTax(long apartmentId, long buildingId){
+        Apartment app = ApartmentDAO.getApartment(apartmentId, buildingId);
+        Taxes appTax = TaxesDAO.getTaxes(app.getBuildingId());
+        double amount=0;
+        if(app.getFamilyId()!=null){
+
         }
     }
 }

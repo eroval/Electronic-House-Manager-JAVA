@@ -3,6 +3,7 @@ package entity;
 
 import IdClasses.TaxesHistoryId;
 import configuration.ConfigNames;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,7 +15,8 @@ import java.util.Date;
 @Table(name= ConfigNames.TaxesHistory.Table)
 public class TaxesHistory implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "_generator_taxhistories")
+    @SequenceGenerator(name="gentaxhis", sequenceName = "generatortaxhistories")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatortaxhistories")
     @Column(name = ConfigNames.TaxesHistory.IDTax, nullable = false)
     private long taxId;
 

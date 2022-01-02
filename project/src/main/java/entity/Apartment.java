@@ -13,7 +13,8 @@ import java.util.List;
 public class Apartment implements Serializable {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "_generator_apartments")
+    @SequenceGenerator(name="genapp", sequenceName = "generatorapartments")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorapartments")
     @Column(name=ConfigNames.Apartment.IdApp, nullable = false)
     private long apartmentId;
 
@@ -113,7 +114,7 @@ public class Apartment implements Serializable {
 
     public String getLandlordId() { return this.landlordId; }
 
-    public long getFamilyId() { return this.familyId; }
+    public Long getFamilyId() { return this.familyId; }
 
 
 

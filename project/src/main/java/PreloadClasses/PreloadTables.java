@@ -141,7 +141,7 @@ public class PreloadTables {
         PersonFamily f2= new PersonFamily("6505063276",1);
         PersonFamily f3= new PersonFamily("6402206837",2);
 
-        List<PersonFamily> list = Arrays.asList(f,f1,f2);
+        List<PersonFamily> list = Arrays.asList(f,f1,f2,f3);
         PersonFamilyDAO.savePersonFamilys(list);
     }
 

@@ -1,6 +1,7 @@
 package entity;
 
 import configuration.ConfigNames;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -8,7 +9,8 @@ import javax.persistence.*;
 @Table(name= ConfigNames.Family.Table)
 public class Family {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "_generator_families")
+    @SequenceGenerator(name="genfam", sequenceName = "generatorfamilies")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorfamilies")
     @Column(name=ConfigNames.Family.Id, nullable = false)
     private long familyId;
 

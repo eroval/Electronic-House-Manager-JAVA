@@ -2,6 +2,7 @@ package entity;
 
 import IdClasses.EmployeeId;
 import configuration.ConfigNames;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,7 +14,8 @@ import java.util.List;
 public class Employee  implements Serializable {
 
     @Id
-    @GeneratedValue (strategy =  GenerationType.SEQUENCE, generator = "_generator_employees")
+    @SequenceGenerator(name="genemp", sequenceName = "generatoremployees")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatoremployees")
     @Column(name= ConfigNames.Employee.Id, nullable = false)
     private long employeeId;
 
@@ -107,6 +109,7 @@ public class Employee  implements Serializable {
     public String getLName(){
         return this.lName;
     }
+
 
     @Override
     public String toString() {

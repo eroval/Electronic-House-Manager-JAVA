@@ -1,9 +1,13 @@
 package dao;
 
+import entity.Building;
 import entity.Family;
+import entity.Person;
+import entity.Taxes;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FamilyDAO {
@@ -62,5 +66,10 @@ public class FamilyDAO {
             session.delete(Family);
             transaction.commit();
         }
+    }
+
+    public static List<Person> getAllFamilyMembers(long familyId){
+        List<String> peopleIds = PersonFamilyDAO.getSpecificPeopleIds(familyId);
+        return PersonDAO.getSpecificPeopleData(peopleIds);
     }
 }

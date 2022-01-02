@@ -35,11 +35,21 @@ public class EmployeeDAO {
     }
 
     public static List<Employee> readEmployees() {
-        List<Employee> e;
+        List<Employee> employees;
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
-            e = session.createQuery("SELECT a FROM Employee a", entity.Employee.class).getResultList();
+            employees = session.createQuery("SELECT a FROM Employee a", entity.Employee.class).getResultList();
         }
-        return e;
+        return employees;
+    }
+
+    public static List<Employee> getEmployeesBelongingToOwnerCompany(long companyId, long ownerId){
+        List<Employee> employees;
+        try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
+            Transaction transaction = session.beginTransaction();
+            employees = session.createQuery("FROM Employee e WHERE e.companyId = :companyId AND e.ownerId = :ownerId")
+                                            .setParameter("companyId",companyId).setParameter("ownerId",ownerId).getResultList();
+        }
+        return employees;
     }
 
     public static Employee getEmployee(long employeeId, long companyId, long ownerId) {
