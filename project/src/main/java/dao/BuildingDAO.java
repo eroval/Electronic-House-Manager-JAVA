@@ -111,6 +111,16 @@ public class BuildingDAO {
         return amount;
     }
 
+    public static double calculateBuildingPriceHistory(long buildingId){
+        List<TaxesHistory> taxesHistories = TaxesHistoryDAO.getAllBelongingToBuilding(buildingId);
+        System.out.println(taxesHistories);
+        double amount = 0;
+        for(TaxesHistory th : taxesHistories){
+            amount+=th.getAmount();
+        }
+        return amount;
+    }
+
     public static void paySpecificTax(long apartmentId, long buildingId){
         Apartment app = ApartmentDAO.getApartment(apartmentId, buildingId);
         Taxes appTax = TaxesDAO.getTaxes(app.getBuildingId());

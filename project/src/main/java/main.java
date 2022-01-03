@@ -22,7 +22,8 @@ public class main {
 //        BuildingDAO.saveBuilding(b);
 //        OwnerCompanyDAO.addBuilding(companies.get(0), b);
         //System.out.println(PersonFamilyDAO.getSpecificPeopleIds(1));//FamilyDAO.getAllFamilyMembers(1));
-        BuildingDAO.paySpecificTax(7,3);
+        //BuildingDAO.paySpecificTax(7,3);
+        System.out.println(OwnerCompanyDAO.getSortedCopmaniesByRevenue());
     }
 
 }

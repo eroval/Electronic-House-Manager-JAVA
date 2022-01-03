@@ -5,7 +5,7 @@ import entity.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.List;
+import java.util.*;
 
 public class OwnerCompanyDAO {
 
@@ -112,6 +112,36 @@ public class OwnerCompanyDAO {
 
     public static void addBuilding(OwnerCompany ownerCompany, Building building){
         OwnerCompanyDAO.addBuilding(ownerCompany.getCompanyId(), ownerCompany.getOwnerId(), building.getBuildingId());
+    }
+
+    public static double getRevenueOfCompany(OwnerCompany company){
+        List<Long> buildingIds = EmployeeBuildingDAO.getAllBuildingIdsOfCompany(company.getCompanyId());
+        System.out.println("WHAAAAAAAT");
+        System.out.println("WHAAAAAAAT");
+        System.out.println(buildingIds);
+        System.out.println("WHAAAAAAAT");
+        System.out.println("WHAAAAAAAT");
+        double totalRevenue=0;
+        for(Long id : buildingIds){
+            totalRevenue+=BuildingDAO.calculateBuildingPriceHistory(id);
+        }
+        return totalRevenue;
+    }
+
+    public static List<Map.Entry<OwnerCompany, Double>> getSortedCopmaniesByRevenue(){
+        List<OwnerCompany> companies = OwnerCompanyDAO.readOwnerCompanies();
+        Map<OwnerCompany,Double> pairs = new HashMap<>();
+        for(OwnerCompany company: companies){
+           pairs.put(company,Double.valueOf(getRevenueOfCompany(company)));
+        }
+        List<Map.Entry<OwnerCompany, Double>> companiesByRevenue = new LinkedList<Map.Entry<OwnerCompany, Double>>(pairs.entrySet());
+        Collections.sort(companiesByRevenue, new Comparator<Map.Entry<OwnerCompany, Double>>() {
+            @Override
+            public int compare(Map.Entry<OwnerCompany, Double> o1, Map.Entry<OwnerCompany, Double> o2) {
+                return (o1.getValue()).compareTo(o2.getValue());
+            }
+        });
+        return companiesByRevenue;
     }
 
 }

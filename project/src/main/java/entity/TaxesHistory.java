@@ -85,6 +85,8 @@ public class TaxesHistory implements Serializable {
 
     public long getBuildingId(){return this.buildingId;}
 
+    public double getAmount(){return this.amount;}
+
     public boolean getPaid(){return this.paid;}
 
     public Timestamp getDate(){return this.date;}

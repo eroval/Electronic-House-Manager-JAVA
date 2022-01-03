@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @IdClass(OwnerCompanyId.class)
 @Table(name= ConfigNames.OwnerCompany.Table)
-public class OwnerCompany implements Serializable {
+public class OwnerCompany implements Serializable, Comparable<OwnerCompany> {
     @Id
     @Column(name=ConfigNames.OwnerCompany.IdCompany, nullable = false)
     private long companyId;
@@ -63,5 +63,12 @@ public class OwnerCompany implements Serializable {
                 "companyId=" + companyId +
                 ", ownerId=" + ownerId +
                 '}';
+    }
+
+    @Override
+    public int compareTo(OwnerCompany o) {
+        if(this.companyId>o.companyId){return 1;}
+        if(this.companyId == o.companyId){return 0;}
+        return -1;
     }
 }

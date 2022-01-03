@@ -1,6 +1,7 @@
 package dao;
 
 import IdClasses.EmployeeBuildingId;
+import entity.Building;
 import entity.Employee;
 import entity.EmployeeBuilding;
 import org.hibernate.Session;
@@ -77,6 +78,30 @@ public class EmployeeBuildingDAO {
                                             .setParameter("employeeId",employeeId).getFirstResult();
             return count;
         }
+    }
+
+    public static List<Long> getBuildingsOfEmployees(List<Employee> employees){
+        List<Long> buildingIds;
+        try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
+            Transaction transaction = session.beginTransaction();
+            List<Long> employeeIds = new ArrayList<>();
+            for(Employee emp: employees){
+                employeeIds.add(emp.getEmployeeId());
+            }
+            buildingIds = session.createQuery("SELECT eb.buildingId FROM EmployeeBuilding eb WHERE eb.employeeId in (:employeeIds)")
+                    .setParameterList("employeeIds",employeeIds).getResultList();
+        }
+        return buildingIds;
+    }
+
+    public static List<Long> getAllBuildingIdsOfCompany(long companyId){
+        List<Long> buildingIds;
+        try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
+            Transaction transaction = session.beginTransaction();
+            buildingIds = session.createQuery("SELECT eb.buildingId FROM EmployeeBuilding eb WHERE eb.companyId = :companyId")
+                    .setParameter("companyId",companyId).getResultList();
+        }
+        return buildingIds;
     }
 
 //    //Not Ready

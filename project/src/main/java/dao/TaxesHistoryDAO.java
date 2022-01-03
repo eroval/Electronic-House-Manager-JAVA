@@ -4,6 +4,7 @@ import IdClasses.TaxesHistoryId;
 import entity.TaxesHistory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import java.util.ArrayList;
 
 import java.util.List;
 
@@ -63,5 +64,16 @@ public class TaxesHistoryDAO {
             session.delete(taxesHistory);
             transaction.commit();
         }
+    }
+
+    public static List<TaxesHistory> getAllBelongingToBuilding(long buildingId){
+        List<TaxesHistory> taxesHistory;
+        try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            taxesHistory= session.createQuery("FROM TaxesHistory th WHERE th.buildingId=:buildingId")
+                    .setParameter("buildingId",buildingId).getResultList();
+            transaction.commit();
+        }
+        return  taxesHistory;
     }
 }
