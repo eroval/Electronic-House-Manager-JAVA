@@ -22,6 +22,8 @@ public class main {
 //        System.out.println(OwnerCompanyDAO.getSortedEmployeesDsc(1));
 //        System.out.println(BuildingDAO.peopleByNameAndAgeAsc());
 //        System.out.println(BuildingDAO.peopleByNameAndAgeDsc());
+//        System.out.println(EmployeeBuildingDAO.getEmployeeBuildingAssociation(1));
+        
     }
 
 }

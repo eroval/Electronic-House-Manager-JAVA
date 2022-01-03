@@ -11,6 +11,8 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class EmployeeBuildingDAO {
@@ -97,11 +99,52 @@ public class EmployeeBuildingDAO {
     public static List<Long> getAllBuildingIdsOfCompany(long companyId){
         List<Long> buildingIds;
         try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
-            Transaction transaction = session.beginTransaction();
             buildingIds = session.createQuery("SELECT eb.buildingId FROM EmployeeBuilding eb WHERE eb.companyId = :companyId")
                     .setParameter("companyId",companyId).getResultList();
         }
         return buildingIds;
+    }
+
+    public static List<EmployeeBuilding> readAllByCompanyId(long companyId){
+        List<EmployeeBuilding> employeeBuildings;
+        try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
+            employeeBuildings = session.createQuery("SELECT a FROM EmployeeBuilding eb WHERE eb.companyId = :companyId")
+                    .setParameter("companyId",companyId).getResultList();
+        }
+        return employeeBuildings;
+    }
+
+    public static List<Long> getAllUniqueEmployeeIdsByCompany(long companyId){
+        List<Long> eids;
+        try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
+            eids = session.createQuery("SELECT DISTINCT eb.employeeId FROM EmployeeBuilding eb WHERE eb.companyId = :companyId")
+                    .setParameter("companyId",companyId).getResultList();
+        }
+        return eids;
+    }
+
+    public static List<String> getAllBuildingIdsAssociatedWithEmployee(long employeeId){
+        List<String> buildingIds;
+        try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
+            buildingIds = session.createQuery("SELECT eb.buildingId FROM EmployeeBuilding eb WHERE eb.employeeId = :employeeId")
+                    .setParameter("employeeId",employeeId).getResultList();
+        }
+        return buildingIds;
+    }
+
+    public static HashMap<Long,List<String>> getEmployeeBuildingAssociation(long companyId){
+        HashMap<Long,List<String>> employeesInfo = new HashMap<>();
+        List<Long> employeeIds = EmployeeBuildingDAO.getAllUniqueEmployeeIdsByCompany(companyId);
+        for(Long eid: employeeIds){
+            List<String> addon = new ArrayList<>();
+
+            //everything from there on are the building ids
+            addon.addAll(EmployeeBuildingDAO.getAllBuildingIdsAssociatedWithEmployee(eid));
+
+
+            employeesInfo.put(eid,addon);
+        }
+        return employeesInfo;
     }
 
 //    //Not Ready
