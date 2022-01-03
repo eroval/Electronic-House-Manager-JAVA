@@ -74,8 +74,8 @@ public class EmployeeBuildingDAO {
     public static long getNumberOfAssociatedBuildings(long employeeId){
         try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
             Transaction transaction = session.beginTransaction();
-            long count = session.createQuery("SELECT COUNT(*) FROM EmployeeBuilding eb WHERE eb.employeeId=:employeeId")
-                                            .setParameter("employeeId",employeeId).getFirstResult();
+            Long count = (Long)session.createQuery("SELECT COUNT(*) FROM EmployeeBuilding eb WHERE eb.employeeId=:employeeId")
+                                            .setParameter("employeeId",employeeId).uniqueResult();
             return count;
         }
     }

@@ -51,6 +51,17 @@ public class OwnerCompanyDAO {
         return ownerCompany;
     }
 
+    public static OwnerCompany getOwnerCompany(long companyId) {
+        OwnerCompany ownerCompany;
+        try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            ownerCompany = (OwnerCompany) session.createQuery("FROM OwnerCompany ow WHERE ow.companyId=:companyId")
+                    .setParameter("companyId",companyId).getResultList().get(0);
+            transaction.commit();
+        }
+        return ownerCompany;
+    }
+
     public static void deleteOwnerCompany(OwnerCompany ownerCompany) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
@@ -144,4 +155,27 @@ public class OwnerCompanyDAO {
         return companiesByRevenue;
     }
 
+
+    public static List<Map.Entry<Employee, Long>> getSortedEmployees(long companyId){
+        OwnerCompany ownerCompany = OwnerCompanyDAO.getOwnerCompany(companyId);
+        List<Employee> employees = EmployeeDAO.getEmployeesBelongingToOwnerCompany(ownerCompany.getCompanyId(), ownerCompany.getOwnerId());
+        Map<Employee,Long> pairs = new HashMap<>();
+        for(Employee employee : employees){
+            pairs.put(employee,Long.valueOf(EmployeeBuildingDAO.getNumberOfAssociatedBuildings(employee.getEmployeeId())));
+        }
+        List<Map.Entry<Employee, Long>> employeesByBuildings = new LinkedList<Map.Entry<Employee, Long>>(pairs.entrySet());
+        Collections.sort(employeesByBuildings
+                ,new Comparator<Map.Entry<Employee, Long>>() {
+            @Override
+            public int compare(Map.Entry<Employee, Long> o1, Map.Entry<Employee, Long> o2) {
+                if(o1.getValue().compareTo(o2.getValue())==1) return 1;
+                if(o1.getValue().compareTo(o2.getValue())==0){
+                    return o1.getKey().getFName().toLowerCase(Locale.ROOT).compareTo(o2.getKey().getFName().toLowerCase(Locale.ROOT));
+                }
+                return -1;
+            }
+        }
+        );
+        return employeesByBuildings;
+    }
 }
