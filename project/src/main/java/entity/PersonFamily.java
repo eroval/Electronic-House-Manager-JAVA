@@ -1,26 +1,27 @@
 package entity;
 
-import IdClasses.VeryVerySpecialId;
+import IdClasses.PersonFamilyId;
 import configuration.ConfigNames;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
+@IdClass(PersonFamilyId.class)
 @Table(name= ConfigNames.PersonFamily.Table)
-@IdClass(VeryVerySpecialId.class)
 public class PersonFamily implements Serializable {
 
     @Id
-    @Column(name=ConfigNames.PersonFamily.IDPerson, nullable = false)
+    @Column(name=ConfigNames.PersonFamily.IDPerson, nullable = false, unique = true)
     private String personId;
 
     @Id
-    @Column(name=ConfigNames.PersonFamily.IDFamily, nullable = false)
+    @Column(name=ConfigNames.PersonFamily.IDFamily, nullable = false, unique = false)
     private Long familyId;
 
     @OneToOne
-    @JoinColumn(name=ConfigNames.PersonFamily.IDPerson, referencedColumnName = ConfigNames.Person.Id, insertable = false, updatable = false)
+    @JoinColumn(name=ConfigNames.PersonFamily.IDPerson, referencedColumnName = ConfigNames.Person.Id, insertable = false, updatable = false, unique = true)
     private Person person;
 
     @ManyToOne
@@ -44,8 +45,9 @@ public class PersonFamily implements Serializable {
     private void setFamilyId(long familyId){this.familyId=Long.valueOf(familyId);}
     private void setFamilyId(Long familyId){this.familyId=familyId;}
 
-    public long getFamilyId(){return this.familyId.longValue();}
     public String getPersonId(){return this.personId;}
+    public long getFamilyId(){return this.familyId.longValue();}
+    public Long getFamilyIdLong(){return this.familyId;}
 
     @Override
     public String toString() {
@@ -53,5 +55,18 @@ public class PersonFamily implements Serializable {
                 "personId='" + personId + '\'' +
                 ", familyId=" + familyId +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PersonFamily that = (PersonFamily) o;
+        return personId.equals(that.personId) && familyId.equals(that.familyId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(personId, familyId);
     }
 }

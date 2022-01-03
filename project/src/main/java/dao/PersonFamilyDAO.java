@@ -1,6 +1,6 @@
 package dao;
 
-import IdClasses.VeryVerySpecialId;
+import IdClasses.PersonFamilyId;
 import entity.PersonFamily;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -43,7 +43,7 @@ public class PersonFamilyDAO {
         PersonFamily personFamily;
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            personFamily = session.get(PersonFamily.class, new VeryVerySpecialId(personId, familyId));
+            personFamily = session.get(PersonFamily.class, new PersonFamilyId(personId, familyId));
             transaction.commit();
         }
         return personFamily;
@@ -53,11 +53,12 @@ public class PersonFamilyDAO {
         PersonFamily personFamily;
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            personFamily = session.get(PersonFamily.class, new VeryVerySpecialId(personId, familyId));
+            personFamily = session.get(PersonFamily.class, new PersonFamilyId(personId, familyId));
             transaction.commit();
         }
         return personFamily;
     }
+
 
     public static void deletePersonFamily(PersonFamily personFamily) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
@@ -70,7 +71,7 @@ public class PersonFamilyDAO {
     public static void deletePersonFamily(String personId, Long familyId) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            PersonFamily personFamily = session.get(PersonFamily.class, new VeryVerySpecialId(personId, familyId));
+            PersonFamily personFamily = session.get(PersonFamily.class, new PersonFamilyId(personId, familyId));
             session.delete(personFamily);
             transaction.commit();
         }
@@ -79,7 +80,7 @@ public class PersonFamilyDAO {
     public static void deletePersonFamily(String personId, long familyId) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            PersonFamily personFamily = session.get(PersonFamily.class, new VeryVerySpecialId(personId, familyId));
+            PersonFamily personFamily = session.get(PersonFamily.class, new PersonFamilyId(personId, familyId));
             session.delete(personFamily);
             transaction.commit();
         }
@@ -89,7 +90,7 @@ public class PersonFamilyDAO {
         List<String> personIds = new ArrayList<>();
         try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
             Transaction transaction = session.beginTransaction();
-            personIds = session.createQuery("SELECT DISTINCT pf.personId FROM PersonFamily pf WHERE pf.familyId = :familyId")
+            personIds = session.createQuery("FROM PersonFamily pf WHERE pf.familyId = :familyId")
                     .setParameter("familyId",familyId).getResultList();
             transaction.commit();
         }

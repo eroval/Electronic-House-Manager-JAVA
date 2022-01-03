@@ -4,6 +4,7 @@ import configuration.ConfigNames;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name= ConfigNames.Family.Table)
@@ -17,8 +18,8 @@ public class Family {
     @Column(name = ConfigNames.Family.Pet, nullable = false)
     private boolean pet;
 
-    @OneToOne(mappedBy = ConfigNames.Family.Table, fetch = FetchType.LAZY)
-    private PersonFamily person_family;
+    @OneToMany(mappedBy = ConfigNames.Family.Table, fetch = FetchType.LAZY)
+    private List<PersonFamily> person_family;
 
     @OneToOne(mappedBy = ConfigNames.Family.Table, fetch = FetchType.LAZY)
     private Apartment apartment;
