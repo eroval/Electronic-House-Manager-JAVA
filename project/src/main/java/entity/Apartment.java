@@ -13,8 +13,8 @@ import java.util.List;
 public class Apartment implements Serializable {
 
     @Id
-    @SequenceGenerator(name="genapp", sequenceName = "generatorapartments")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorapartments")
+    @SequenceGenerator(name="genapp", sequenceName = "_generatorapartments")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "_generatorapartments")
     @Column(name=ConfigNames.Apartment.IdApp, nullable = false)
     private long apartmentId;
 

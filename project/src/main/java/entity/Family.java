@@ -10,8 +10,8 @@ import java.util.List;
 @Table(name= ConfigNames.Family.Table)
 public class Family {
     @Id
-    @SequenceGenerator(name="genfam", sequenceName = "generatorfamilies")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorfamilies")
+    @SequenceGenerator(name="genfam", sequenceName = "_generatorfamilies")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "_generatorfamilies")
     @Column(name=ConfigNames.Family.Id, nullable = false)
     private long familyId;
 

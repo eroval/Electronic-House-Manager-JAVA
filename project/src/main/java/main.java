@@ -13,19 +13,15 @@ public class main {
     }
 
     public static void main(String args[]) {
-        checkTaxesPeriodically();
-        //PreloadTables.load();
-        //System.out.println(EmployeeDAO.getEmployeesBelongingToOwnerCompany(1,2));
-        //EmployeeBuildingDAO.readEmployeeBuildings();
-//        List<OwnerCompany> companies = OwnerCompanyDAO.readOwnerCompanies();
-//        Building b = new Building("New Addressho", 20, 30, 500, 10);
-//        BuildingDAO.saveBuilding(b);
-//        OwnerCompanyDAO.addBuilding(companies.get(0), b);
-        //System.out.println(PersonFamilyDAO.getSpecificPeopleIds(1));//FamilyDAO.getAllFamilyMembers(1));
-        //BuildingDAO.paySpecificTax(7,3);
-        //System.out.println(OwnerCompanyDAO.getSortedCopmaniesByRevenue());
-        System.out.println(OwnerCompanyDAO.getSortedEmployees(1));
-        //System.out.println(EmployeeBuildingDAO.getNumberOfAssociatedBuildings(4));
+        //checkTaxesPeriodically();
+//        PreloadTables.load();
+//        BuildingDAO.paySpecificTax(7,3);
+//        System.out.println(OwnerCompanyDAO.getSortedCopmaniesByRevenueAsc());
+//        System.out.println(OwnerCompanyDAO.getSortedCopmaniesByRevenueDsc());
+//        System.out.println(OwnerCompanyDAO.getSortedEmployeesAsc(1));
+//        System.out.println(OwnerCompanyDAO.getSortedEmployeesDsc(1));
+//        System.out.println(BuildingDAO.peopleByNameAndAgeAsc());
+//        System.out.println(BuildingDAO.peopleByNameAndAgeDsc());
     }
 
 }

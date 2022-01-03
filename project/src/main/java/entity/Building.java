@@ -11,8 +11,8 @@ import java.util.List;
 public class Building implements Serializable {
 
     @Id
-    @SequenceGenerator(name="genbuild", sequenceName = "generatorbuildings")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorbuildings")
+    @SequenceGenerator(name="genbuild", sequenceName = "_generatorbuildings")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "_generatorbuildings")
     @Column(name= ConfigNames.Building.Id, nullable = false)
     private long buildingId;
 
@@ -106,6 +106,7 @@ public class Building implements Serializable {
     public double getAreaTotal(){return this.areaTotal;}
 
     public double getAreaCommon(){return this.areaCommon;}
+
 
     @Override
     public String toString() {

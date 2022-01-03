@@ -11,8 +11,8 @@ import java.io.ObjectInputFilter;
 public class Company {
 
     @Id
-    @SequenceGenerator(name="gencomp", sequenceName = "generatorcompanies")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorcompanies")
+    @SequenceGenerator(name="gencomp", sequenceName = "_generatorcompanies")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "_generatorcompanies")
     @Column(name = ConfigNames.Company.Id, nullable = false)
     private long companyId;
 

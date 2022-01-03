@@ -15,8 +15,6 @@ import java.util.Date;
 @Table(name= ConfigNames.TaxesHistory.Table)
 public class TaxesHistory implements Serializable {
     @Id
-//    @SequenceGenerator(name="gentaxhis", sequenceName = "generatortaxhistories")
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatortaxhistories")
     @Column(name = ConfigNames.TaxesHistory.IDTax, nullable = false)
     private long taxId;
 

@@ -15,8 +15,8 @@ import java.util.Locale;
 public class Employee  implements Serializable {
 
     @Id
-    @SequenceGenerator(name="genemp", sequenceName = "generatoremployees")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatoremployees")
+    @SequenceGenerator(name="genemp", sequenceName = "_generatoremployees")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "_generatoremployees")
     @Column(name= ConfigNames.Employee.Id, nullable = false)
     private long employeeId;
 

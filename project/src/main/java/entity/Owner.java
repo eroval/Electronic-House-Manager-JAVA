@@ -12,8 +12,8 @@ import java.util.List;
 public class Owner {
 
     @Id
-    @SequenceGenerator(name="genowners", sequenceName = "generatorowners")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorowners")
+    @SequenceGenerator(name="genowners", sequenceName = "_generatorowners")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "_generatorowners")
     @Column(name=ConfigNames.Owner.Id, nullable = false)
     private long id;
 

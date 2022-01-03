@@ -6,7 +6,7 @@ import org.hibernate.Transaction;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class BuildingDAO {    
@@ -113,10 +113,11 @@ public class BuildingDAO {
 
     public static double calculateBuildingPriceHistory(long buildingId){
         List<TaxesHistory> taxesHistories = TaxesHistoryDAO.getAllBelongingToBuilding(buildingId);
-        System.out.println(taxesHistories);
         double amount = 0;
         for(TaxesHistory th : taxesHistories){
-            amount+=th.getAmount();
+            if(th.getPaid()) {
+                amount += th.getAmount();
+            }
         }
         return amount;
     }
@@ -130,5 +131,51 @@ public class BuildingDAO {
         if(TaxesHistoryDAO.getTaxesHistory(taxes.getTaxId(),taxes.getApartmentId(),taxes.getBuildingId())==null){
             TaxesHistoryDAO.saveTaxesHistory(taxes);
         }
+    }
+
+    public static List<Person> peopleByNameAndAgeAsc(){
+        List<Building> buildings = BuildingDAO.readBuildings();
+        List<Person> people = new ArrayList<>();
+        for(Building building : buildings){
+            List<Apartment> apartments = BuildingDAO.getAssociatedApartments(building);
+            for(Apartment app : apartments){
+                if(app.getFamilyId()!=null){
+                    people.addAll(FamilyDAO.getAllFamilyMembers(app.getFamilyId()));
+                }
+            }
+        }
+        Collections.sort(people, new Comparator<Person>() {
+            @Override
+            public int compare(Person o1, Person o2) {
+                if(o1.getFName().toLowerCase().compareTo(o2.getFName().toLowerCase())==0){
+                    return -o1.getBirthdayDate().compareTo(o2.getBirthdayDate());
+                }
+                return o1.getFName().toLowerCase(Locale.ROOT).compareTo(o2.getFName().toLowerCase(Locale.ROOT));
+            }
+        });
+        return people;
+    }
+
+    public static List<Person> peopleByNameAndAgeDsc(){
+        List<Building> buildings = BuildingDAO.readBuildings();
+        List<Person> people = new ArrayList<>();
+        for(Building building : buildings){
+            List<Apartment> apartments = BuildingDAO.getAssociatedApartments(building);
+            for(Apartment app : apartments){
+                if(app.getFamilyId()!=null){
+                    people.addAll(FamilyDAO.getAllFamilyMembers(app.getFamilyId()));
+                }
+            }
+        }
+        Collections.sort(people, new Comparator<Person>() {
+            @Override
+            public int compare(Person o1, Person o2) {
+                if(o1.getFName().toLowerCase().compareTo(o2.getFName().toLowerCase())==0){
+                    return o1.getBirthdayDate().compareTo(o2.getBirthdayDate());
+                }
+                return -o1.getFName().toLowerCase(Locale.ROOT).compareTo(o2.getFName().toLowerCase(Locale.ROOT));
+            }
+        });
+        return people;
     }
 }
