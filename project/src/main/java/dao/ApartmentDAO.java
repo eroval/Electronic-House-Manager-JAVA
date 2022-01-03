@@ -5,6 +5,7 @@ import entity.Apartment;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ApartmentDAO {
@@ -66,7 +67,7 @@ public class ApartmentDAO {
     }
 
     public static List<Apartment> getAllApartments(long buildingId){
-        List<Apartment> apartments;
+        List<Apartment> apartments = new ArrayList<>();
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             apartments = session.createQuery("FROM Apartment app WHERE app.buildingId=:buildingId")
@@ -75,4 +76,5 @@ public class ApartmentDAO {
         }
         return apartments;
     }
+
 }

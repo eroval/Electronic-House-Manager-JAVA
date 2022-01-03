@@ -4,6 +4,7 @@ import IdClasses.EmployeeBuildingId;
 import entity.Building;
 import entity.Employee;
 import entity.EmployeeBuilding;
+import entity.Person;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -83,7 +84,7 @@ public class EmployeeBuildingDAO {
     }
 
     public static List<Long> getBuildingsOfEmployees(List<Employee> employees){
-        List<Long> buildingIds;
+        List<Long> buildingIds = new ArrayList<>();
         try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
             Transaction transaction = session.beginTransaction();
             List<Long> employeeIds = new ArrayList<>();
@@ -97,7 +98,7 @@ public class EmployeeBuildingDAO {
     }
 
     public static List<Long> getAllBuildingIdsOfCompany(long companyId){
-        List<Long> buildingIds;
+        List<Long> buildingIds = new ArrayList<>();;
         try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
             buildingIds = session.createQuery("SELECT eb.buildingId FROM EmployeeBuilding eb WHERE eb.companyId = :companyId")
                     .setParameter("companyId",companyId).getResultList();
@@ -106,7 +107,7 @@ public class EmployeeBuildingDAO {
     }
 
     public static List<EmployeeBuilding> readAllByCompanyId(long companyId){
-        List<EmployeeBuilding> employeeBuildings;
+        List<EmployeeBuilding> employeeBuildings = new ArrayList<>();;
         try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
             employeeBuildings = session.createQuery("SELECT a FROM EmployeeBuilding eb WHERE eb.companyId = :companyId")
                     .setParameter("companyId",companyId).getResultList();
@@ -115,7 +116,7 @@ public class EmployeeBuildingDAO {
     }
 
     public static List<Long> getAllUniqueEmployeeIdsByCompany(long companyId){
-        List<Long> eids;
+        List<Long> eids = new ArrayList<>();;
         try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
             eids = session.createQuery("SELECT DISTINCT eb.employeeId FROM EmployeeBuilding eb WHERE eb.companyId = :companyId")
                     .setParameter("companyId",companyId).getResultList();
@@ -124,7 +125,16 @@ public class EmployeeBuildingDAO {
     }
 
     public static List<String> getAllBuildingIdsAssociatedWithEmployee(long employeeId){
-        List<String> buildingIds;
+        List<String> buildingIds = new ArrayList<>();;
+        try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
+            buildingIds = session.createQuery("SELECT eb.buildingId FROM EmployeeBuilding eb WHERE eb.employeeId = :employeeId")
+                    .setParameter("employeeId",employeeId).getResultList();
+        }
+        return buildingIds;
+    }
+
+    public static List<Long> getAllBuildingIdsAssociatedWithEmployeeLong(long employeeId){
+        List<Long> buildingIds = new ArrayList<>();;
         try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
             buildingIds = session.createQuery("SELECT eb.buildingId FROM EmployeeBuilding eb WHERE eb.employeeId = :employeeId")
                     .setParameter("employeeId",employeeId).getResultList();
@@ -146,6 +156,8 @@ public class EmployeeBuildingDAO {
         }
         return employeesInfo;
     }
+
+
 
 //    //Not Ready
 //    public static long getNumberOfAssociatedBuildings(List<Employee> employees){

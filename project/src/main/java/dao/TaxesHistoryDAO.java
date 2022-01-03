@@ -67,7 +67,7 @@ public class TaxesHistoryDAO {
     }
 
     public static List<TaxesHistory> getAllBelongingToBuilding(long buildingId){
-        List<TaxesHistory> taxesHistory;
+        List<TaxesHistory> taxesHistory = new ArrayList<>();;
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             taxesHistory= session.createQuery("FROM TaxesHistory th WHERE th.buildingId=:buildingId")
@@ -75,5 +75,16 @@ public class TaxesHistoryDAO {
             transaction.commit();
         }
         return  taxesHistory;
+    }
+
+    public static List<TaxesHistory> getAllUnpaidTaxes(long buildingId){
+        List<TaxesHistory> taxes= new ArrayList<>();
+        try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            taxes= session.createQuery("FROM TaxesHistory th WHERE th.buildingId=:buildingId AND paid=false")
+                    .setParameter("buildingId",buildingId).getResultList();
+            transaction.commit();
+        }
+        return taxes;
     }
 }

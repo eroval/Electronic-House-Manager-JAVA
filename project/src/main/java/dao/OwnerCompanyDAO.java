@@ -34,7 +34,7 @@ public class OwnerCompanyDAO {
     }
 
     public static List<OwnerCompany> readOwnerCompanies() {
-        List<OwnerCompany> ownerCompanies;
+        List<OwnerCompany> ownerCompanies = new ArrayList<>();;
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             ownerCompanies = session.createQuery("SELECT a FROM OwnerCompany a", entity.OwnerCompany.class).getResultList();
         }
@@ -100,25 +100,30 @@ public class OwnerCompanyDAO {
     }
 
     public static void addBuilding(long companyId,long ownerId ,long buildingId){
-        Building building = BuildingDAO.getBuilding(buildingId);
-        OwnerCompany ownerCompany = OwnerCompanyDAO.getOwnerCompany(companyId, ownerId);
-        if(building==null) throw new IllegalArgumentException("No such building");
-        if(ownerCompany==null) throw new IllegalArgumentException("No such company associated with owner");
-        List<Employee> employees = EmployeeDAO.getEmployeesBelongingToOwnerCompany(companyId,ownerId);
+        try {
+            Building building = BuildingDAO.getBuilding(buildingId);
+            OwnerCompany ownerCompany = OwnerCompanyDAO.getOwnerCompany(companyId, ownerId);
+            if (building == null) throw new IllegalArgumentException("No such building");
+            if (ownerCompany == null) throw new IllegalArgumentException("No such company associated with owner");
+            List<Employee> employees = EmployeeDAO.getEmployeesBelongingToOwnerCompany(companyId, ownerId);
 
 
-        long min = EmployeeBuildingDAO.getNumberOfAssociatedBuildings(employees.get(0).getEmployeeId());
-        long id = employees.get(0).getEmployeeId();
-        long tmp;
-        for(Employee e : employees){
-            tmp = EmployeeBuildingDAO.getNumberOfAssociatedBuildings(e.getEmployeeId());
-            if(tmp<min){
-                min = tmp;
-                id = e.getEmployeeId();
+            long min = EmployeeBuildingDAO.getNumberOfAssociatedBuildings(employees.get(0).getEmployeeId());
+            long id = employees.get(0).getEmployeeId();
+            long tmp;
+            for (Employee e : employees) {
+                tmp = EmployeeBuildingDAO.getNumberOfAssociatedBuildings(e.getEmployeeId());
+                if (tmp < min) {
+                    min = tmp;
+                    id = e.getEmployeeId();
+                }
             }
+            EmployeeBuilding eb = new EmployeeBuilding(buildingId, id, companyId, ownerId);
+            EmployeeBuildingDAO.saveEmployeeBuilding(eb);
         }
-        EmployeeBuilding eb = new EmployeeBuilding(buildingId,id,companyId,ownerId);
-        EmployeeBuildingDAO.saveEmployeeBuilding(eb);
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void addBuilding(OwnerCompany ownerCompany, Building building){
@@ -126,91 +131,120 @@ public class OwnerCompanyDAO {
     }
 
     public static double getRevenueOfCompany(OwnerCompany company){
-        List<Long> buildingIds = EmployeeBuildingDAO.getAllBuildingIdsOfCompany(company.getCompanyId());
-        System.out.println(buildingIds);
         double totalRevenue=0;
-        for(Long id : buildingIds){
-            totalRevenue+=BuildingDAO.calculateBuildingPriceHistory(id);
+        try {
+            List<Long> buildingIds = EmployeeBuildingDAO.getAllBuildingIdsOfCompany(company.getCompanyId());
+            System.out.println(buildingIds);
+            for (Long id : buildingIds) {
+                totalRevenue += BuildingDAO.calculateBuildingPriceHistory(id);
+            }
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
         }
         return totalRevenue;
     }
 
     public static List<Map.Entry<OwnerCompany, Double>> getSortedCopmaniesByRevenueAsc(){
-        List<OwnerCompany> companies = OwnerCompanyDAO.readOwnerCompanies();
-        Map<OwnerCompany,Double> pairs = new HashMap<>();
-        for(OwnerCompany company: companies){
-           pairs.put(company,Double.valueOf(getRevenueOfCompany(company)));
-        }
-        List<Map.Entry<OwnerCompany, Double>> companiesByRevenue = new LinkedList<Map.Entry<OwnerCompany, Double>>(pairs.entrySet());
-        Collections.sort(companiesByRevenue, new Comparator<Map.Entry<OwnerCompany, Double>>() {
-            @Override
-            public int compare(Map.Entry<OwnerCompany, Double> o1, Map.Entry<OwnerCompany, Double> o2) {
-                return (o1.getValue()).compareTo(o2.getValue());
+        try {
+            List<OwnerCompany> companies = OwnerCompanyDAO.readOwnerCompanies();
+            Map<OwnerCompany, Double> pairs = new HashMap<>();
+            for (OwnerCompany company : companies) {
+                pairs.put(company, Double.valueOf(getRevenueOfCompany(company)));
             }
-        });
-        return companiesByRevenue;
+            List<Map.Entry<OwnerCompany, Double>> companiesByRevenue = new LinkedList<Map.Entry<OwnerCompany, Double>>(pairs.entrySet());
+            Collections.sort(companiesByRevenue, new Comparator<Map.Entry<OwnerCompany, Double>>() {
+                @Override
+                public int compare(Map.Entry<OwnerCompany, Double> o1, Map.Entry<OwnerCompany, Double> o2) {
+                    return (o1.getValue()).compareTo(o2.getValue());
+                }
+            });
+            return companiesByRevenue;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+            return new LinkedList<>();
+        }
     }
 
     public static List<Map.Entry<OwnerCompany, Double>> getSortedCopmaniesByRevenueDsc(){
-        List<OwnerCompany> companies = OwnerCompanyDAO.readOwnerCompanies();
-        Map<OwnerCompany,Double> pairs = new HashMap<>();
-        for(OwnerCompany company: companies){
-            pairs.put(company,Double.valueOf(getRevenueOfCompany(company)));
-        }
-        List<Map.Entry<OwnerCompany, Double>> companiesByRevenue = new LinkedList<Map.Entry<OwnerCompany, Double>>(pairs.entrySet());
-        Collections.sort(companiesByRevenue, new Comparator<Map.Entry<OwnerCompany, Double>>() {
-            @Override
-            public int compare(Map.Entry<OwnerCompany, Double> o1, Map.Entry<OwnerCompany, Double> o2) {
-                return -(o1.getValue()).compareTo(o2.getValue());
+        try {
+            List<OwnerCompany> companies = OwnerCompanyDAO.readOwnerCompanies();
+            Map<OwnerCompany, Double> pairs = new HashMap<>();
+            for (OwnerCompany company : companies) {
+                pairs.put(company, Double.valueOf(getRevenueOfCompany(company)));
             }
-        });
-        return companiesByRevenue;
+            List<Map.Entry<OwnerCompany, Double>> companiesByRevenue = new LinkedList<Map.Entry<OwnerCompany, Double>>(pairs.entrySet());
+            Collections.sort(companiesByRevenue, new Comparator<Map.Entry<OwnerCompany, Double>>() {
+                @Override
+                public int compare(Map.Entry<OwnerCompany, Double> o1, Map.Entry<OwnerCompany, Double> o2) {
+                    return -(o1.getValue()).compareTo(o2.getValue());
+                }
+            });
+            return companiesByRevenue;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+            return new LinkedList<>();
+        }
     }
 
 
-    public static List<Map.Entry<Employee, Long>> getSortedEmployeesAsc(long companyId){
-        OwnerCompany ownerCompany = OwnerCompanyDAO.getOwnerCompany(companyId);
-        List<Employee> employees = EmployeeDAO.getEmployeesBelongingToOwnerCompany(ownerCompany.getCompanyId(), ownerCompany.getOwnerId());
-        Map<Employee,Long> pairs = new HashMap<>();
-        for(Employee employee : employees){
-            pairs.put(employee,Long.valueOf(EmployeeBuildingDAO.getNumberOfAssociatedBuildings(employee.getEmployeeId())));
-        }
-        List<Map.Entry<Employee, Long>> employeesByBuildings = new LinkedList<Map.Entry<Employee, Long>>(pairs.entrySet());
-        Collections.sort(employeesByBuildings
-                ,new Comparator<Map.Entry<Employee, Long>>() {
-            @Override
-            public int compare(Map.Entry<Employee, Long> o1, Map.Entry<Employee, Long> o2) {
-                if(o1.getValue().compareTo(o2.getValue())==1) return 1;
-                if(o1.getValue().compareTo(o2.getValue())==0){
-                    return o1.getKey().getFName().toLowerCase(Locale.ROOT).compareTo(o2.getKey().getFName().toLowerCase(Locale.ROOT));
-                }
-                return -1;
+    public static List<Map.Entry<Employee, Long>> getSortedEmployeesAsc(long companyId) {
+        try{
+            OwnerCompany ownerCompany = OwnerCompanyDAO.getOwnerCompany(companyId);
+            List<Employee> employees = EmployeeDAO.getEmployeesBelongingToOwnerCompany(ownerCompany.getCompanyId(), ownerCompany.getOwnerId());
+            Map<Employee, Long> pairs = new HashMap<>();
+            for (Employee employee : employees) {
+                pairs.put(employee, Long.valueOf(EmployeeBuildingDAO.getNumberOfAssociatedBuildings(employee.getEmployeeId())));
             }
+            List<Map.Entry<Employee, Long>> employeesByBuildings = new LinkedList<Map.Entry<Employee, Long>>(pairs.entrySet());
+            Collections.sort(employeesByBuildings
+                    , new Comparator<Map.Entry<Employee, Long>>() {
+                        @Override
+                        public int compare(Map.Entry<Employee, Long> o1, Map.Entry<Employee, Long> o2) {
+                            if (o1.getValue().compareTo(o2.getValue()) == 1) return 1;
+                            if (o1.getValue().compareTo(o2.getValue()) == 0) {
+                                return o1.getKey().getFName().toLowerCase(Locale.ROOT).compareTo(o2.getKey().getFName().toLowerCase(Locale.ROOT));
+                            }
+                            return -1;
+                        }
+                    }
+            );
+            return employeesByBuildings;
         }
-        );
-        return employeesByBuildings;
+        catch (Exception e){
+            System.out.println(e.getMessage());
+            return new LinkedList<>();
+        }
     }
 
     public static List<Map.Entry<Employee, Long>> getSortedEmployeesDsc(long companyId){
-        OwnerCompany ownerCompany = OwnerCompanyDAO.getOwnerCompany(companyId);
-        List<Employee> employees = EmployeeDAO.getEmployeesBelongingToOwnerCompany(ownerCompany.getCompanyId(), ownerCompany.getOwnerId());
-        Map<Employee,Long> pairs = new HashMap<>();
-        for(Employee employee : employees){
-            pairs.put(employee,Long.valueOf(EmployeeBuildingDAO.getNumberOfAssociatedBuildings(employee.getEmployeeId())));
-        }
-        List<Map.Entry<Employee, Long>> employeesByBuildings = new LinkedList<Map.Entry<Employee, Long>>(pairs.entrySet());
-        Collections.sort(employeesByBuildings
-                ,new Comparator<Map.Entry<Employee, Long>>() {
-                    @Override
-                    public int compare(Map.Entry<Employee, Long> o1, Map.Entry<Employee, Long> o2) {
-                        if(o1.getValue().compareTo(o2.getValue())==1) return -1;
-                        if(o1.getValue().compareTo(o2.getValue())==0){
-                            return -o1.getKey().getFName().toLowerCase(Locale.ROOT).compareTo(o2.getKey().getFName().toLowerCase(Locale.ROOT));
+        try {
+            OwnerCompany ownerCompany = OwnerCompanyDAO.getOwnerCompany(companyId);
+            List<Employee> employees = EmployeeDAO.getEmployeesBelongingToOwnerCompany(ownerCompany.getCompanyId(), ownerCompany.getOwnerId());
+            Map<Employee, Long> pairs = new HashMap<>();
+            for (Employee employee : employees) {
+                pairs.put(employee, Long.valueOf(EmployeeBuildingDAO.getNumberOfAssociatedBuildings(employee.getEmployeeId())));
+            }
+
+            List<Map.Entry<Employee, Long>> employeesByBuildings = new LinkedList<Map.Entry<Employee, Long>>(pairs.entrySet());
+            Collections.sort(employeesByBuildings, new Comparator<Map.Entry<Employee, Long>>() {
+                        @Override
+                        public int compare(Map.Entry<Employee, Long> o1, Map.Entry<Employee, Long> o2) {
+                            if (o1.getValue().compareTo(o2.getValue()) == 1) return -1;
+                            if (o1.getValue().compareTo(o2.getValue()) == 0) {
+                                return -o1.getKey().getFName().toLowerCase(Locale.ROOT).compareTo(o2.getKey().getFName().toLowerCase(Locale.ROOT));
+                            }
+                            return 1;
                         }
-                        return 1;
                     }
-                }
-        );
-        return employeesByBuildings;
+            );
+            return employeesByBuildings;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+            return new LinkedList<>();
+        }
     }
 }

@@ -1,12 +1,11 @@
 package dao;
 
 import IdClasses.EmployeeId;
-import entity.Company;
-import entity.Employee;
-import entity.Owner;
+import entity.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeDAO {
@@ -35,7 +34,7 @@ public class EmployeeDAO {
     }
 
     public static List<Employee> readEmployees() {
-        List<Employee> employees;
+        List<Employee> employees = new ArrayList<>();;
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             employees = session.createQuery("SELECT a FROM Employee a", entity.Employee.class).getResultList();
         }
@@ -43,7 +42,7 @@ public class EmployeeDAO {
     }
 
     public static List<Employee> getEmployeesBelongingToOwnerCompany(long companyId, long ownerId){
-        List<Employee> employees;
+        List<Employee> employees = new ArrayList<>();;
         try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
             Transaction transaction = session.beginTransaction();
             employees = session.createQuery("FROM Employee e WHERE e.companyId = :companyId AND e.ownerId = :ownerId")
@@ -99,5 +98,18 @@ public class EmployeeDAO {
         return company;
     }
 
+    public static List<TaxesHistory> getAllUnpaidTaxes(long employeeId){
+        List<TaxesHistory> th = new ArrayList<>();
+        try{
+            List<Long> buildingIds= EmployeeBuildingDAO.getAllBuildingIdsAssociatedWithEmployeeLong(employeeId);
+            for(Long id : buildingIds){
+                th.addAll(BuildingDAO.getAllUnpaidTaxes(id));
+            }
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return th;
+    }
 
 }

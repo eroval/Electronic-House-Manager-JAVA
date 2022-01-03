@@ -67,7 +67,7 @@ public class TaxesDAO {
     }
 
     public static List<Taxes> readSpecificBuildingTaxes(List<Building> buildings){
-        List<Taxes> taxes;
+        List<Taxes> taxes = new ArrayList<>();;
         try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
             Transaction transaction = session.beginTransaction();
             List<Long> buildingIds = new ArrayList<>();

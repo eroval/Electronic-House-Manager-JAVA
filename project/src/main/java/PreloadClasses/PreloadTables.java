@@ -87,12 +87,12 @@ public class PreloadTables {
     }
 
     private static void preloadApartments(){
-        Apartment a = new Apartment(1,30,null,null);
-        Apartment a2 = new Apartment(1,53,null,null);
-        Apartment a3 = new Apartment(1,55,null,null);
-        Apartment a4 = new Apartment(2,65,null,null);
-        Apartment a5 = new Apartment(2,87,null,null);
-        Apartment a6 = new Apartment(2,103,null,null);
+        Apartment a = new Apartment(1,1,30,null,null);
+        Apartment a2 = new Apartment(1,3,53,null,null);
+        Apartment a3 = new Apartment(2,1,55,null,null);
+        Apartment a4 = new Apartment(1,2,65,null,null);
+        Apartment a5 = new Apartment(2,2,87,null,null);
+        Apartment a6 = new Apartment(3,2,103,null,null);
 
         List<Apartment> list = Arrays.asList(a,a2,a3,a4,a5,a6);
         ApartmentDAO.saveApartments(list);
@@ -143,8 +143,8 @@ public class PreloadTables {
     }
 
     private static void preloadApartmentsWithFamilies(){
-        Apartment a = new Apartment(3,30,"3511083276",1);
-        Apartment a2 = new Apartment(1,45,"6402206837",2);
+        Apartment a = new Apartment(2,3,30,"3511083276",1);
+        Apartment a2 = new Apartment(3,1,45,"6402206837",2);
 
         List<Apartment> list = Arrays.asList(a,a2);
         ApartmentDAO.saveApartments(list);
@@ -153,7 +153,8 @@ public class PreloadTables {
     private static void preloadTaxesHistory(){
         BuildingDAO.paySpecificTax(7,3);
     }
-
+    private static void preloadUnpaidTaxes() {
+    }
 
     public static void load(){
         preloadOwners();

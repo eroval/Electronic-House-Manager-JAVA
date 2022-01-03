@@ -13,8 +13,6 @@ import java.util.List;
 public class Apartment implements Serializable {
 
     @Id
-    @SequenceGenerator(name="genapp", sequenceName = "_generatorapartments")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "_generatorapartments")
     @Column(name=ConfigNames.Apartment.IdApp, nullable = false)
     private long apartmentId;
 
@@ -60,20 +58,6 @@ public class Apartment implements Serializable {
 
     public Apartment(long apartmentId, long buildingId, double area, String landlordId, long familyId){
         this.setApartmentId(apartmentId);
-        this.setBuildingId(buildingId);
-        this.setArea(area);
-        this.setLandlordId(landlordId);
-        this.setFamilyId(familyId);
-    }
-
-    public Apartment(long buildingId, double area, String landlordId, Long familyId){
-        this.setBuildingId(buildingId);
-        this.setArea(area);
-        this.setLandlordId(landlordId);
-        this.setFamilyId(familyId);
-    }
-
-    public Apartment(long buildingId, double area, String landlordId, long familyId){
         this.setBuildingId(buildingId);
         this.setArea(area);
         this.setLandlordId(landlordId);

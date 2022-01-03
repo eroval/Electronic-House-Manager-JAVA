@@ -68,7 +68,7 @@ public class PersonDAO {
     }
 
     public static List<Person> getSpecificPeopleData(List<String> peopleIds){
-        List<Person> people;
+        List<Person> people = new ArrayList<>();;
         try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
             Transaction transaction = session.beginTransaction();
             people = session.createQuery("FROM Person p WHERE p.personId in (:peopleIds)")
