@@ -4,6 +4,8 @@ import dao.*;
 import entity.*;
 
 import java.lang.reflect.Array;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -153,8 +155,18 @@ public class PreloadTables {
     private static void preloadTaxesHistory(){
         BuildingDAO.paySpecificTax(2,3);
     }
+
     private static void preloadUnpaidTaxesHistory() {
-        TaxesHistory =
+        List<Long> arr = new ArrayList<>();
+        long uid = LocalDate.now().getYear()*100-1+LocalDate.now().getMonthValue();
+        long uid2 = LocalDate.now().getYear()*100-2+LocalDate.now().getMonthValue();
+        long uid3 = LocalDate.now().getYear()*100-3+LocalDate.now().getMonthValue();
+        long uid4 = LocalDate.now().getYear()*100-4+LocalDate.now().getMonthValue();
+        arr.addAll(Arrays.asList(uid,uid2, uid3, uid4));
+        for(int i=0; i<4; i++){
+            TaxesHistory th = new TaxesHistory(arr.get(i),2,3,0,false);
+            TaxesHistoryDAO.saveTaxesHistory(th);
+        }
     }
 
     public static void load(){
@@ -172,5 +184,10 @@ public class PreloadTables {
         preloadLandlords();
         preloadApartmentsWithFamilies();
         preloadTaxesHistory();
+        preloadUnpaidTaxesHistory();
+    }
+
+    public static void customLoad(){
+        preloadUnpaidTaxesHistory();
     }
 }

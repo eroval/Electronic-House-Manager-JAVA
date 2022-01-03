@@ -59,19 +59,6 @@ public class TaxesHistory implements Serializable {
         this.paid=paid;
     }
 
-    public TaxesHistory(long taxId, long apartmentId, long buildingId, boolean paid){
-        this.setTaxId(taxId);
-        this.apartmentId=apartmentId;
-        this.buildingId=buildingId;
-        this.paid=paid;
-    }
-
-    public TaxesHistory(long apartmentId, long buildingId, boolean paid){
-        this.apartmentId=apartmentId;
-        this.buildingId=buildingId;
-        this.paid=paid;
-    }
-
     public void setTaxId(long taxId){
         if(taxId<=0) throw new IllegalArgumentException("Id for tax must be positive");
         this.taxId=taxId;
@@ -88,4 +75,15 @@ public class TaxesHistory implements Serializable {
     public boolean getPaid(){return this.paid;}
 
     public Timestamp getDate(){return this.date;}
+
+    @Override
+    public String toString() {
+        return "TaxesHistory{" +
+                "taxId=" + taxId +
+                ", apartmentId=" + apartmentId +
+                ", buildingId=" + buildingId +
+                ", amount=" + amount +
+                ", paid=" + paid +
+                '}';
+    }
 }

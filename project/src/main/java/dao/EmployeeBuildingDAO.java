@@ -1,10 +1,7 @@
 package dao;
 
 import IdClasses.EmployeeBuildingId;
-import entity.Building;
-import entity.Employee;
-import entity.EmployeeBuilding;
-import entity.Person;
+import entity.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -157,6 +154,20 @@ public class EmployeeBuildingDAO {
         return employeesInfo;
     }
 
+
+    public static List<TaxesHistory> getAllUnpaidTaxes(long employeeId){
+        List<TaxesHistory> th = new ArrayList<>();
+        try{
+            List<Long> buildingIds= EmployeeBuildingDAO.getAllBuildingIdsAssociatedWithEmployeeLong(employeeId);
+            for(Long id : buildingIds){
+                th.addAll(BuildingDAO.getAllUnpaidTaxes(id));
+            }
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return th;
+    }
 
 
 //    //Not Ready

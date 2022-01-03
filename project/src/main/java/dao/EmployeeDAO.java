@@ -98,18 +98,4 @@ public class EmployeeDAO {
         return company;
     }
 
-    public static List<TaxesHistory> getAllUnpaidTaxes(long employeeId){
-        List<TaxesHistory> th = new ArrayList<>();
-        try{
-            List<Long> buildingIds= EmployeeBuildingDAO.getAllBuildingIdsAssociatedWithEmployeeLong(employeeId);
-            for(Long id : buildingIds){
-                th.addAll(BuildingDAO.getAllUnpaidTaxes(id));
-            }
-        }
-        catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-        return th;
-    }
-
 }
