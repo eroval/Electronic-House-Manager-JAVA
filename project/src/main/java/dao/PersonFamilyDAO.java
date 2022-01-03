@@ -90,7 +90,7 @@ public class PersonFamilyDAO {
         List<String> personIds = new ArrayList<>();
         try(Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()){
             Transaction transaction = session.beginTransaction();
-            personIds = session.createQuery("FROM PersonFamily pf WHERE pf.familyId = :familyId")
+            personIds = session.createQuery("SELECT pf.personId FROM PersonFamily pf WHERE pf.familyId = :familyId")
                     .setParameter("familyId",familyId).getResultList();
             transaction.commit();
         }

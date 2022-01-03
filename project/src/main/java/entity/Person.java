@@ -86,6 +86,8 @@ public class Person {
 
     public String getBirthday(){ return this.birthday.toString(); }
 
+    public Date getBirthdayDate(){return this.birthday;}
+
     @Override
     public String toString() {
         return "Person{" +

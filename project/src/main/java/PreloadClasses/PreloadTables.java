@@ -98,17 +98,6 @@ public class PreloadTables {
         ApartmentDAO.saveApartments(list);
     }
 
-    private static void preloadTaxesHistory(){
-        TaxesHistory t= new TaxesHistory(1,1,1,true);
-        TaxesHistory t2= new TaxesHistory(2,2,1,true);
-        TaxesHistory t3= new TaxesHistory(3,3,1,true);
-        TaxesHistory t4= new TaxesHistory(4,4,2,true);
-        TaxesHistory t5= new TaxesHistory(5,6,2,false);
-
-        List<TaxesHistory> list = Arrays.asList(t,t2,t3,t4,t5);
-        TaxesHistoryDAO.saveTaxesHistorys(list);
-    }
-
     private static void preloadPersons(){
         Person p = new Person("5405243487","Lazar","Looner","24/05/1954");
         Person p2 = new Person("2607133566","Eugene","Darius","13/07/1926");
@@ -161,6 +150,10 @@ public class PreloadTables {
         ApartmentDAO.saveApartments(list);
     }
 
+    private static void preloadTaxesHistory(){
+        BuildingDAO.paySpecificTax(7,3);
+    }
+
 
     public static void load(){
         preloadOwners();
@@ -171,11 +164,11 @@ public class PreloadTables {
         preloadTaxes();
         preloadEmployeeBuildings();
         preloadApartments();
-        preloadTaxesHistory();
         preloadPersons();
         preloadFamilies();
         preloadPersonFamilies();
         preloadLandlords();
         preloadApartmentsWithFamilies();
+        preloadTaxesHistory();
     }
 }

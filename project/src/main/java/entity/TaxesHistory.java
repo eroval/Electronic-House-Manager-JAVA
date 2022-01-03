@@ -15,8 +15,8 @@ import java.util.Date;
 @Table(name= ConfigNames.TaxesHistory.Table)
 public class TaxesHistory implements Serializable {
     @Id
-    @SequenceGenerator(name="gentaxhis", sequenceName = "generatortaxhistories")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatortaxhistories")
+//    @SequenceGenerator(name="gentaxhis", sequenceName = "generatortaxhistories")
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatortaxhistories")
     @Column(name = ConfigNames.TaxesHistory.IDTax, nullable = false)
     private long taxId;
 
@@ -39,7 +39,6 @@ public class TaxesHistory implements Serializable {
 
     @PrePersist
     protected void onCreate(){
-        this.amount = calculatePrice();
         this.date = new Timestamp(new Date().getTime());
     }
 
@@ -52,6 +51,14 @@ public class TaxesHistory implements Serializable {
 
     public TaxesHistory(){
 
+    }
+
+    public TaxesHistory(long taxId, long apartmentId, long buildingId,double amount, boolean paid){
+        this.setTaxId(taxId);
+        this.apartmentId=apartmentId;
+        this.buildingId=buildingId;
+        this.amount=amount;
+        this.paid=paid;
     }
 
     public TaxesHistory(long taxId, long apartmentId, long buildingId, boolean paid){
@@ -70,10 +77,6 @@ public class TaxesHistory implements Serializable {
     public void setTaxId(long taxId){
         if(taxId<=0) throw new IllegalArgumentException("Id for tax must be positive");
         this.taxId=taxId;
-    }
-
-    private double calculatePrice(){
-        return 0;
     }
 
     public long getTaxId(){return this.taxId;}

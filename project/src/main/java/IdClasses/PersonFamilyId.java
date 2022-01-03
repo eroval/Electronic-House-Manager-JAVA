@@ -26,36 +26,16 @@ public class PersonFamilyId implements Serializable {
     private void setFamilyId(Long familyId) { this.familyId=familyId;}
     private void setFamilyId(long familyId) { this.familyId = Long.valueOf(familyId);}
 
-
-
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((familyId == null) ? 0 : familyId.hashCode());
-        result = prime * result + ((personId == null) ? 0 : personId.hashCode());
-        return result;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PersonFamilyId that = (PersonFamilyId) o;
+        return personId.equals(that.personId) && familyId.equals(that.familyId);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        PersonFamily other = (PersonFamily) obj;
-        if (familyId == null) {
-            if (other.getFamilyIdLong() != null)
-                return false;
-        } else if (!familyId.equals(other.getFamilyIdLong()))
-            return false;
-        if (personId == null) {
-            if (other.getPersonId() != null)
-                return false;
-        } else if (!personId.equals(other.getPersonId()))
-            return false;
-        return true;
+    public int hashCode() {
+        return Objects.hash(personId, familyId);
     }
 }

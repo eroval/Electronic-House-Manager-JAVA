@@ -13,7 +13,8 @@ public class main {
 //        Building b = new Building("New Addressho", 20, 30, 500, 10);
 //        BuildingDAO.saveBuilding(b);
 //        OwnerCompanyDAO.addBuilding(companies.get(0), b);
-        System.out.println(PersonFamilyDAO.getSpecificPeopleIds(1));//FamilyDAO.getAllFamilyMembers(1));
+        //System.out.println(PersonFamilyDAO.getSpecificPeopleIds(1));//FamilyDAO.getAllFamilyMembers(1));
+        BuildingDAO.paySpecificTax(7,3);
     }
 
 }

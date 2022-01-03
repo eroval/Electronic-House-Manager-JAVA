@@ -1,12 +1,13 @@
 package dao;
 
-import entity.Apartment;
-import entity.Building;
-import entity.Taxes;
+import entity.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class BuildingDAO {    
     public static void saveBuilding(entity.Building building) {
@@ -71,7 +72,20 @@ public class BuildingDAO {
         Taxes appTax = TaxesDAO.getTaxes(app.getBuildingId());
         double amount=0;
         if(app.getFamilyId()!=null){
-
+            amount=appTax.getBaseTax()*app.getArea();
+        }
+        if(app.getFamilyId()!=null){
+            List<Person> people = FamilyDAO.getAllFamilyMembers(app.getFamilyId());
+            for(Person p : people){
+                if(TimeUnit.DAYS.convert(System.currentTimeMillis()-p.getBirthdayDate().getTime(),TimeUnit.MILLISECONDS)/365>7){
+                    amount+= appTax.getAppBaseTax();
+                }
+            }
+        }
+        long uid = LocalDate.now().getYear()*100+LocalDate.now().getMonthValue();
+        TaxesHistory taxes = new TaxesHistory(uid,app.getApartmentId(), app.getBuildingId(),amount,true);
+        if(TaxesHistoryDAO.getTaxesHistory(taxes.getTaxId(),taxes.getApartmentId(),taxes.getBuildingId())==null){
+            TaxesHistoryDAO.saveTaxesHistory(taxes);
         }
     }
 }
