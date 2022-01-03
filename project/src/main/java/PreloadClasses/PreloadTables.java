@@ -151,9 +151,10 @@ public class PreloadTables {
     }
 
     private static void preloadTaxesHistory(){
-        BuildingDAO.paySpecificTax(7,3);
+        BuildingDAO.paySpecificTax(2,3);
     }
-    private static void preloadUnpaidTaxes() {
+    private static void preloadUnpaidTaxesHistory() {
+        TaxesHistory =
     }
 
     public static void load(){

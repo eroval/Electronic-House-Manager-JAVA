@@ -29,7 +29,7 @@ public class main {
 //        System.out.println(EmployeeBuildingDAO.getEmployeeBuildingAssociation(1));
 //        System.out.println(BuildingDAO.getAssociatedApartments(1));
 //        List<Person> p = BuildingDAO.getAllPeopleInTheBuilding(1);
-//        System.out.println(BuildingDAO.getAllUnpaidTaxes(1));
+        System.out.println(BuildingDAO.getAllUnpaidTaxes(1));
     }
 
 }
