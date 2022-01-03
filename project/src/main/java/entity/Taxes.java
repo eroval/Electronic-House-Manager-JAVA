@@ -75,7 +75,7 @@ public class Taxes implements Serializable {
 
     public double getAppPetTax(){return this.appPetTax;}
 
-    public double getTaxDay(){return this.taxDay;}
+    public int getTaxDay(){return this.taxDay;}
 
     @Override
     public String toString() {

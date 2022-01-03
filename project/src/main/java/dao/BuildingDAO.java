@@ -67,11 +67,34 @@ public class BuildingDAO {
         }
     }
 
-    public static void paySpecificTax(long apartmentId, long buildingId){
+    public static List<Apartment> getAssociatedApartments(Building building){
+        return ApartmentDAO.getAllApartments(building.getBuildingId());
+    }
+
+    public static double calculatePrice(Apartment app, Taxes tax){
+        double amount=0;
+        if(app.getLandlordId()!=null){
+            amount=tax.getBaseTax()*app.getArea();
+        }
+        if(app.getFamilyId()!=null){
+            List<Person> people = FamilyDAO.getAllFamilyMembers(app.getFamilyId());
+            for(Person p : people){
+                if(TimeUnit.DAYS.convert(System.currentTimeMillis()-p.getBirthdayDate().getTime(),TimeUnit.MILLISECONDS)/365>7){
+                    amount+= tax.getAppBaseTax();
+                }
+            }
+            if(FamilyDAO.getPet(app.getFamilyId())){
+                amount+=tax.getAppPetTax();
+            }
+        }
+        return amount;
+    }
+
+    public static double calculatePrice(long apartmentId, long buildingId){
         Apartment app = ApartmentDAO.getApartment(apartmentId, buildingId);
         Taxes appTax = TaxesDAO.getTaxes(app.getBuildingId());
         double amount=0;
-        if(app.getFamilyId()!=null){
+        if(app.getLandlordId()!=null){
             amount=appTax.getBaseTax()*app.getArea();
         }
         if(app.getFamilyId()!=null){
@@ -81,7 +104,17 @@ public class BuildingDAO {
                     amount+= appTax.getAppBaseTax();
                 }
             }
+            if(FamilyDAO.getPet(app.getFamilyId())){
+                amount+=appTax.getAppPetTax();
+            }
         }
+        return amount;
+    }
+
+    public static void paySpecificTax(long apartmentId, long buildingId){
+        Apartment app = ApartmentDAO.getApartment(apartmentId, buildingId);
+        Taxes appTax = TaxesDAO.getTaxes(app.getBuildingId());
+        double amount=BuildingDAO.calculatePrice(apartmentId, buildingId);
         long uid = LocalDate.now().getYear()*100+LocalDate.now().getMonthValue();
         TaxesHistory taxes = new TaxesHistory(uid,app.getApartmentId(), app.getBuildingId(),amount,true);
         if(TaxesHistoryDAO.getTaxesHistory(taxes.getTaxId(),taxes.getApartmentId(),taxes.getBuildingId())==null){

@@ -41,7 +41,7 @@ public class FamilyDAO {
         }
     }
 
-    public static Family getFamily(String familyId) {
+    public static Family getFamily(long familyId) {
         Family Family;
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
@@ -71,5 +71,10 @@ public class FamilyDAO {
     public static List<Person> getAllFamilyMembers(long familyId){
         List<String> peopleIds = PersonFamilyDAO.getSpecificPeopleIds(familyId);
         return PersonDAO.getSpecificPeopleData(peopleIds);
+    }
+
+    public static boolean getPet(long familyId){
+        Family f = FamilyDAO.getFamily(familyId);
+        return f.getPet();
     }
 }

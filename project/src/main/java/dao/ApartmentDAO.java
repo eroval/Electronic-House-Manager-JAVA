@@ -65,7 +65,14 @@ public class ApartmentDAO {
         }
     }
 
-    public static void deleteAllApartments(){
-
+    public static List<Apartment> getAllApartments(long buildingId){
+        List<Apartment> apartments;
+        try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            apartments = session.createQuery("FROM Apartment app WHERE app.buildingId=:buildingId")
+                                            .setParameter("buildingId",buildingId).getResultList();
+            transaction.commit();
+        }
+        return apartments;
     }
 }

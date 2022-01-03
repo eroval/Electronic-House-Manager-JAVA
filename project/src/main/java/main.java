@@ -1,3 +1,4 @@
+import CustomEvents.PaymentEvent;
 import PreloadClasses.PreloadTables;
 import dao.*;
 import entity.*;
@@ -5,7 +6,14 @@ import entity.*;
 import java.util.List;
 
 public class main {
+    private static void checkTaxesPeriodically(){
+        PaymentEvent p = new PaymentEvent();
+        Thread t = new Thread(p);
+        t.start();
+    }
+
     public static void main(String args[]) {
+        checkTaxesPeriodically();
         //PreloadTables.load();
         //System.out.println(EmployeeDAO.getEmployeesBelongingToOwnerCompany(1,2));
         //EmployeeBuildingDAO.readEmployeeBuildings();
