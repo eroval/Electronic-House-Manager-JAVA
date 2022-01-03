@@ -154,6 +154,16 @@ public class EmployeeBuildingDAO {
         return employeesInfo;
     }
 
+    public static List<EmployeeBuilding> getAllEmployeesAssociatedWithCompany(long companyId){
+        List<EmployeeBuilding> eb = new ArrayList<>();
+        try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            eb = session.createQuery("FROM EmployeeBuilding eb WHERE eb.companyId=:companyId")
+                    .setParameter("companyId",companyId).getResultList();
+            transaction.commit();
+        }
+        return eb;
+    }
 
     public static List<TaxesHistory> getAllUnpaidTaxes(long employeeId){
         List<TaxesHistory> th = new ArrayList<>();
@@ -161,6 +171,20 @@ public class EmployeeBuildingDAO {
             List<Long> buildingIds= EmployeeBuildingDAO.getAllBuildingIdsAssociatedWithEmployeeLong(employeeId);
             for(Long id : buildingIds){
                 th.addAll(BuildingDAO.getAllUnpaidTaxes(id));
+            }
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return th;
+    }
+
+    public static List<TaxesHistory> getAllPaidTaxes(long employeeId){
+        List<TaxesHistory> th = new ArrayList<>();
+        try{
+            List<Long> buildingIds= EmployeeBuildingDAO.getAllBuildingIdsAssociatedWithEmployeeLong(employeeId);
+            for(Long id : buildingIds){
+                th.addAll(BuildingDAO.getAllPaidTaxes(id));
             }
         }
         catch (Exception e){

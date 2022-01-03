@@ -232,4 +232,8 @@ public class BuildingDAO {
     public static List<TaxesHistory> getAllUnpaidTaxes(long buildingId){
         return TaxesHistoryDAO.getAllUnpaidTaxes(buildingId);
     }
+
+    public static List<TaxesHistory> getAllPaidTaxes(long buildingId){
+        return TaxesHistoryDAO.getAllPaidTaxes(buildingId);
+    }
 }

@@ -30,7 +30,15 @@ public class main {
 //        System.out.println(BuildingDAO.getAssociatedApartments(1));
 //        List<Person> p = BuildingDAO.getAllPeopleInTheBuilding(1);
 //        System.out.println(BuildingDAO.getAllUnpaidTaxes(3));
-//        System.out.println(EmployeeDAO.getAllUnpaidTaxes(5));
+//        System.out.println(EmployeeBuildingDAO.getAllUnpaidTaxes(5));
+//        System.out.println(OwnerCompanyDAO.getAllUnpaidTaxes(5));
+//        System.out.println(BuildingDAO.getAllPaidTaxes(3));
+//        System.out.println(EmployeeBuildingDAO.getAllPaidTaxes(5));
+//        System.out.println(OwnerCompanyDAO.getAllPaidTaxes(5));
+        //10 //actually works during each update and create of taxhistory
+        TaxesHistory th = new TaxesHistory(199800205, 2, 3, 234, true);
+        TaxesHistoryDAO.saveTaxesHistory(th);
+
 
     }
 

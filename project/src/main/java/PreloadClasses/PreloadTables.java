@@ -153,6 +153,7 @@ public class PreloadTables {
     }
 
     private static void preloadTaxesHistory(){
+
         BuildingDAO.paySpecificTax(2,3);
     }
 
@@ -162,10 +163,16 @@ public class PreloadTables {
         long uid2 = LocalDate.now().getYear()*100-2+LocalDate.now().getMonthValue();
         long uid3 = LocalDate.now().getYear()*100-3+LocalDate.now().getMonthValue();
         long uid4 = LocalDate.now().getYear()*100-4+LocalDate.now().getMonthValue();
-        arr.addAll(Arrays.asList(uid,uid2, uid3, uid4));
-        for(int i=0; i<4; i++){
-            TaxesHistory th = new TaxesHistory(arr.get(i),2,3,0,false);
-            TaxesHistoryDAO.saveTaxesHistory(th);
+        long uid5 = LocalDate.now().getYear()*100-5+LocalDate.now().getMonthValue();
+        arr.addAll(Arrays.asList(uid,uid2, uid3, uid4, uid5));
+        for(int i=0; i<arr.size(); i++){
+            try {
+                TaxesHistory th = new TaxesHistory(arr.get(i), 2, 3, 0, false);
+                TaxesHistoryDAO.saveTaxesHistory(th);
+            }
+            catch (Exception e){
+                System.out.println(e.getMessage());
+            }
         }
     }
 

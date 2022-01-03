@@ -6,7 +6,8 @@ import configuration.ConfigNames;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.io.*;
+import java.net.URL;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -38,6 +39,12 @@ public class TaxesHistory implements Serializable {
     @PrePersist
     protected void onCreate(){
         this.date = new Timestamp(new Date().getTime());
+        saveToFile(this.date);
+    }
+
+    @PreUpdate
+    protected  void onUpdate(){
+        saveToFile(this.date);
     }
 
     @ManyToOne
@@ -85,5 +92,27 @@ public class TaxesHistory implements Serializable {
                 ", amount=" + amount +
                 ", paid=" + paid +
                 '}';
+    }
+
+    private void saveToFile(Timestamp date){
+        if(this.paid==true) {
+            String directoryName = TaxesHistory.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "/";
+            String fileName = String.valueOf(this.getBuildingId()) + String.valueOf(this.getApartmentId()) + date.getTime() + ".txt";
+
+            File directory = new File(directoryName);
+            if (!directory.exists()) {
+                directory.mkdir();
+            }
+
+            File file = new File(directoryName + fileName);
+            try {
+                FileWriter fw = new FileWriter(file.getAbsoluteFile());
+                BufferedWriter bw = new BufferedWriter(fw);
+                bw.write(this.toString());
+                bw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

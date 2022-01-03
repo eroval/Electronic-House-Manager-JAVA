@@ -87,4 +87,15 @@ public class TaxesHistoryDAO {
         }
         return taxes;
     }
+
+    public static List<TaxesHistory> getAllPaidTaxes(long buildingId){
+        List<TaxesHistory> taxes= new ArrayList<>();
+        try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            taxes= session.createQuery("FROM TaxesHistory th WHERE th.buildingId=:buildingId AND paid=true")
+                    .setParameter("buildingId",buildingId).getResultList();
+            transaction.commit();
+        }
+        return taxes;
+    }
 }

@@ -247,4 +247,32 @@ public class OwnerCompanyDAO {
             return new LinkedList<>();
         }
     }
+
+    public static List<TaxesHistory> getAllUnpaidTaxes(long companyId){
+        List<TaxesHistory> th = new ArrayList<>();
+        try{
+            List<EmployeeBuilding> employeeBuildings = EmployeeBuildingDAO.getAllEmployeesAssociatedWithCompany(companyId);
+            for(EmployeeBuilding employeeBuilding : employeeBuildings){
+                th.addAll(BuildingDAO.getAllUnpaidTaxes(employeeBuilding.getBuildingId()));
+            }
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return th;
+    }
+
+    public static List<TaxesHistory> getAllPaidTaxes(long companyId){
+        List<TaxesHistory> th = new ArrayList<>();
+        try{
+            List<EmployeeBuilding> employeeBuildings = EmployeeBuildingDAO.getAllEmployeesAssociatedWithCompany(companyId);
+            for(EmployeeBuilding employeeBuilding : employeeBuildings){
+                th.addAll(BuildingDAO.getAllPaidTaxes(employeeBuilding.getBuildingId()));
+            }
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return th;
+    }
 }
