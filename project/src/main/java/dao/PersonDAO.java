@@ -2,6 +2,7 @@ package dao;
 
 import entity.Building;
 import entity.Person;
+import entity.PersonFamily;
 import entity.Taxes;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -76,5 +77,12 @@ public class PersonDAO {
             transaction.commit();
         }
         return people;
+    }
+
+    public static void deleteAll(){
+        List<Person> persons = PersonDAO.readPersons();
+        for(Person person : persons){
+            PersonDAO.deletePerson(person);
+        }
     }
 }

@@ -98,4 +98,11 @@ public class TaxesHistoryDAO {
         }
         return taxes;
     }
+
+    public static void deleteAll(){
+        List<TaxesHistory> taxesHistories = TaxesHistoryDAO.readTaxesHistorys();
+        for(TaxesHistory th : taxesHistories){
+            TaxesHistoryDAO.deleteTaxesHistory(th);
+        }
+    }
 }

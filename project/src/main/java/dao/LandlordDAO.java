@@ -1,6 +1,7 @@
 package dao;
 
 import entity.Landlord;
+import entity.OwnerCompany;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -61,6 +62,13 @@ public class LandlordDAO {
             Landlord Landlord = session.get(Landlord.class, landlordId);
             session.delete(Landlord);
             transaction.commit();
+        }
+    }
+
+    public static void deleteAll(){
+        List<Landlord> landlords = LandlordDAO.readLandlords();
+        for(Landlord landlord : landlords){
+            LandlordDAO.deleteLandlord(landlord);
         }
     }
 }

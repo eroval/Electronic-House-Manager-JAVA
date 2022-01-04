@@ -71,6 +71,22 @@ public class BuildingDAO {
         return ApartmentDAO.getAllApartments(building.getBuildingId());
     }
 
+    public static long getNumberOfAssociatedApartments(long buildingId){
+        return ApartmentDAO.getNumberOfApartmentsByBuilding(buildingId);
+    }
+
+    public static long getTotalNumberOfApartments(long buildingId){
+        Building b = BuildingDAO.getBuilding(buildingId);
+        System.out.println("WHAAAAAAT");
+        System.out.println(b.getNumberOfApartments());
+        System.out.println("WHAAAAAAT");
+        return b.getNumberOfApartments();
+    }
+
+    public static boolean checkAvailableApartments(long buildingId){
+        return getNumberOfAssociatedApartments(buildingId)<getTotalNumberOfApartments(buildingId);
+    }
+
     public static List<Apartment> getAssociatedApartments(long buildingId){
         return ApartmentDAO.getAllApartments(buildingId);
     }
@@ -235,5 +251,12 @@ public class BuildingDAO {
 
     public static List<TaxesHistory> getAllPaidTaxes(long buildingId){
         return TaxesHistoryDAO.getAllPaidTaxes(buildingId);
+    }
+
+    public static void deleteAll(){
+        List<Building> buildings = BuildingDAO.readBuildings();
+        for(Building building : buildings){
+            BuildingDAO.deleteBuilding(building);
+        }
     }
 }

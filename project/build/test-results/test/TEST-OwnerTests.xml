@@ -1,0 +1,977 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="OwnerTests" tests="16" skipped="0" failures="7" errors="0" timestamp="2022-01-04T22:20:25" hostname="DESKTOP-FGE1TNM" time="4.42">
+  <properties/>
+  <testcase name="preloadEmployeeBuildings()" classname="OwnerTests" time="3.509">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:137)
+	at OwnerTests.preloadEmployeeBuildings(OwnerTests.java:161)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:515)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:105)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:110)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:110)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:75)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:135)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+</failure>
+  </testcase>
+  <testcase name="preloadApartments()" classname="OwnerTests" time="0.249">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:137)
+	at OwnerTests.preloadApartments(OwnerTests.java:181)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:515)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:105)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:110)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:110)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:75)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:135)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+</failure>
+  </testcase>
+  <testcase name="preloadEmployees()" classname="OwnerTests" time="0.052">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:137)
+	at OwnerTests.preloadEmployees(OwnerTests.java:101)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:515)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:105)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:110)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:110)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:75)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:135)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+</failure>
+  </testcase>
+  <testcase name="preloadCompanies()" classname="OwnerTests" time="0.054"/>
+  <testcase name="preloadBuildings()" classname="OwnerTests" time="0.055"/>
+  <testcase name="preloadPersons()" classname="OwnerTests" time="0.057"/>
+  <testcase name="preloadOwnerCompanies()" classname="OwnerTests" time="0.014">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:137)
+	at OwnerTests.preloadOwnerCompanies(OwnerTests.java:81)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:515)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:105)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:110)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:110)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:75)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:135)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+</failure>
+  </testcase>
+  <testcase name="preloadApartmentsWithFamilies()" classname="OwnerTests" time="0.089">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:137)
+	at OwnerTests.preloadApartmentsWithFamilies(OwnerTests.java:278)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:515)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:105)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:110)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:110)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:75)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:135)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+</failure>
+  </testcase>
+  <testcase name="preloadPersonFamilies()" classname="OwnerTests" time="0.022">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:137)
+	at OwnerTests.preloadPersonFamilies(OwnerTests.java:244)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:515)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:105)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:110)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:110)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:75)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:135)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+</failure>
+  </testcase>
+  <testcase name="preloadUnpaidTaxesHistory()" classname="OwnerTests" time="0.09">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:137)
+	at OwnerTests.preloadUnpaidTaxesHistory(OwnerTests.java:316)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:515)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:105)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:110)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:110)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:71)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:75)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:135)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+</failure>
+  </testcase>
+  <testcase name="checkEgn()" classname="OwnerTests" time="0.001"/>
+  <testcase name="preloadTaxes()" classname="OwnerTests" time="0.038"/>
+  <testcase name="preloadLandlords()" classname="OwnerTests" time="0.021"/>
+  <testcase name="preloadTaxesHistory()" classname="OwnerTests" time="0.014"/>
+  <testcase name="preloadOwners()" classname="OwnerTests" time="0.071"/>
+  <testcase name="preloadFamilies()" classname="OwnerTests" time="0.068"/>
+  <system-out><![CDATA[[INFO ] 2022-01-05 00:20:26.965 [Test worker] Version - HHH000412: Hibernate Core {5.4.10.Final}
+[INFO ] 2022-01-05 00:20:26.976 [Test worker] Environment - HHH000205: Loaded properties from resource hibernate.properties: {hibernate.connection.driver_class=com.mysql.cj.jdbc.Driver, hibernate.dialect.storage_engine=innodb, hibernate.hbm2ddl.auto=update, hibernate.dialect=org.hibernate.dialect.MySQL5Dialect, hibernate.connection.password=****, hibernate.connection.username=sif, hibernate.connection.url=jdbc:mysql://localhost:3306/electronic_house, hibernate.bytecode.use_reflection_optimizer=false, hibernate.show_sql=true}
+[INFO ] 2022-01-05 00:20:27.172 [Test worker] Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[WARN ] 2022-01-05 00:20:27.292 [Test worker] pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[INFO ] 2022-01-05 00:20:27.298 [Test worker] pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/electronic_house]
+[INFO ] 2022-01-05 00:20:27.298 [Test worker] pooling - HHH10001001: Connection properties: {password=****, user=sif}
+[INFO ] 2022-01-05 00:20:27.298 [Test worker] pooling - HHH10001003: Autocommit mode: false
+[INFO ] 2022-01-05 00:20:27.302 [Test worker] DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+[INFO ] 2022-01-05 00:20:27.781 [Test worker] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[INFO ] 2022-01-05 00:20:28.821 [Test worker] access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2b03c5f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[DEBUG] 2022-01-05 00:20:28.856 [Test worker] SQL - create table _generatorbuildings (next_val bigint) engine=InnoDB
+Hibernate: create table _generatorbuildings (next_val bigint) engine=InnoDB
+[DEBUG] 2022-01-05 00:20:28.896 [Test worker] SQL - insert into _generatorbuildings values ( 1 )
+Hibernate: insert into _generatorbuildings values ( 1 )
+[DEBUG] 2022-01-05 00:20:28.905 [Test worker] SQL - create table _generatorcompanies (next_val bigint) engine=InnoDB
+Hibernate: create table _generatorcompanies (next_val bigint) engine=InnoDB
+[DEBUG] 2022-01-05 00:20:28.937 [Test worker] SQL - insert into _generatorcompanies values ( 1 )
+Hibernate: insert into _generatorcompanies values ( 1 )
+[DEBUG] 2022-01-05 00:20:28.945 [Test worker] SQL - create table _generatoremployees (next_val bigint) engine=InnoDB
+Hibernate: create table _generatoremployees (next_val bigint) engine=InnoDB
+[DEBUG] 2022-01-05 00:20:28.976 [Test worker] SQL - insert into _generatoremployees values ( 1 )
+Hibernate: insert into _generatoremployees values ( 1 )
+[DEBUG] 2022-01-05 00:20:28.985 [Test worker] SQL - create table _generatorfamilies (next_val bigint) engine=InnoDB
+Hibernate: create table _generatorfamilies (next_val bigint) engine=InnoDB
+[DEBUG] 2022-01-05 00:20:29.021 [Test worker] SQL - insert into _generatorfamilies values ( 1 )
+Hibernate: insert into _generatorfamilies values ( 1 )
+[DEBUG] 2022-01-05 00:20:29.033 [Test worker] SQL - create table _generatorowners (next_val bigint) engine=InnoDB
+Hibernate: create table _generatorowners (next_val bigint) engine=InnoDB
+[DEBUG] 2022-01-05 00:20:29.069 [Test worker] SQL - insert into _generatorowners values ( 1 )
+Hibernate: insert into _generatorowners values ( 1 )
+[INFO ] 2022-01-05 00:20:29.288 [Test worker] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[DEBUG] 2022-01-05 00:20:29.422 [Test worker] SQL - insert into employee_building (building_id, company_id, employee_id, owner_id) values (?, ?, ?, ?)
+Hibernate: insert into employee_building (building_id, company_id, employee_id, owner_id) values (?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.428 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [1]
+[TRACE] 2022-01-05 00:20:29.428 [Test worker] BasicBinder - binding parameter [2] as [BIGINT] - [1]
+[TRACE] 2022-01-05 00:20:29.428 [Test worker] BasicBinder - binding parameter [3] as [BIGINT] - [4]
+[TRACE] 2022-01-05 00:20:29.429 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [2]
+[WARN ] 2022-01-05 00:20:29.445 [Test worker] SqlExceptionHelper - SQL Error: 1452, SQLState: 23000
+[ERROR] 2022-01-05 00:20:29.445 [Test worker] SqlExceptionHelper - Cannot add or update a child row: a foreign key constraint fails (`electronic_house`.`employee_building`, CONSTRAINT `fk_employee_building_building1` FOREIGN KEY (`building_id`) REFERENCES `building` (`building_id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+org.hibernate.exception.ConstraintViolationException: could not execute statement
+[DEBUG] 2022-01-05 00:20:29.689 [Test worker] SQL - select count(*) as col_0_0_ from apartment apartment0_ where apartment0_.building_id=?
+Hibernate: select count(*) as col_0_0_ from apartment apartment0_ where apartment0_.building_id=?
+[TRACE] 2022-01-05 00:20:29.690 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [1]
+[TRACE] 2022-01-05 00:20:29.696 [Test worker] BasicExtractor - extracted value ([col_0_0_] : [BIGINT]) - [0]
+[DEBUG] 2022-01-05 00:20:29.708 [Test worker] SQL - select building0_.building_id as building1_1_0_, building0_.address as address2_1_0_, building0_.area_common as area_com3_1_0_, building0_.area_total as area_tot4_1_0_, building0_.number_of_apartments as number_o5_1_0_, building0_.number_of_floors as number_o6_1_0_ from building building0_ where building0_.building_id=?
+Hibernate: select building0_.building_id as building1_1_0_, building0_.address as address2_1_0_, building0_.area_common as area_com3_1_0_, building0_.area_total as area_tot4_1_0_, building0_.number_of_apartments as number_o5_1_0_, building0_.number_of_floors as number_o6_1_0_ from building building0_ where building0_.building_id=?
+[TRACE] 2022-01-05 00:20:29.709 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [1]
+WHAAAAAAT
+null
+[DEBUG] 2022-01-05 00:20:29.736 [Test worker] SQL - select next_val as id_val from _generatoremployees for update
+Hibernate: select next_val as id_val from _generatoremployees for update
+[DEBUG] 2022-01-05 00:20:29.738 [Test worker] SQL - update _generatoremployees set next_val= ? where next_val=?
+Hibernate: update _generatoremployees set next_val= ? where next_val=?
+[DEBUG] 2022-01-05 00:20:29.749 [Test worker] SQL - select next_val as id_val from _generatoremployees for update
+Hibernate: select next_val as id_val from _generatoremployees for update
+[DEBUG] 2022-01-05 00:20:29.752 [Test worker] SQL - update _generatoremployees set next_val= ? where next_val=?
+Hibernate: update _generatoremployees set next_val= ? where next_val=?
+[DEBUG] 2022-01-05 00:20:29.763 [Test worker] SQL - insert into employee (f_name, l_name, company_id, employee_id, owner_id) values (?, ?, ?, ?, ?)
+Hibernate: insert into employee (f_name, l_name, company_id, employee_id, owner_id) values (?, ?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.764 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Larry]
+[TRACE] 2022-01-05 00:20:29.764 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Gasparov]
+[TRACE] 2022-01-05 00:20:29.764 [Test worker] BasicBinder - binding parameter [3] as [BIGINT] - [1]
+[TRACE] 2022-01-05 00:20:29.765 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [1]
+[TRACE] 2022-01-05 00:20:29.765 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [2]
+[WARN ] 2022-01-05 00:20:29.767 [Test worker] SqlExceptionHelper - SQL Error: 1452, SQLState: 23000
+[ERROR] 2022-01-05 00:20:29.768 [Test worker] SqlExceptionHelper - Cannot add or update a child row: a foreign key constraint fails (`electronic_house`.`employee`, CONSTRAINT `fk_employee_owner_company1` FOREIGN KEY (`company_id`, `owner_id`) REFERENCES `owner_company` (`company_id`, `owner_id`) ON DELETE CASCADE ON UPDATE )
+org.hibernate.exception.ConstraintViolationException: could not execute statement
+[DEBUG] 2022-01-05 00:20:29.781 [Test worker] SQL - select next_val as id_val from _generatorcompanies for update
+Hibernate: select next_val as id_val from _generatorcompanies for update
+[DEBUG] 2022-01-05 00:20:29.784 [Test worker] SQL - update _generatorcompanies set next_val= ? where next_val=?
+Hibernate: update _generatorcompanies set next_val= ? where next_val=?
+[DEBUG] 2022-01-05 00:20:29.793 [Test worker] SQL - select next_val as id_val from _generatorcompanies for update
+Hibernate: select next_val as id_val from _generatorcompanies for update
+[DEBUG] 2022-01-05 00:20:29.795 [Test worker] SQL - update _generatorcompanies set next_val= ? where next_val=?
+Hibernate: update _generatorcompanies set next_val= ? where next_val=?
+[DEBUG] 2022-01-05 00:20:29.804 [Test worker] SQL - insert into company (address, name, company_id) values (?, ?, ?)
+Hibernate: insert into company (address, name, company_id) values (?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.805 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Sofia]
+[TRACE] 2022-01-05 00:20:29.805 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Cisco]
+[TRACE] 2022-01-05 00:20:29.805 [Test worker] BasicBinder - binding parameter [3] as [BIGINT] - [1]
+[DEBUG] 2022-01-05 00:20:29.808 [Test worker] SQL - insert into company (address, name, company_id) values (?, ?, ?)
+Hibernate: insert into company (address, name, company_id) values (?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.809 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Sofia]
+[TRACE] 2022-01-05 00:20:29.809 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [DXC]
+[TRACE] 2022-01-05 00:20:29.809 [Test worker] BasicBinder - binding parameter [3] as [BIGINT] - [2]
+[DEBUG] 2022-01-05 00:20:29.811 [Test worker] SQL - insert into company (address, name, company_id) values (?, ?, ?)
+Hibernate: insert into company (address, name, company_id) values (?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.812 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Sofia]
+[TRACE] 2022-01-05 00:20:29.812 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Hyperscience]
+[TRACE] 2022-01-05 00:20:29.813 [Test worker] BasicBinder - binding parameter [3] as [BIGINT] - [3]
+[DEBUG] 2022-01-05 00:20:29.815 [Test worker] SQL - insert into company (address, name, company_id) values (?, ?, ?)
+Hibernate: insert into company (address, name, company_id) values (?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.815 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Sofia]
+[TRACE] 2022-01-05 00:20:29.816 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Uber]
+[TRACE] 2022-01-05 00:20:29.816 [Test worker] BasicBinder - binding parameter [3] as [BIGINT] - [4]
+[DEBUG] 2022-01-05 00:20:29.819 [Test worker] SQL - insert into company (address, name, company_id) values (?, ?, ?)
+Hibernate: insert into company (address, name, company_id) values (?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.819 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Sofia]
+[TRACE] 2022-01-05 00:20:29.819 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [IBM]
+[TRACE] 2022-01-05 00:20:29.820 [Test worker] BasicBinder - binding parameter [3] as [BIGINT] - [5]
+[DEBUG] 2022-01-05 00:20:29.834 [Test worker] SQL - select next_val as id_val from _generatorbuildings for update
+Hibernate: select next_val as id_val from _generatorbuildings for update
+[DEBUG] 2022-01-05 00:20:29.837 [Test worker] SQL - update _generatorbuildings set next_val= ? where next_val=?
+Hibernate: update _generatorbuildings set next_val= ? where next_val=?
+[DEBUG] 2022-01-05 00:20:29.847 [Test worker] SQL - select next_val as id_val from _generatorbuildings for update
+Hibernate: select next_val as id_val from _generatorbuildings for update
+[DEBUG] 2022-01-05 00:20:29.849 [Test worker] SQL - update _generatorbuildings set next_val= ? where next_val=?
+Hibernate: update _generatorbuildings set next_val= ? where next_val=?
+[DEBUG] 2022-01-05 00:20:29.860 [Test worker] SQL - insert into building (address, area_common, area_total, number_of_apartments, number_of_floors, building_id) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into building (address, area_common, area_total, number_of_apartments, number_of_floors, building_id) values (?, ?, ?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.861 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Sofia]
+[TRACE] 2022-01-05 00:20:29.861 [Test worker] BasicBinder - binding parameter [2] as [DOUBLE] - [40.0]
+[TRACE] 2022-01-05 00:20:29.861 [Test worker] BasicBinder - binding parameter [3] as [DOUBLE] - [1000.0]
+[TRACE] 2022-01-05 00:20:29.862 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [10]
+[TRACE] 2022-01-05 00:20:29.862 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [2]
+[TRACE] 2022-01-05 00:20:29.862 [Test worker] BasicBinder - binding parameter [6] as [BIGINT] - [1]
+[DEBUG] 2022-01-05 00:20:29.864 [Test worker] SQL - insert into building (address, area_common, area_total, number_of_apartments, number_of_floors, building_id) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into building (address, area_common, area_total, number_of_apartments, number_of_floors, building_id) values (?, ?, ?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.864 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Sofia]
+[TRACE] 2022-01-05 00:20:29.865 [Test worker] BasicBinder - binding parameter [2] as [DOUBLE] - [10.0]
+[TRACE] 2022-01-05 00:20:29.865 [Test worker] BasicBinder - binding parameter [3] as [DOUBLE] - [1200.0]
+[TRACE] 2022-01-05 00:20:29.865 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [12]
+[TRACE] 2022-01-05 00:20:29.865 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [4]
+[TRACE] 2022-01-05 00:20:29.865 [Test worker] BasicBinder - binding parameter [6] as [BIGINT] - [2]
+[DEBUG] 2022-01-05 00:20:29.868 [Test worker] SQL - insert into building (address, area_common, area_total, number_of_apartments, number_of_floors, building_id) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into building (address, area_common, area_total, number_of_apartments, number_of_floors, building_id) values (?, ?, ?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.868 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Sofia]
+[TRACE] 2022-01-05 00:20:29.869 [Test worker] BasicBinder - binding parameter [2] as [DOUBLE] - [35.0]
+[TRACE] 2022-01-05 00:20:29.869 [Test worker] BasicBinder - binding parameter [3] as [DOUBLE] - [1536.0]
+[TRACE] 2022-01-05 00:20:29.869 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [15]
+[TRACE] 2022-01-05 00:20:29.869 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [15]
+[TRACE] 2022-01-05 00:20:29.869 [Test worker] BasicBinder - binding parameter [6] as [BIGINT] - [3]
+[DEBUG] 2022-01-05 00:20:29.871 [Test worker] SQL - insert into building (address, area_common, area_total, number_of_apartments, number_of_floors, building_id) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into building (address, area_common, area_total, number_of_apartments, number_of_floors, building_id) values (?, ?, ?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.872 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Sofia]
+[TRACE] 2022-01-05 00:20:29.872 [Test worker] BasicBinder - binding parameter [2] as [DOUBLE] - [32.0]
+[TRACE] 2022-01-05 00:20:29.872 [Test worker] BasicBinder - binding parameter [3] as [DOUBLE] - [290.0]
+[TRACE] 2022-01-05 00:20:29.873 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [3]
+[TRACE] 2022-01-05 00:20:29.873 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [2]
+[TRACE] 2022-01-05 00:20:29.873 [Test worker] BasicBinder - binding parameter [6] as [BIGINT] - [4]
+[DEBUG] 2022-01-05 00:20:29.875 [Test worker] SQL - insert into building (address, area_common, area_total, number_of_apartments, number_of_floors, building_id) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into building (address, area_common, area_total, number_of_apartments, number_of_floors, building_id) values (?, ?, ?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.875 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Sofia]
+[TRACE] 2022-01-05 00:20:29.875 [Test worker] BasicBinder - binding parameter [2] as [DOUBLE] - [47.0]
+[TRACE] 2022-01-05 00:20:29.876 [Test worker] BasicBinder - binding parameter [3] as [DOUBLE] - [2903.0]
+[TRACE] 2022-01-05 00:20:29.876 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [10]
+[TRACE] 2022-01-05 00:20:29.876 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [10]
+[TRACE] 2022-01-05 00:20:29.876 [Test worker] BasicBinder - binding parameter [6] as [BIGINT] - [5]
+[DEBUG] 2022-01-05 00:20:29.895 [Test worker] SQL - insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+Hibernate: insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.902 [Test worker] BasicBinder - binding parameter [1] as [TIMESTAMP] - [Mon May 24 00:00:00 EET 1954]
+[TRACE] 2022-01-05 00:20:29.903 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Lazar]
+[TRACE] 2022-01-05 00:20:29.903 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Looner]
+[TRACE] 2022-01-05 00:20:29.904 [Test worker] BasicBinder - binding parameter [4] as [VARCHAR] - [5405243487]
+[DEBUG] 2022-01-05 00:20:29.906 [Test worker] SQL - insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+Hibernate: insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.907 [Test worker] BasicBinder - binding parameter [1] as [TIMESTAMP] - [Tue Jul 13 00:00:00 EET 1926]
+[TRACE] 2022-01-05 00:20:29.907 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Eugene]
+[TRACE] 2022-01-05 00:20:29.907 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Darius]
+[TRACE] 2022-01-05 00:20:29.908 [Test worker] BasicBinder - binding parameter [4] as [VARCHAR] - [2607133566]
+[DEBUG] 2022-01-05 00:20:29.910 [Test worker] SQL - insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+Hibernate: insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.910 [Test worker] BasicBinder - binding parameter [1] as [TIMESTAMP] - [Thu May 06 00:00:00 EET 1965]
+[TRACE] 2022-01-05 00:20:29.910 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Sandra]
+[TRACE] 2022-01-05 00:20:29.911 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Zaralik]
+[TRACE] 2022-01-05 00:20:29.911 [Test worker] BasicBinder - binding parameter [4] as [VARCHAR] - [6505063276]
+[DEBUG] 2022-01-05 00:20:29.913 [Test worker] SQL - insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+Hibernate: insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.913 [Test worker] BasicBinder - binding parameter [1] as [TIMESTAMP] - [Fri Nov 08 00:00:00 EET 1935]
+[TRACE] 2022-01-05 00:20:29.913 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Harry]
+[TRACE] 2022-01-05 00:20:29.914 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Potter]
+[TRACE] 2022-01-05 00:20:29.914 [Test worker] BasicBinder - binding parameter [4] as [VARCHAR] - [3511083276]
+[DEBUG] 2022-01-05 00:20:29.916 [Test worker] SQL - insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+Hibernate: insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.916 [Test worker] BasicBinder - binding parameter [1] as [TIMESTAMP] - [Fri Mar 24 00:00:00 EET 1944]
+[TRACE] 2022-01-05 00:20:29.917 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Peter]
+[TRACE] 2022-01-05 00:20:29.917 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Parker]
+[TRACE] 2022-01-05 00:20:29.918 [Test worker] BasicBinder - binding parameter [4] as [VARCHAR] - [4403243276]
+[DEBUG] 2022-01-05 00:20:29.919 [Test worker] SQL - insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+Hibernate: insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.920 [Test worker] BasicBinder - binding parameter [1] as [TIMESTAMP] - [Sun Jan 04 00:00:00 EET 1970]
+[TRACE] 2022-01-05 00:20:29.920 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Ivan]
+[TRACE] 2022-01-05 00:20:29.921 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Looner]
+[TRACE] 2022-01-05 00:20:29.921 [Test worker] BasicBinder - binding parameter [4] as [VARCHAR] - [7001041162]
+[DEBUG] 2022-01-05 00:20:29.923 [Test worker] SQL - insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+Hibernate: insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.923 [Test worker] BasicBinder - binding parameter [1] as [TIMESTAMP] - [Mon Feb 02 00:00:00 EET 1970]
+[TRACE] 2022-01-05 00:20:29.924 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Petar]
+[TRACE] 2022-01-05 00:20:29.924 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Darius]
+[TRACE] 2022-01-05 00:20:29.924 [Test worker] BasicBinder - binding parameter [4] as [VARCHAR] - [7002020170]
+[DEBUG] 2022-01-05 00:20:29.926 [Test worker] SQL - insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+Hibernate: insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.926 [Test worker] BasicBinder - binding parameter [1] as [TIMESTAMP] - [Thu Feb 20 00:00:00 EET 1964]
+[TRACE] 2022-01-05 00:20:29.927 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Vanya]
+[TRACE] 2022-01-05 00:20:29.927 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Zaralik]
+[TRACE] 2022-01-05 00:20:29.927 [Test worker] BasicBinder - binding parameter [4] as [VARCHAR] - [6402206837]
+[DEBUG] 2022-01-05 00:20:29.929 [Test worker] SQL - insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+Hibernate: insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.929 [Test worker] BasicBinder - binding parameter [1] as [TIMESTAMP] - [Mon May 12 00:00:00 EEST 1986]
+[TRACE] 2022-01-05 00:20:29.930 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Loren]
+[TRACE] 2022-01-05 00:20:29.930 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Potter]
+[TRACE] 2022-01-05 00:20:29.931 [Test worker] BasicBinder - binding parameter [4] as [VARCHAR] - [8605121040]
+[DEBUG] 2022-01-05 00:20:29.933 [Test worker] SQL - insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+Hibernate: insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:29.933 [Test worker] BasicBinder - binding parameter [1] as [TIMESTAMP] - [Thu Jun 08 00:00:00 EEST 1995]
+[TRACE] 2022-01-05 00:20:29.934 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Spider]
+[TRACE] 2022-01-05 00:20:29.934 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Man]
+[TRACE] 2022-01-05 00:20:29.935 [Test worker] BasicBinder - binding parameter [4] as [VARCHAR] - [9506089805]
+[DEBUG] 2022-01-05 00:20:29.949 [Test worker] SQL - insert into owner_company (company_id, owner_id) values (?, ?)
+Hibernate: insert into owner_company (company_id, owner_id) values (?, ?)
+[TRACE] 2022-01-05 00:20:29.950 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [3]
+[TRACE] 2022-01-05 00:20:29.950 [Test worker] BasicBinder - binding parameter [2] as [BIGINT] - [1]
+[WARN ] 2022-01-05 00:20:29.953 [Test worker] SqlExceptionHelper - SQL Error: 1452, SQLState: 23000
+[ERROR] 2022-01-05 00:20:29.953 [Test worker] SqlExceptionHelper - Cannot add or update a child row: a foreign key constraint fails (`electronic_house`.`owner_company`, CONSTRAINT `fk_owner_company_owner1` FOREIGN KEY (`owner_id`) REFERENCES `owner` (`owner_id`) ON UPDATE CASCADE)
+org.hibernate.exception.ConstraintViolationException: could not execute statement
+[DEBUG] 2022-01-05 00:20:29.964 [Test worker] SQL - select count(*) as col_0_0_ from apartment apartment0_ where apartment0_.building_id=?
+Hibernate: select count(*) as col_0_0_ from apartment apartment0_ where apartment0_.building_id=?
+[TRACE] 2022-01-05 00:20:29.964 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [3]
+[TRACE] 2022-01-05 00:20:29.967 [Test worker] BasicExtractor - extracted value ([col_0_0_] : [BIGINT]) - [0]
+[DEBUG] 2022-01-05 00:20:29.972 [Test worker] SQL - select building0_.building_id as building1_1_0_, building0_.address as address2_1_0_, building0_.area_common as area_com3_1_0_, building0_.area_total as area_tot4_1_0_, building0_.number_of_apartments as number_o5_1_0_, building0_.number_of_floors as number_o6_1_0_ from building building0_ where building0_.building_id=?
+Hibernate: select building0_.building_id as building1_1_0_, building0_.address as address2_1_0_, building0_.area_common as area_com3_1_0_, building0_.area_total as area_tot4_1_0_, building0_.number_of_apartments as number_o5_1_0_, building0_.number_of_floors as number_o6_1_0_ from building building0_ where building0_.building_id=?
+[TRACE] 2022-01-05 00:20:29.972 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [3]
+[TRACE] 2022-01-05 00:20:29.977 [Test worker] BasicExtractor - extracted value ([address2_1_0_] : [VARCHAR]) - [Sofia]
+[TRACE] 2022-01-05 00:20:29.978 [Test worker] BasicExtractor - extracted value ([area_com3_1_0_] : [DOUBLE]) - [35.0]
+[TRACE] 2022-01-05 00:20:29.978 [Test worker] BasicExtractor - extracted value ([area_tot4_1_0_] : [DOUBLE]) - [1536.0]
+[TRACE] 2022-01-05 00:20:29.979 [Test worker] BasicExtractor - extracted value ([number_o5_1_0_] : [BIGINT]) - [15]
+[TRACE] 2022-01-05 00:20:29.979 [Test worker] BasicExtractor - extracted value ([number_o6_1_0_] : [BIGINT]) - [15]
+[DEBUG] 2022-01-05 00:20:29.995 [Test worker] SQL - select employeebu0_.building_id as building1_4_3_, employeebu0_.company_id as company_2_4_3_, employeebu0_.employee_id as employee3_4_3_, employeebu0_.owner_id as owner_id4_4_3_, building1_.building_id as building1_1_0_, building1_.address as address2_1_0_, building1_.area_common as area_com3_1_0_, building1_.area_total as area_tot4_1_0_, building1_.number_of_apartments as number_o5_1_0_, building1_.number_of_floors as number_o6_1_0_, employee2_.company_id as company_1_3_1_, employee2_.employee_id as employee2_3_1_, employee2_.owner_id as owner_id3_3_1_, employee2_.f_name as f_name4_3_1_, employee2_.l_name as l_name5_3_1_, ownercompa3_.company_id as company_1_8_2_, ownercompa3_.owner_id as owner_id2_8_2_ from employee_building employeebu0_ left outer join building building1_ on employeebu0_.building_id=building1_.building_id left outer join employee employee2_ on employeebu0_.company_id=employee2_.company_id and employeebu0_.employee_id=employee2_.employee_id and employeebu0_.owner_id=employee2_.owner_id left outer join owner_company ownercompa3_ on employee2_.company_id=ownercompa3_.company_id and employee2_.owner_id=ownercompa3_.owner_id where employeebu0_.building_id=?
+Hibernate: select employeebu0_.building_id as building1_4_3_, employeebu0_.company_id as company_2_4_3_, employeebu0_.employee_id as employee3_4_3_, employeebu0_.owner_id as owner_id4_4_3_, building1_.building_id as building1_1_0_, building1_.address as address2_1_0_, building1_.area_common as area_com3_1_0_, building1_.area_total as area_tot4_1_0_, building1_.number_of_apartments as number_o5_1_0_, building1_.number_of_floors as number_o6_1_0_, employee2_.company_id as company_1_3_1_, employee2_.employee_id as employee2_3_1_, employee2_.owner_id as owner_id3_3_1_, employee2_.f_name as f_name4_3_1_, employee2_.l_name as l_name5_3_1_, ownercompa3_.company_id as company_1_8_2_, ownercompa3_.owner_id as owner_id2_8_2_ from employee_building employeebu0_ left outer join building building1_ on employeebu0_.building_id=building1_.building_id left outer join employee employee2_ on employeebu0_.company_id=employee2_.company_id and employeebu0_.employee_id=employee2_.employee_id and employeebu0_.owner_id=employee2_.owner_id left outer join owner_company ownercompa3_ on employee2_.company_id=ownercompa3_.company_id and employee2_.owner_id=ownercompa3_.owner_id where employeebu0_.building_id=?
+[TRACE] 2022-01-05 00:20:29.995 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [3]
+[DEBUG] 2022-01-05 00:20:29.998 [Test worker] SQL - select taxes0_.building_id as building1_11_0_, taxes0_.app_base_tax as app_base2_11_0_, taxes0_.app_pet_tax as app_pet_3_11_0_, taxes0_.base_tax as base_tax4_11_0_, taxes0_.tax_due_date as tax_due_5_11_0_ from taxes taxes0_ where taxes0_.building_id=?
+Hibernate: select taxes0_.building_id as building1_11_0_, taxes0_.app_base_tax as app_base2_11_0_, taxes0_.app_pet_tax as app_pet_3_11_0_, taxes0_.base_tax as base_tax4_11_0_, taxes0_.tax_due_date as tax_due_5_11_0_ from taxes taxes0_ where taxes0_.building_id=?
+[TRACE] 2022-01-05 00:20:29.998 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [3]
+WHAAAAAAT
+15
+WHAAAAAAT
+[DEBUG] 2022-01-05 00:20:30.012 [Test worker] SQL - select count(*) as col_0_0_ from apartment apartment0_ where apartment0_.building_id=?
+Hibernate: select count(*) as col_0_0_ from apartment apartment0_ where apartment0_.building_id=?
+[TRACE] 2022-01-05 00:20:30.012 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [1]
+[TRACE] 2022-01-05 00:20:30.014 [Test worker] BasicExtractor - extracted value ([col_0_0_] : [BIGINT]) - [0]
+[DEBUG] 2022-01-05 00:20:30.020 [Test worker] SQL - select building0_.building_id as building1_1_0_, building0_.address as address2_1_0_, building0_.area_common as area_com3_1_0_, building0_.area_total as area_tot4_1_0_, building0_.number_of_apartments as number_o5_1_0_, building0_.number_of_floors as number_o6_1_0_ from building building0_ where building0_.building_id=?
+Hibernate: select building0_.building_id as building1_1_0_, building0_.address as address2_1_0_, building0_.area_common as area_com3_1_0_, building0_.area_total as area_tot4_1_0_, building0_.number_of_apartments as number_o5_1_0_, building0_.number_of_floors as number_o6_1_0_ from building building0_ where building0_.building_id=?
+[TRACE] 2022-01-05 00:20:30.021 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [1]
+[TRACE] 2022-01-05 00:20:30.024 [Test worker] BasicExtractor - extracted value ([address2_1_0_] : [VARCHAR]) - [Sofia]
+[TRACE] 2022-01-05 00:20:30.024 [Test worker] BasicExtractor - extracted value ([area_com3_1_0_] : [DOUBLE]) - [40.0]
+[TRACE] 2022-01-05 00:20:30.024 [Test worker] BasicExtractor - extracted value ([area_tot4_1_0_] : [DOUBLE]) - [1000.0]
+[TRACE] 2022-01-05 00:20:30.024 [Test worker] BasicExtractor - extracted value ([number_o5_1_0_] : [BIGINT]) - [10]
+[TRACE] 2022-01-05 00:20:30.024 [Test worker] BasicExtractor - extracted value ([number_o6_1_0_] : [BIGINT]) - [2]
+[DEBUG] 2022-01-05 00:20:30.024 [Test worker] SQL - select employeebu0_.building_id as building1_4_3_, employeebu0_.company_id as company_2_4_3_, employeebu0_.employee_id as employee3_4_3_, employeebu0_.owner_id as owner_id4_4_3_, building1_.building_id as building1_1_0_, building1_.address as address2_1_0_, building1_.area_common as area_com3_1_0_, building1_.area_total as area_tot4_1_0_, building1_.number_of_apartments as number_o5_1_0_, building1_.number_of_floors as number_o6_1_0_, employee2_.company_id as company_1_3_1_, employee2_.employee_id as employee2_3_1_, employee2_.owner_id as owner_id3_3_1_, employee2_.f_name as f_name4_3_1_, employee2_.l_name as l_name5_3_1_, ownercompa3_.company_id as company_1_8_2_, ownercompa3_.owner_id as owner_id2_8_2_ from employee_building employeebu0_ left outer join building building1_ on employeebu0_.building_id=building1_.building_id left outer join employee employee2_ on employeebu0_.company_id=employee2_.company_id and employeebu0_.employee_id=employee2_.employee_id and employeebu0_.owner_id=employee2_.owner_id left outer join owner_company ownercompa3_ on employee2_.company_id=ownercompa3_.company_id and employee2_.owner_id=ownercompa3_.owner_id where employeebu0_.building_id=?
+Hibernate: select employeebu0_.building_id as building1_4_3_, employeebu0_.company_id as company_2_4_3_, employeebu0_.employee_id as employee3_4_3_, employeebu0_.owner_id as owner_id4_4_3_, building1_.building_id as building1_1_0_, building1_.address as address2_1_0_, building1_.area_common as area_com3_1_0_, building1_.area_total as area_tot4_1_0_, building1_.number_of_apartments as number_o5_1_0_, building1_.number_of_floors as number_o6_1_0_, employee2_.company_id as company_1_3_1_, employee2_.employee_id as employee2_3_1_, employee2_.owner_id as owner_id3_3_1_, employee2_.f_name as f_name4_3_1_, employee2_.l_name as l_name5_3_1_, ownercompa3_.company_id as company_1_8_2_, ownercompa3_.owner_id as owner_id2_8_2_ from employee_building employeebu0_ left outer join building building1_ on employeebu0_.building_id=building1_.building_id left outer join employee employee2_ on employeebu0_.company_id=employee2_.company_id and employeebu0_.employee_id=employee2_.employee_id and employeebu0_.owner_id=employee2_.owner_id left outer join owner_company ownercompa3_ on employee2_.company_id=ownercompa3_.company_id and employee2_.owner_id=ownercompa3_.owner_id where employeebu0_.building_id=?
+[TRACE] 2022-01-05 00:20:30.025 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [1]
+[DEBUG] 2022-01-05 00:20:30.027 [Test worker] SQL - select taxes0_.building_id as building1_11_0_, taxes0_.app_base_tax as app_base2_11_0_, taxes0_.app_pet_tax as app_pet_3_11_0_, taxes0_.base_tax as base_tax4_11_0_, taxes0_.tax_due_date as tax_due_5_11_0_ from taxes taxes0_ where taxes0_.building_id=?
+Hibernate: select taxes0_.building_id as building1_11_0_, taxes0_.app_base_tax as app_base2_11_0_, taxes0_.app_pet_tax as app_pet_3_11_0_, taxes0_.base_tax as base_tax4_11_0_, taxes0_.tax_due_date as tax_due_5_11_0_ from taxes taxes0_ where taxes0_.building_id=?
+[TRACE] 2022-01-05 00:20:30.027 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [1]
+WHAAAAAAT
+10
+WHAAAAAAT
+[DEBUG] 2022-01-05 00:20:30.034 [Test worker] SQL - insert into apartment (area, family_id, landlord_id, apartment_id, building_id) values (?, ?, ?, ?, ?)
+Hibernate: insert into apartment (area, family_id, landlord_id, apartment_id, building_id) values (?, ?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:30.034 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [30.0]
+[TRACE] 2022-01-05 00:20:30.035 [Test worker] BasicBinder - binding parameter [2] as [BIGINT] - [1]
+[TRACE] 2022-01-05 00:20:30.035 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [3511083276]
+[TRACE] 2022-01-05 00:20:30.036 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [2]
+[TRACE] 2022-01-05 00:20:30.036 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [3]
+[WARN ] 2022-01-05 00:20:30.038 [Test worker] SqlExceptionHelper - SQL Error: 1452, SQLState: 23000
+[ERROR] 2022-01-05 00:20:30.038 [Test worker] SqlExceptionHelper - Cannot add or update a child row: a foreign key constraint fails (`electronic_house`.`apartment`, CONSTRAINT `fk_apartment_family1` FOREIGN KEY (`family_id`) REFERENCES `family` (`family_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+org.hibernate.exception.ConstraintViolationException: could not execute statement
+[DEBUG] 2022-01-05 00:20:30.059 [Test worker] SQL - insert into person_family (family_id, person_id) values (?, ?)
+Hibernate: insert into person_family (family_id, person_id) values (?, ?)
+[TRACE] 2022-01-05 00:20:30.060 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [1]
+[TRACE] 2022-01-05 00:20:30.060 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [5405243487]
+[WARN ] 2022-01-05 00:20:30.063 [Test worker] SqlExceptionHelper - SQL Error: 1452, SQLState: 23000
+[ERROR] 2022-01-05 00:20:30.063 [Test worker] SqlExceptionHelper - Cannot add or update a child row: a foreign key constraint fails (`electronic_house`.`person_family`, CONSTRAINT `fk_person_family_family1` FOREIGN KEY (`family_id`) REFERENCES `family` (`family_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+org.hibernate.exception.ConstraintViolationException: could not execute statement
+[DEBUG] 2022-01-05 00:20:30.088 [Test worker] SQL - insert into taxes_history (amount, date, paid, apartment_id, building_id, tax_id) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into taxes_history (amount, date, paid, apartment_id, building_id, tax_id) values (?, ?, ?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:30.089 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [0.0]
+[TRACE] 2022-01-05 00:20:30.089 [Test worker] BasicBinder - binding parameter [2] as [TIMESTAMP] - [2022-01-05 00:20:30.087]
+[TRACE] 2022-01-05 00:20:30.090 [Test worker] BasicBinder - binding parameter [3] as [BOOLEAN] - [false]
+[TRACE] 2022-01-05 00:20:30.091 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [2]
+[TRACE] 2022-01-05 00:20:30.091 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [3]
+[TRACE] 2022-01-05 00:20:30.091 [Test worker] BasicBinder - binding parameter [6] as [BIGINT] - [202200]
+[WARN ] 2022-01-05 00:20:30.099 [Test worker] SqlExceptionHelper - SQL Error: 1452, SQLState: 23000
+[ERROR] 2022-01-05 00:20:30.099 [Test worker] SqlExceptionHelper - Cannot add or update a child row: a foreign key constraint fails (`electronic_house`.`taxes_history`, CONSTRAINT `fk_taxes_history_apartment1` FOREIGN KEY (`apartment_id`, `building_id`) REFERENCES `apartment` (`apartment_id`, `building_id`))
+org.hibernate.exception.ConstraintViolationException: could not execute statement
+[DEBUG] 2022-01-05 00:20:30.108 [Test worker] SQL - insert into taxes_history (amount, date, paid, apartment_id, building_id, tax_id) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into taxes_history (amount, date, paid, apartment_id, building_id, tax_id) values (?, ?, ?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:30.109 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [0.0]
+[TRACE] 2022-01-05 00:20:30.109 [Test worker] BasicBinder - binding parameter [2] as [TIMESTAMP] - [2022-01-05 00:20:30.107]
+[TRACE] 2022-01-05 00:20:30.109 [Test worker] BasicBinder - binding parameter [3] as [BOOLEAN] - [false]
+[TRACE] 2022-01-05 00:20:30.109 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [2]
+[TRACE] 2022-01-05 00:20:30.109 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [3]
+[TRACE] 2022-01-05 00:20:30.109 [Test worker] BasicBinder - binding parameter [6] as [BIGINT] - [202199]
+[WARN ] 2022-01-05 00:20:30.111 [Test worker] SqlExceptionHelper - SQL Error: 1452, SQLState: 23000
+[ERROR] 2022-01-05 00:20:30.112 [Test worker] SqlExceptionHelper - Cannot add or update a child row: a foreign key constraint fails (`electronic_house`.`taxes_history`, CONSTRAINT `fk_taxes_history_apartment1` FOREIGN KEY (`apartment_id`, `building_id`) REFERENCES `apartment` (`apartment_id`, `building_id`))
+org.hibernate.exception.ConstraintViolationException: could not execute statement
+[DEBUG] 2022-01-05 00:20:30.122 [Test worker] SQL - insert into taxes_history (amount, date, paid, apartment_id, building_id, tax_id) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into taxes_history (amount, date, paid, apartment_id, building_id, tax_id) values (?, ?, ?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:30.123 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [0.0]
+[TRACE] 2022-01-05 00:20:30.123 [Test worker] BasicBinder - binding parameter [2] as [TIMESTAMP] - [2022-01-05 00:20:30.122]
+[TRACE] 2022-01-05 00:20:30.123 [Test worker] BasicBinder - binding parameter [3] as [BOOLEAN] - [false]
+[TRACE] 2022-01-05 00:20:30.124 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [2]
+[TRACE] 2022-01-05 00:20:30.124 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [3]
+[TRACE] 2022-01-05 00:20:30.124 [Test worker] BasicBinder - binding parameter [6] as [BIGINT] - [202198]
+[WARN ] 2022-01-05 00:20:30.126 [Test worker] SqlExceptionHelper - SQL Error: 1452, SQLState: 23000
+[ERROR] 2022-01-05 00:20:30.127 [Test worker] SqlExceptionHelper - Cannot add or update a child row: a foreign key constraint fails (`electronic_house`.`taxes_history`, CONSTRAINT `fk_taxes_history_apartment1` FOREIGN KEY (`apartment_id`, `building_id`) REFERENCES `apartment` (`apartment_id`, `building_id`))
+org.hibernate.exception.ConstraintViolationException: could not execute statement
+[DEBUG] 2022-01-05 00:20:30.137 [Test worker] SQL - insert into taxes_history (amount, date, paid, apartment_id, building_id, tax_id) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into taxes_history (amount, date, paid, apartment_id, building_id, tax_id) values (?, ?, ?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:30.138 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [0.0]
+[TRACE] 2022-01-05 00:20:30.138 [Test worker] BasicBinder - binding parameter [2] as [TIMESTAMP] - [2022-01-05 00:20:30.137]
+[TRACE] 2022-01-05 00:20:30.139 [Test worker] BasicBinder - binding parameter [3] as [BOOLEAN] - [false]
+[TRACE] 2022-01-05 00:20:30.139 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [2]
+[TRACE] 2022-01-05 00:20:30.139 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [3]
+[TRACE] 2022-01-05 00:20:30.139 [Test worker] BasicBinder - binding parameter [6] as [BIGINT] - [202197]
+[WARN ] 2022-01-05 00:20:30.141 [Test worker] SqlExceptionHelper - SQL Error: 1452, SQLState: 23000
+[ERROR] 2022-01-05 00:20:30.141 [Test worker] SqlExceptionHelper - Cannot add or update a child row: a foreign key constraint fails (`electronic_house`.`taxes_history`, CONSTRAINT `fk_taxes_history_apartment1` FOREIGN KEY (`apartment_id`, `building_id`) REFERENCES `apartment` (`apartment_id`, `building_id`))
+org.hibernate.exception.ConstraintViolationException: could not execute statement
+[DEBUG] 2022-01-05 00:20:30.151 [Test worker] SQL - insert into taxes_history (amount, date, paid, apartment_id, building_id, tax_id) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into taxes_history (amount, date, paid, apartment_id, building_id, tax_id) values (?, ?, ?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:30.151 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [0.0]
+[TRACE] 2022-01-05 00:20:30.152 [Test worker] BasicBinder - binding parameter [2] as [TIMESTAMP] - [2022-01-05 00:20:30.151]
+[TRACE] 2022-01-05 00:20:30.152 [Test worker] BasicBinder - binding parameter [3] as [BOOLEAN] - [false]
+[TRACE] 2022-01-05 00:20:30.152 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [2]
+[TRACE] 2022-01-05 00:20:30.152 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [3]
+[TRACE] 2022-01-05 00:20:30.152 [Test worker] BasicBinder - binding parameter [6] as [BIGINT] - [202196]
+[WARN ] 2022-01-05 00:20:30.155 [Test worker] SqlExceptionHelper - SQL Error: 1452, SQLState: 23000
+[ERROR] 2022-01-05 00:20:30.155 [Test worker] SqlExceptionHelper - Cannot add or update a child row: a foreign key constraint fails (`electronic_house`.`taxes_history`, CONSTRAINT `fk_taxes_history_apartment1` FOREIGN KEY (`apartment_id`, `building_id`) REFERENCES `apartment` (`apartment_id`, `building_id`))
+org.hibernate.exception.ConstraintViolationException: could not execute statement
+[DEBUG] 2022-01-05 00:20:30.170 [Test worker] SQL - insert into taxes (app_base_tax, app_pet_tax, base_tax, tax_due_date, building_id) values (?, ?, ?, ?, ?)
+Hibernate: insert into taxes (app_base_tax, app_pet_tax, base_tax, tax_due_date, building_id) values (?, ?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:30.170 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [20.0]
+[TRACE] 2022-01-05 00:20:30.171 [Test worker] BasicBinder - binding parameter [2] as [DOUBLE] - [10.0]
+[TRACE] 2022-01-05 00:20:30.171 [Test worker] BasicBinder - binding parameter [3] as [DOUBLE] - [20.0]
+[TRACE] 2022-01-05 00:20:30.172 [Test worker] BasicBinder - binding parameter [4] as [INTEGER] - [25]
+[TRACE] 2022-01-05 00:20:30.172 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [1]
+[DEBUG] 2022-01-05 00:20:30.174 [Test worker] SQL - insert into taxes (app_base_tax, app_pet_tax, base_tax, tax_due_date, building_id) values (?, ?, ?, ?, ?)
+Hibernate: insert into taxes (app_base_tax, app_pet_tax, base_tax, tax_due_date, building_id) values (?, ?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:30.175 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [20.0]
+[TRACE] 2022-01-05 00:20:30.175 [Test worker] BasicBinder - binding parameter [2] as [DOUBLE] - [10.0]
+[TRACE] 2022-01-05 00:20:30.175 [Test worker] BasicBinder - binding parameter [3] as [DOUBLE] - [20.0]
+[TRACE] 2022-01-05 00:20:30.176 [Test worker] BasicBinder - binding parameter [4] as [INTEGER] - [25]
+[TRACE] 2022-01-05 00:20:30.176 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [2]
+[DEBUG] 2022-01-05 00:20:30.178 [Test worker] SQL - insert into taxes (app_base_tax, app_pet_tax, base_tax, tax_due_date, building_id) values (?, ?, ?, ?, ?)
+Hibernate: insert into taxes (app_base_tax, app_pet_tax, base_tax, tax_due_date, building_id) values (?, ?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:30.178 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [22.0]
+[TRACE] 2022-01-05 00:20:30.179 [Test worker] BasicBinder - binding parameter [2] as [DOUBLE] - [15.0]
+[TRACE] 2022-01-05 00:20:30.179 [Test worker] BasicBinder - binding parameter [3] as [DOUBLE] - [22.0]
+[TRACE] 2022-01-05 00:20:30.180 [Test worker] BasicBinder - binding parameter [4] as [INTEGER] - [25]
+[TRACE] 2022-01-05 00:20:30.180 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [3]
+[DEBUG] 2022-01-05 00:20:30.184 [Test worker] SQL - insert into taxes (app_base_tax, app_pet_tax, base_tax, tax_due_date, building_id) values (?, ?, ?, ?, ?)
+Hibernate: insert into taxes (app_base_tax, app_pet_tax, base_tax, tax_due_date, building_id) values (?, ?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:30.185 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [26.0]
+[TRACE] 2022-01-05 00:20:30.185 [Test worker] BasicBinder - binding parameter [2] as [DOUBLE] - [12.0]
+[TRACE] 2022-01-05 00:20:30.185 [Test worker] BasicBinder - binding parameter [3] as [DOUBLE] - [26.0]
+[TRACE] 2022-01-05 00:20:30.185 [Test worker] BasicBinder - binding parameter [4] as [INTEGER] - [25]
+[TRACE] 2022-01-05 00:20:30.185 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [4]
+[DEBUG] 2022-01-05 00:20:30.188 [Test worker] SQL - insert into taxes (app_base_tax, app_pet_tax, base_tax, tax_due_date, building_id) values (?, ?, ?, ?, ?)
+Hibernate: insert into taxes (app_base_tax, app_pet_tax, base_tax, tax_due_date, building_id) values (?, ?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:30.189 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [13.0]
+[TRACE] 2022-01-05 00:20:30.189 [Test worker] BasicBinder - binding parameter [2] as [DOUBLE] - [11.0]
+[TRACE] 2022-01-05 00:20:30.189 [Test worker] BasicBinder - binding parameter [3] as [DOUBLE] - [13.0]
+[TRACE] 2022-01-05 00:20:30.189 [Test worker] BasicBinder - binding parameter [4] as [INTEGER] - [25]
+[TRACE] 2022-01-05 00:20:30.190 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [5]
+[DEBUG] 2022-01-05 00:20:30.209 [Test worker] SQL - insert into landlord (landlord_id) values (?)
+Hibernate: insert into landlord (landlord_id) values (?)
+[TRACE] 2022-01-05 00:20:30.209 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [3511083276]
+[DEBUG] 2022-01-05 00:20:30.212 [Test worker] SQL - insert into landlord (landlord_id) values (?)
+Hibernate: insert into landlord (landlord_id) values (?)
+[TRACE] 2022-01-05 00:20:30.213 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [6402206837]
+[DEBUG] 2022-01-05 00:20:30.229 [Test worker] SQL - select apartment0_.apartment_id as apartmen1_0_0_, apartment0_.building_id as building2_0_0_, apartment0_.area as area3_0_0_, apartment0_.family_id as family_i4_0_0_, apartment0_.landlord_id as landlord5_0_0_, building1_.building_id as building1_1_1_, building1_.address as address2_1_1_, building1_.area_common as area_com3_1_1_, building1_.area_total as area_tot4_1_1_, building1_.number_of_apartments as number_o5_1_1_, building1_.number_of_floors as number_o6_1_1_, family2_.family_id as family_i1_5_2_, family2_.pet as pet2_5_2_, landlord3_.landlord_id as landlord1_6_3_, person4_.person_id as person_i1_9_4_, person4_.date_of_birth as date_of_2_9_4_, person4_.f_name as f_name3_9_4_, person4_.l_name as l_name4_9_4_ from apartment apartment0_ left outer join building building1_ on apartment0_.building_id=building1_.building_id left outer join family family2_ on apartment0_.family_id=family2_.family_id left outer join landlord landlord3_ on apartment0_.landlord_id=landlord3_.landlord_id left outer join person person4_ on landlord3_.landlord_id=person4_.person_id where apartment0_.apartment_id=? and apartment0_.building_id=?
+Hibernate: select apartment0_.apartment_id as apartmen1_0_0_, apartment0_.building_id as building2_0_0_, apartment0_.area as area3_0_0_, apartment0_.family_id as family_i4_0_0_, apartment0_.landlord_id as landlord5_0_0_, building1_.building_id as building1_1_1_, building1_.address as address2_1_1_, building1_.area_common as area_com3_1_1_, building1_.area_total as area_tot4_1_1_, building1_.number_of_apartments as number_o5_1_1_, building1_.number_of_floors as number_o6_1_1_, family2_.family_id as family_i1_5_2_, family2_.pet as pet2_5_2_, landlord3_.landlord_id as landlord1_6_3_, person4_.person_id as person_i1_9_4_, person4_.date_of_birth as date_of_2_9_4_, person4_.f_name as f_name3_9_4_, person4_.l_name as l_name4_9_4_ from apartment apartment0_ left outer join building building1_ on apartment0_.building_id=building1_.building_id left outer join family family2_ on apartment0_.family_id=family2_.family_id left outer join landlord landlord3_ on apartment0_.landlord_id=landlord3_.landlord_id left outer join person person4_ on landlord3_.landlord_id=person4_.person_id where apartment0_.apartment_id=? and apartment0_.building_id=?
+[TRACE] 2022-01-05 00:20:30.229 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [2]
+[TRACE] 2022-01-05 00:20:30.229 [Test worker] BasicBinder - binding parameter [2] as [BIGINT] - [3]
+null
+[DEBUG] 2022-01-05 00:20:30.249 [Test worker] SQL - select next_val as id_val from _generatorowners for update
+Hibernate: select next_val as id_val from _generatorowners for update
+[DEBUG] 2022-01-05 00:20:30.252 [Test worker] SQL - update _generatorowners set next_val= ? where next_val=?
+Hibernate: update _generatorowners set next_val= ? where next_val=?
+[DEBUG] 2022-01-05 00:20:30.264 [Test worker] SQL - select next_val as id_val from _generatorowners for update
+Hibernate: select next_val as id_val from _generatorowners for update
+[DEBUG] 2022-01-05 00:20:30.267 [Test worker] SQL - update _generatorowners set next_val= ? where next_val=?
+Hibernate: update _generatorowners set next_val= ? where next_val=?
+[DEBUG] 2022-01-05 00:20:30.278 [Test worker] SQL - insert into owner (egn, f_name, l_name, owner_id) values (?, ?, ?, ?)
+Hibernate: insert into owner (egn, f_name, l_name, owner_id) values (?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:30.278 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [7602040567]
+[TRACE] 2022-01-05 00:20:30.279 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Stefan]
+[TRACE] 2022-01-05 00:20:30.279 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Landzhev]
+[TRACE] 2022-01-05 00:20:30.279 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [1]
+[DEBUG] 2022-01-05 00:20:30.283 [Test worker] SQL - insert into owner (egn, f_name, l_name, owner_id) values (?, ?, ?, ?)
+Hibernate: insert into owner (egn, f_name, l_name, owner_id) values (?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:30.283 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [7503040567]
+[TRACE] 2022-01-05 00:20:30.284 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Angel]
+[TRACE] 2022-01-05 00:20:30.284 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Krustev]
+[TRACE] 2022-01-05 00:20:30.284 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [2]
+[DEBUG] 2022-01-05 00:20:30.288 [Test worker] SQL - insert into owner (egn, f_name, l_name, owner_id) values (?, ?, ?, ?)
+Hibernate: insert into owner (egn, f_name, l_name, owner_id) values (?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:30.289 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [6505232367]
+[TRACE] 2022-01-05 00:20:30.289 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Petar]
+[TRACE] 2022-01-05 00:20:30.289 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Petkov]
+[TRACE] 2022-01-05 00:20:30.289 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [3]
+[DEBUG] 2022-01-05 00:20:30.292 [Test worker] SQL - insert into owner (egn, f_name, l_name, owner_id) values (?, ?, ?, ?)
+Hibernate: insert into owner (egn, f_name, l_name, owner_id) values (?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:30.292 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [8512234456]
+[TRACE] 2022-01-05 00:20:30.292 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Stefan]
+[TRACE] 2022-01-05 00:20:30.293 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Ivanov]
+[TRACE] 2022-01-05 00:20:30.293 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [4]
+[DEBUG] 2022-01-05 00:20:30.296 [Test worker] SQL - insert into owner (egn, f_name, l_name, owner_id) values (?, ?, ?, ?)
+Hibernate: insert into owner (egn, f_name, l_name, owner_id) values (?, ?, ?, ?)
+[TRACE] 2022-01-05 00:20:30.296 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [7702054456]
+[TRACE] 2022-01-05 00:20:30.296 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Isaac]
+[TRACE] 2022-01-05 00:20:30.297 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Clarke]
+[TRACE] 2022-01-05 00:20:30.297 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [5]
+[DEBUG] 2022-01-05 00:20:30.322 [Test worker] SQL - select next_val as id_val from _generatorfamilies for update
+Hibernate: select next_val as id_val from _generatorfamilies for update
+[DEBUG] 2022-01-05 00:20:30.324 [Test worker] SQL - update _generatorfamilies set next_val= ? where next_val=?
+Hibernate: update _generatorfamilies set next_val= ? where next_val=?
+[DEBUG] 2022-01-05 00:20:30.337 [Test worker] SQL - select next_val as id_val from _generatorfamilies for update
+Hibernate: select next_val as id_val from _generatorfamilies for update
+[DEBUG] 2022-01-05 00:20:30.340 [Test worker] SQL - update _generatorfamilies set next_val= ? where next_val=?
+Hibernate: update _generatorfamilies set next_val= ? where next_val=?
+[DEBUG] 2022-01-05 00:20:30.357 [Test worker] SQL - insert into family (pet, family_id) values (?, ?)
+Hibernate: insert into family (pet, family_id) values (?, ?)
+[TRACE] 2022-01-05 00:20:30.358 [Test worker] BasicBinder - binding parameter [1] as [BOOLEAN] - [false]
+[TRACE] 2022-01-05 00:20:30.358 [Test worker] BasicBinder - binding parameter [2] as [BIGINT] - [1]
+[DEBUG] 2022-01-05 00:20:30.361 [Test worker] SQL - insert into family (pet, family_id) values (?, ?)
+Hibernate: insert into family (pet, family_id) values (?, ?)
+[TRACE] 2022-01-05 00:20:30.361 [Test worker] BasicBinder - binding parameter [1] as [BOOLEAN] - [false]
+[TRACE] 2022-01-05 00:20:30.362 [Test worker] BasicBinder - binding parameter [2] as [BIGINT] - [2]
+[DEBUG] 2022-01-05 00:20:30.363 [Test worker] SQL - insert into family (pet, family_id) values (?, ?)
+Hibernate: insert into family (pet, family_id) values (?, ?)
+[TRACE] 2022-01-05 00:20:30.364 [Test worker] BasicBinder - binding parameter [1] as [BOOLEAN] - [false]
+[TRACE] 2022-01-05 00:20:30.364 [Test worker] BasicBinder - binding parameter [2] as [BIGINT] - [3]
+[DEBUG] 2022-01-05 00:20:30.367 [Test worker] SQL - insert into family (pet, family_id) values (?, ?)
+Hibernate: insert into family (pet, family_id) values (?, ?)
+[TRACE] 2022-01-05 00:20:30.368 [Test worker] BasicBinder - binding parameter [1] as [BOOLEAN] - [false]
+[TRACE] 2022-01-05 00:20:30.368 [Test worker] BasicBinder - binding parameter [2] as [BIGINT] - [4]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

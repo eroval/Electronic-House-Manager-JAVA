@@ -20,10 +20,10 @@ public class Building implements Serializable {
     private String address;
 
     @Column(name=ConfigNames.Building.NumApartments, nullable = false)
-    private int numberOfApartments;
+    private long numberOfApartments;
 
     @Column(name=ConfigNames.Building.NumFloors, nullable = false)
-    private int numberOfFloors;
+    private long numberOfFloors;
 
     @Column(name=ConfigNames.Building.AreaTotal, nullable = false)
     private double areaTotal;
@@ -45,7 +45,7 @@ public class Building implements Serializable {
 
     }
 
-    public Building(long buildingId, String address, int numberOfApartments, int numberOfFloors, double areaTotal, double areaCommon){
+    public Building(long buildingId, String address, long numberOfApartments, long numberOfFloors, double areaTotal, double areaCommon){
         this.setBuildingId(buildingId);
         this.setAddress(address);
         this.setNumberOfApartments(numberOfApartments);
@@ -54,7 +54,7 @@ public class Building implements Serializable {
         this.setAreaCommon(areaCommon);
     }
 
-    public Building(String address, int numberOfApartments, int numberOfFloors, double areaTotal, double areaCommon){
+    public Building(String address, long numberOfApartments, long numberOfFloors, double areaTotal, double areaCommon){
 
         this.setAddress(address);
         this.setNumberOfApartments(numberOfApartments);
@@ -75,12 +75,12 @@ public class Building implements Serializable {
         this.address=address;
     }
 
-    private void setNumberOfApartments(int numberOfApartments){
+    private void setNumberOfApartments(long numberOfApartments){
         if(numberOfApartments<=0) throw new IllegalArgumentException("There must be at least one apartment in the building!");
         this.numberOfApartments=numberOfApartments;
     }
 
-    private void setNumberOfFloors(int numberOfFloors){
+    private void setNumberOfFloors(long numberOfFloors){
         if(numberOfFloors<=0) throw new IllegalArgumentException("There must be at least one floor in the building!");
         this.numberOfFloors=numberOfFloors;
     }
@@ -99,9 +99,9 @@ public class Building implements Serializable {
 
     public String getAddress(){return this.address;}
 
-    public int getNumberOfApartments(){return this.numberOfApartments;}
+    public long getNumberOfApartments(){return this.numberOfApartments;}
 
-    public int getNumberOfFloors(){return this.numberOfFloors;}
+    public long getNumberOfFloors(){return this.numberOfFloors;}
 
     public double getAreaTotal(){return this.areaTotal;}
 

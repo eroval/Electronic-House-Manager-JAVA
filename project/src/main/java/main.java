@@ -15,7 +15,10 @@ public class main {
     public static void main(String args[]) {
         //checkTaxesPeriodically();
         //1-6
-        //PreloadTables.load();
+        PreloadTables.load();
+        //System.out.println(BuildingDAO.getTotalNumberOfApartments(1));
+        //System.out.println(BuildingDAO.getNumberOfAssociatedApartments(1));
+        //System.out.println(BuildingDAO.checkAvailableApartments(1));
         //7
 //        BuildingDAO.paySpecificTax(2,3);
         //8
@@ -36,8 +39,7 @@ public class main {
 //        System.out.println(EmployeeBuildingDAO.getAllPaidTaxes(5));
 //        System.out.println(OwnerCompanyDAO.getAllPaidTaxes(5));
         //10 //actually works during each update and create of taxhistory
-        TaxesHistory th = new TaxesHistory(199800205, 2, 3, 234, true);
-        TaxesHistoryDAO.saveTaxesHistory(th);
+        System.out.println(BuildingDAO.getNumberOfAssociatedApartments(3));
 
 
     }

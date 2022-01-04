@@ -1,9 +1,6 @@
 package dao;
 
-import entity.Building;
-import entity.Family;
-import entity.Person;
-import entity.Taxes;
+import entity.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -76,5 +73,12 @@ public class FamilyDAO {
     public static boolean getPet(long familyId){
         Family f = FamilyDAO.getFamily(familyId);
         return f.getPet();
+    }
+
+    public static void deleteAll(){
+        List<Family> families = FamilyDAO.readFamilys();
+        for(Family family : families){
+            FamilyDAO.deleteFamily(family);
+        }
     }
 }

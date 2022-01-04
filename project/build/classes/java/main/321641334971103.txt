@@ -1,0 +1,1 @@
+TaxesHistory{taxId=202201, apartmentId=2, buildingId=3, amount=726.0, paid=true}

@@ -98,5 +98,10 @@ public class EmployeeDAO {
         return company;
     }
 
-
+    public static void deleteAll(){
+        List<Employee> employees = EmployeeDAO.readEmployees();
+        for(Employee employee : employees){
+            EmployeeDAO.deleteEmployee(employee);
+        }
+    }
 }

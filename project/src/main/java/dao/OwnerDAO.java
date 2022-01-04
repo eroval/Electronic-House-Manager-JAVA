@@ -2,6 +2,7 @@ package dao;
 
 import entity.Company;
 import entity.Owner;
+import entity.Person;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -106,6 +107,13 @@ public class OwnerDAO {
             Owner owner = session.get(Owner.class, egn);
             session.delete(owner);
             transaction.commit();
+        }
+    }
+
+    public static void deleteAll(){
+        List<Owner> owners = OwnerDAO.readOwners();
+        for(Owner owner : owners){
+            OwnerDAO.deleteOwner(owner);
         }
     }
 }

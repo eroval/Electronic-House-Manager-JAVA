@@ -2,6 +2,7 @@ package dao;
 
 import IdClasses.PersonFamilyId;
 import entity.PersonFamily;
+import entity.Taxes;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -95,5 +96,12 @@ public class PersonFamilyDAO {
             transaction.commit();
         }
         return personIds;
+    }
+
+    public static void deleteAll(){
+        List<PersonFamily> personFamilies = PersonFamilyDAO.readPersonFamilys();
+        for(PersonFamily personFamily : personFamilies){
+            PersonFamilyDAO.deletePersonFamily(personFamily);
+        }
     }
 }

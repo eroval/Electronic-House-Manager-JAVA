@@ -1,6 +1,7 @@
 package dao;
 
 import entity.Company;
+import entity.EmployeeBuilding;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import java.util.List;
@@ -74,4 +75,10 @@ public class CompanyDAO {
         }
     }
 
+    public static void deleteAll(){
+        List<Company> companies = CompanyDAO.readCompanies();
+        for(Company company : companies){
+            CompanyDAO.deleteCompany(company);
+        }
+    }
 }

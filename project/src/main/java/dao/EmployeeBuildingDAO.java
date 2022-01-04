@@ -193,6 +193,12 @@ public class EmployeeBuildingDAO {
         return th;
     }
 
+    public static void deleteAll(){
+        List<EmployeeBuilding> employeesBuildings = EmployeeBuildingDAO.readEmployeeBuildings();
+        for(EmployeeBuilding employeeBuilding : employeesBuildings){
+            EmployeeBuildingDAO.deleteEmployeeBuilding(employeeBuilding);
+        }
+    }
 
 //    //Not Ready
 //    public static long getNumberOfAssociatedBuildings(List<Employee> employees){

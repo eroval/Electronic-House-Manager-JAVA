@@ -2,6 +2,7 @@ package dao;
 
 import entity.Building;
 import entity.Taxes;
+import entity.TaxesHistory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -81,4 +82,10 @@ public class TaxesDAO {
         return taxes;
     }
 
+    public static void deleteAll(){
+        List<Taxes> taxes = TaxesDAO.readTaxess();
+        for(Taxes th : taxes){
+            TaxesDAO.deleteTaxes(th);
+        }
+    }
 }

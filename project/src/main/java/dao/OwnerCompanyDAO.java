@@ -275,4 +275,11 @@ public class OwnerCompanyDAO {
         }
         return th;
     }
+
+    public static void deleteAll(){
+        List<OwnerCompany> ownerCompanies = OwnerCompanyDAO.readOwnerCompanies();
+        for(OwnerCompany ownerCompany : ownerCompanies){
+            OwnerCompanyDAO.deleteOwnerCompany(ownerCompany);
+        }
+    }
 }

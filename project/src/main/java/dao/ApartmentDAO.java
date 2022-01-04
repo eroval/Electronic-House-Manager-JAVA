@@ -2,6 +2,7 @@ package dao;
 
 import IdClasses.ApartmentId;
 import entity.Apartment;
+import entity.Building;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -10,10 +11,12 @@ import java.util.List;
 
 public class ApartmentDAO {
     public static void saveApartment(entity.Apartment apartment) {
-        try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.beginTransaction();
-            session.save(apartment);
-            transaction.commit();
+        if(BuildingDAO.checkAvailableApartments(apartment.getBuildingId())){
+            try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
+                Transaction transaction = session.beginTransaction();
+                session.save(apartment);
+                transaction.commit();
+            }
         }
     }
 
@@ -28,7 +31,11 @@ public class ApartmentDAO {
     public static void saveApartments(List<Apartment> apartmentList) {
         try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            apartmentList.stream().forEach((com) -> session.save(com));
+            for(Apartment app : apartmentList){
+                if(BuildingDAO.checkAvailableApartments(app.getBuildingId())){
+                    session.save(app);
+                }
+            }
             transaction.commit();
         }
     }
@@ -47,6 +54,16 @@ public class ApartmentDAO {
             transaction.commit();
         }
         return apartment;
+    }
+
+    public static long getNumberOfApartmentsByBuilding(long buildingId){
+        try (Session session = configuration.SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            long count = (Long) session.createQuery("SELECT COUNT(*) FROM Apartment a WHERE a.buildingId=:buildingId")
+                    .setParameter("buildingId",buildingId).uniqueResult();
+            transaction.commit();
+            return count;
+        }
     }
 
     public static void deleteApartment(Apartment apartment) {
@@ -77,4 +94,10 @@ public class ApartmentDAO {
         return apartments;
     }
 
+    public static void deleteAll(){
+        List<Apartment> apartments = ApartmentDAO.readApartments();
+        for(Apartment apartment : apartments){
+            ApartmentDAO.deleteApartment(apartment);
+        }
+    }
 }

@@ -59,8 +59,8 @@ public class PreloadTables {
         Building b = new Building(1,"Sofia", 10, 2, 1000, 40);
         Building b2 = new Building(2,"Sofia", 12, 4, 1200, 10);
         Building b3 = new Building(3,"Sofia", 15, 15, 1536, 35);
-        Building b4 = new Building(3,"Sofia", 3, 2, 290, 32);
-        Building b5 = new Building(3,"Sofia", 10, 10, 2903, 47);
+        Building b4 = new Building(4,"Sofia", 3, 2, 290, 32);
+        Building b5 = new Building(5,"Sofia", 10, 10, 2903, 47);
 
         List<Building> list = Arrays.asList(b,b2,b3,b4,b5);
         BuildingDAO.saveBuildings(list);
