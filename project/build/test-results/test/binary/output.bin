@@ -1,0 +1,444 @@
+b[INFO ] 2022-01-05 00:20:26.965 [Test worker] Version - HHH000412: Hibernate Core {5.4.10.Final}
+”[INFO ] 2022-01-05 00:20:26.976 [Test worker] Environment - HHH000205: Loaded properties from resource hibernate.properties: {hibernate.connection.driver_class=com.mysql.cj.jdbc.Driver, hibernate.dialect.storage_engine=innodb, hibernate.hbm2ddl.auto=update, hibernate.dialect=org.hibernate.dialect.MySQL5Dialect, hibernate.connection.password=****, hibernate.connection.username=sif, hibernate.connection.url=jdbc:mysql://localhost:3306/electronic_house, hibernate.bytecode.use_reflection_optimizer=false, hibernate.show_sql=true}
+r[INFO ] 2022-01-05 00:20:27.172 [Test worker] Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+‰[WARN ] 2022-01-05 00:20:27.292 [Test worker] pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+¤[INFO ] 2022-01-05 00:20:27.298 [Test worker] pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/electronic_house]
+w[INFO ] 2022-01-05 00:20:27.298 [Test worker] pooling - HHH10001001: Connection properties: {password=****, user=sif}
+][INFO ] 2022-01-05 00:20:27.298 [Test worker] pooling - HHH10001003: Autocommit mode: false
+‹[INFO ] 2022-01-05 00:20:27.302 [Test worker] DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+w[INFO ] 2022-01-05 00:20:27.781 [Test worker] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+ˆ[INFO ] 2022-01-05 00:20:28.821 [Test worker] access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2b03c5f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+v[DEBUG] 2022-01-05 00:20:28.856 [Test worker] SQL - create table _generatorbuildings (next_val bigint) engine=InnoDB
+MHibernate: create table _generatorbuildings (next_val bigint) engine=InnoDB
+b[DEBUG] 2022-01-05 00:20:28.896 [Test worker] SQL - insert into _generatorbuildings values ( 1 )
+9Hibernate: insert into _generatorbuildings values ( 1 )
+v[DEBUG] 2022-01-05 00:20:28.905 [Test worker] SQL - create table _generatorcompanies (next_val bigint) engine=InnoDB
+MHibernate: create table _generatorcompanies (next_val bigint) engine=InnoDB
+b[DEBUG] 2022-01-05 00:20:28.937 [Test worker] SQL - insert into _generatorcompanies values ( 1 )
+9Hibernate: insert into _generatorcompanies values ( 1 )
+v[DEBUG] 2022-01-05 00:20:28.945 [Test worker] SQL - create table _generatoremployees (next_val bigint) engine=InnoDB
+MHibernate: create table _generatoremployees (next_val bigint) engine=InnoDB
+b[DEBUG] 2022-01-05 00:20:28.976 [Test worker] SQL - insert into _generatoremployees values ( 1 )
+9Hibernate: insert into _generatoremployees values ( 1 )
+u[DEBUG] 2022-01-05 00:20:28.985 [Test worker] SQL - create table _generatorfamilies (next_val bigint) engine=InnoDB
+LHibernate: create table _generatorfamilies (next_val bigint) engine=InnoDB
+a[DEBUG] 2022-01-05 00:20:29.021 [Test worker] SQL - insert into _generatorfamilies values ( 1 )
+8Hibernate: insert into _generatorfamilies values ( 1 )
+s[DEBUG] 2022-01-05 00:20:29.033 [Test worker] SQL - create table _generatorowners (next_val bigint) engine=InnoDB
+JHibernate: create table _generatorowners (next_val bigint) engine=InnoDB
+_[DEBUG] 2022-01-05 00:20:29.069 [Test worker] SQL - insert into _generatorowners values ( 1 )
+6Hibernate: insert into _generatorowners values ( 1 )
+º[INFO ] 2022-01-05 00:20:29.288 [Test worker] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+˜[DEBUG] 2022-01-05 00:20:29.422 [Test worker] SQL - insert into employee_building (building_id, company_id, employee_id, owner_id) values (?, ?, ?, ?)
+oHibernate: insert into employee_building (building_id, company_id, employee_id, owner_id) values (?, ?, ?, ?)
+e[TRACE] 2022-01-05 00:20:29.428 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [1]
+e[TRACE] 2022-01-05 00:20:29.428 [Test worker] BasicBinder - binding parameter [2] as [BIGINT] - [1]
+e[TRACE] 2022-01-05 00:20:29.428 [Test worker] BasicBinder - binding parameter [3] as [BIGINT] - [4]
+e[TRACE] 2022-01-05 00:20:29.429 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [2]
+e[WARN ] 2022-01-05 00:20:29.445 [Test worker] SqlExceptionHelper - SQL Error: 1452, SQLState: 23000
+Â[ERROR] 2022-01-05 00:20:29.445 [Test worker] SqlExceptionHelper - Cannot add or update a child row: a foreign key constraint fails (`electronic_house`.`employee_building`, CONSTRAINT `fk_employee_building_building1` FOREIGN KEY (`building_id`) REFERENCES `building` (`building_id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+Sorg.hibernate.exception.ConstraintViolationException: could not execute statement
+Œ[DEBUG] 2022-01-05 00:20:29.689 [Test worker] SQL - select count(*) as col_0_0_ from apartment apartment0_ where apartment0_.building_id=?
+cHibernate: select count(*) as col_0_0_ from apartment apartment0_ where apartment0_.building_id=?
+e[TRACE] 2022-01-05 00:20:29.690 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [1]
+n[TRACE] 2022-01-05 00:20:29.696 [Test worker] BasicExtractor - extracted value ([col_0_0_] : [BIGINT]) - [0]
+÷[DEBUG] 2022-01-05 00:20:29.708 [Test worker] SQL - select building0_.building_id as building1_1_0_, building0_.address as address2_1_0_, building0_.area_common as area_com3_1_0_, building0_.area_total as area_tot4_1_0_, building0_.number_of_apartments as number_o5_1_0_, building0_.number_of_floors as number_o6_1_0_ from building building0_ where building0_.building_id=?
+ÎHibernate: select building0_.building_id as building1_1_0_, building0_.address as address2_1_0_, building0_.area_common as area_com3_1_0_, building0_.area_total as area_tot4_1_0_, building0_.number_of_apartments as number_o5_1_0_, building0_.number_of_floors as number_o6_1_0_ from building building0_ where building0_.building_id=?
+e[TRACE] 2022-01-05 00:20:29.709 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [1]
+WHAAAAAAT
+null
+s[DEBUG] 2022-01-05 00:20:29.736 [Test worker] SQL - select next_val as id_val from _generatoremployees for update
+JHibernate: select next_val as id_val from _generatoremployees for update
+q[DEBUG] 2022-01-05 00:20:29.738 [Test worker] SQL - update _generatoremployees set next_val= ? where next_val=?
+HHibernate: update _generatoremployees set next_val= ? where next_val=?
+s[DEBUG] 2022-01-05 00:20:29.749 [Test worker] SQL - select next_val as id_val from _generatoremployees for update
+JHibernate: select next_val as id_val from _generatoremployees for update
+q[DEBUG] 2022-01-05 00:20:29.752 [Test worker] SQL - update _generatoremployees set next_val= ? where next_val=?
+HHibernate: update _generatoremployees set next_val= ? where next_val=?
+•[DEBUG] 2022-01-05 00:20:29.763 [Test worker] SQL - insert into employee (f_name, l_name, company_id, employee_id, owner_id) values (?, ?, ?, ?, ?)
+lHibernate: insert into employee (f_name, l_name, company_id, employee_id, owner_id) values (?, ?, ?, ?, ?)
+j[TRACE] 2022-01-05 00:20:29.764 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Larry]
+m[TRACE] 2022-01-05 00:20:29.764 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Gasparov]
+e[TRACE] 2022-01-05 00:20:29.764 [Test worker] BasicBinder - binding parameter [3] as [BIGINT] - [1]
+e[TRACE] 2022-01-05 00:20:29.765 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [1]
+e[TRACE] 2022-01-05 00:20:29.765 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [2]
+e[WARN ] 2022-01-05 00:20:29.767 [Test worker] SqlExceptionHelper - SQL Error: 1452, SQLState: 23000
+È[ERROR] 2022-01-05 00:20:29.768 [Test worker] SqlExceptionHelper - Cannot add or update a child row: a foreign key constraint fails (`electronic_house`.`employee`, CONSTRAINT `fk_employee_owner_company1` FOREIGN KEY (`company_id`, `owner_id`) REFERENCES `owner_company` (`company_id`, `owner_id`) ON DELETE CASCADE ON UPDATE )
+Sorg.hibernate.exception.ConstraintViolationException: could not execute statement
+s[DEBUG] 2022-01-05 00:20:29.781 [Test worker] SQL - select next_val as id_val from _generatorcompanies for update
+JHibernate: select next_val as id_val from _generatorcompanies for update
+q[DEBUG] 2022-01-05 00:20:29.784 [Test worker] SQL - update _generatorcompanies set next_val= ? where next_val=?
+HHibernate: update _generatorcompanies set next_val= ? where next_val=?
+s[DEBUG] 2022-01-05 00:20:29.793 [Test worker] SQL - select next_val as id_val from _generatorcompanies for update
+JHibernate: select next_val as id_val from _generatorcompanies for update
+q[DEBUG] 2022-01-05 00:20:29.795 [Test worker] SQL - update _generatorcompanies set next_val= ? where next_val=?
+HHibernate: update _generatorcompanies set next_val= ? where next_val=?
+v[DEBUG] 2022-01-05 00:20:29.804 [Test worker] SQL - insert into company (address, name, company_id) values (?, ?, ?)
+MHibernate: insert into company (address, name, company_id) values (?, ?, ?)
+j[TRACE] 2022-01-05 00:20:29.805 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Sofia]
+j[TRACE] 2022-01-05 00:20:29.805 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Cisco]
+e[TRACE] 2022-01-05 00:20:29.805 [Test worker] BasicBinder - binding parameter [3] as [BIGINT] - [1]
+v[DEBUG] 2022-01-05 00:20:29.808 [Test worker] SQL - insert into company (address, name, company_id) values (?, ?, ?)
+MHibernate: insert into company (address, name, company_id) values (?, ?, ?)
+j[TRACE] 2022-01-05 00:20:29.809 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Sofia]
+h[TRACE] 2022-01-05 00:20:29.809 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [DXC]
+e[TRACE] 2022-01-05 00:20:29.809 [Test worker] BasicBinder - binding parameter [3] as [BIGINT] - [2]
+v[DEBUG] 2022-01-05 00:20:29.811 [Test worker] SQL - insert into company (address, name, company_id) values (?, ?, ?)
+MHibernate: insert into company (address, name, company_id) values (?, ?, ?)
+j[TRACE] 2022-01-05 00:20:29.812 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Sofia]
+q[TRACE] 2022-01-05 00:20:29.812 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Hyperscience]
+e[TRACE] 2022-01-05 00:20:29.813 [Test worker] BasicBinder - binding parameter [3] as [BIGINT] - [3]
+v[DEBUG] 2022-01-05 00:20:29.815 [Test worker] SQL - insert into company (address, name, company_id) values (?, ?, ?)
+MHibernate: insert into company (address, name, company_id) values (?, ?, ?)
+j[TRACE] 2022-01-05 00:20:29.815 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Sofia]
+i[TRACE] 2022-01-05 00:20:29.816 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Uber]
+e[TRACE] 2022-01-05 00:20:29.816 [Test worker] BasicBinder - binding parameter [3] as [BIGINT] - [4]
+v[DEBUG] 2022-01-05 00:20:29.819 [Test worker] SQL - insert into company (address, name, company_id) values (?, ?, ?)
+MHibernate: insert into company (address, name, company_id) values (?, ?, ?)
+j[TRACE] 2022-01-05 00:20:29.819 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Sofia]
+h[TRACE] 2022-01-05 00:20:29.819 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [IBM]
+e[TRACE] 2022-01-05 00:20:29.820 [Test worker] BasicBinder - binding parameter [3] as [BIGINT] - [5]
+s[DEBUG] 2022-01-05 00:20:29.834 [Test worker] SQL - select next_val as id_val from _generatorbuildings for update
+JHibernate: select next_val as id_val from _generatorbuildings for update
+q[DEBUG] 2022-01-05 00:20:29.837 [Test worker] SQL - update _generatorbuildings set next_val= ? where next_val=?
+HHibernate: update _generatorbuildings set next_val= ? where next_val=?
+s[DEBUG] 2022-01-05 00:20:29.847 [Test worker] SQL - select next_val as id_val from _generatorbuildings for update
+JHibernate: select next_val as id_val from _generatorbuildings for update
+q[DEBUG] 2022-01-05 00:20:29.849 [Test worker] SQL - update _generatorbuildings set next_val= ? where next_val=?
+HHibernate: update _generatorbuildings set next_val= ? where next_val=?
+¼[DEBUG] 2022-01-05 00:20:29.860 [Test worker] SQL - insert into building (address, area_common, area_total, number_of_apartments, number_of_floors, building_id) values (?, ?, ?, ?, ?, ?)
+“Hibernate: insert into building (address, area_common, area_total, number_of_apartments, number_of_floors, building_id) values (?, ?, ?, ?, ?, ?)
+j[TRACE] 2022-01-05 00:20:29.861 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Sofia]
+h[TRACE] 2022-01-05 00:20:29.861 [Test worker] BasicBinder - binding parameter [2] as [DOUBLE] - [40.0]
+j[TRACE] 2022-01-05 00:20:29.861 [Test worker] BasicBinder - binding parameter [3] as [DOUBLE] - [1000.0]
+f[TRACE] 2022-01-05 00:20:29.862 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [10]
+e[TRACE] 2022-01-05 00:20:29.862 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [2]
+e[TRACE] 2022-01-05 00:20:29.862 [Test worker] BasicBinder - binding parameter [6] as [BIGINT] - [1]
+¼[DEBUG] 2022-01-05 00:20:29.864 [Test worker] SQL - insert into building (address, area_common, area_total, number_of_apartments, number_of_floors, building_id) values (?, ?, ?, ?, ?, ?)
+“Hibernate: insert into building (address, area_common, area_total, number_of_apartments, number_of_floors, building_id) values (?, ?, ?, ?, ?, ?)
+j[TRACE] 2022-01-05 00:20:29.864 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Sofia]
+h[TRACE] 2022-01-05 00:20:29.865 [Test worker] BasicBinder - binding parameter [2] as [DOUBLE] - [10.0]
+j[TRACE] 2022-01-05 00:20:29.865 [Test worker] BasicBinder - binding parameter [3] as [DOUBLE] - [1200.0]
+f[TRACE] 2022-01-05 00:20:29.865 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [12]
+e[TRACE] 2022-01-05 00:20:29.865 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [4]
+e[TRACE] 2022-01-05 00:20:29.865 [Test worker] BasicBinder - binding parameter [6] as [BIGINT] - [2]
+¼[DEBUG] 2022-01-05 00:20:29.868 [Test worker] SQL - insert into building (address, area_common, area_total, number_of_apartments, number_of_floors, building_id) values (?, ?, ?, ?, ?, ?)
+“Hibernate: insert into building (address, area_common, area_total, number_of_apartments, number_of_floors, building_id) values (?, ?, ?, ?, ?, ?)
+j[TRACE] 2022-01-05 00:20:29.868 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Sofia]
+h[TRACE] 2022-01-05 00:20:29.869 [Test worker] BasicBinder - binding parameter [2] as [DOUBLE] - [35.0]
+j[TRACE] 2022-01-05 00:20:29.869 [Test worker] BasicBinder - binding parameter [3] as [DOUBLE] - [1536.0]
+f[TRACE] 2022-01-05 00:20:29.869 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [15]
+f[TRACE] 2022-01-05 00:20:29.869 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [15]
+e[TRACE] 2022-01-05 00:20:29.869 [Test worker] BasicBinder - binding parameter [6] as [BIGINT] - [3]
+¼[DEBUG] 2022-01-05 00:20:29.871 [Test worker] SQL - insert into building (address, area_common, area_total, number_of_apartments, number_of_floors, building_id) values (?, ?, ?, ?, ?, ?)
+“Hibernate: insert into building (address, area_common, area_total, number_of_apartments, number_of_floors, building_id) values (?, ?, ?, ?, ?, ?)
+j[TRACE] 2022-01-05 00:20:29.872 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Sofia]
+h[TRACE] 2022-01-05 00:20:29.872 [Test worker] BasicBinder - binding parameter [2] as [DOUBLE] - [32.0]
+i[TRACE] 2022-01-05 00:20:29.872 [Test worker] BasicBinder - binding parameter [3] as [DOUBLE] - [290.0]
+e[TRACE] 2022-01-05 00:20:29.873 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [3]
+e[TRACE] 2022-01-05 00:20:29.873 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [2]
+e[TRACE] 2022-01-05 00:20:29.873 [Test worker] BasicBinder - binding parameter [6] as [BIGINT] - [4]
+¼[DEBUG] 2022-01-05 00:20:29.875 [Test worker] SQL - insert into building (address, area_common, area_total, number_of_apartments, number_of_floors, building_id) values (?, ?, ?, ?, ?, ?)
+“Hibernate: insert into building (address, area_common, area_total, number_of_apartments, number_of_floors, building_id) values (?, ?, ?, ?, ?, ?)
+j[TRACE] 2022-01-05 00:20:29.875 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [Sofia]
+h[TRACE] 2022-01-05 00:20:29.875 [Test worker] BasicBinder - binding parameter [2] as [DOUBLE] - [47.0]
+j[TRACE] 2022-01-05 00:20:29.876 [Test worker] BasicBinder - binding parameter [3] as [DOUBLE] - [2903.0]
+f[TRACE] 2022-01-05 00:20:29.876 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [10]
+f[TRACE] 2022-01-05 00:20:29.876 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [10]
+e[TRACE] 2022-01-05 00:20:29.876 [Test worker] BasicBinder - binding parameter [6] as [BIGINT] - [5]
+‡[DEBUG] 2022-01-05 00:20:29.895 [Test worker] SQL - insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+^Hibernate: insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+ƒ[TRACE] 2022-01-05 00:20:29.902 [Test worker] BasicBinder - binding parameter [1] as [TIMESTAMP] - [Mon May 24 00:00:00 EET 1954]
+j[TRACE] 2022-01-05 00:20:29.903 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Lazar]
+k[TRACE] 2022-01-05 00:20:29.903 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Looner]
+o[TRACE] 2022-01-05 00:20:29.904 [Test worker] BasicBinder - binding parameter [4] as [VARCHAR] - [5405243487]
+‡[DEBUG] 2022-01-05 00:20:29.906 [Test worker] SQL - insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+^Hibernate: insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+ƒ[TRACE] 2022-01-05 00:20:29.907 [Test worker] BasicBinder - binding parameter [1] as [TIMESTAMP] - [Tue Jul 13 00:00:00 EET 1926]
+k[TRACE] 2022-01-05 00:20:29.907 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Eugene]
+k[TRACE] 2022-01-05 00:20:29.907 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Darius]
+o[TRACE] 2022-01-05 00:20:29.908 [Test worker] BasicBinder - binding parameter [4] as [VARCHAR] - [2607133566]
+‡[DEBUG] 2022-01-05 00:20:29.910 [Test worker] SQL - insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+^Hibernate: insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+ƒ[TRACE] 2022-01-05 00:20:29.910 [Test worker] BasicBinder - binding parameter [1] as [TIMESTAMP] - [Thu May 06 00:00:00 EET 1965]
+k[TRACE] 2022-01-05 00:20:29.910 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Sandra]
+l[TRACE] 2022-01-05 00:20:29.911 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Zaralik]
+o[TRACE] 2022-01-05 00:20:29.911 [Test worker] BasicBinder - binding parameter [4] as [VARCHAR] - [6505063276]
+‡[DEBUG] 2022-01-05 00:20:29.913 [Test worker] SQL - insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+^Hibernate: insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+ƒ[TRACE] 2022-01-05 00:20:29.913 [Test worker] BasicBinder - binding parameter [1] as [TIMESTAMP] - [Fri Nov 08 00:00:00 EET 1935]
+j[TRACE] 2022-01-05 00:20:29.913 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Harry]
+k[TRACE] 2022-01-05 00:20:29.914 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Potter]
+o[TRACE] 2022-01-05 00:20:29.914 [Test worker] BasicBinder - binding parameter [4] as [VARCHAR] - [3511083276]
+‡[DEBUG] 2022-01-05 00:20:29.916 [Test worker] SQL - insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+^Hibernate: insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+ƒ[TRACE] 2022-01-05 00:20:29.916 [Test worker] BasicBinder - binding parameter [1] as [TIMESTAMP] - [Fri Mar 24 00:00:00 EET 1944]
+j[TRACE] 2022-01-05 00:20:29.917 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Peter]
+k[TRACE] 2022-01-05 00:20:29.917 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Parker]
+o[TRACE] 2022-01-05 00:20:29.918 [Test worker] BasicBinder - binding parameter [4] as [VARCHAR] - [4403243276]
+‡[DEBUG] 2022-01-05 00:20:29.919 [Test worker] SQL - insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+^Hibernate: insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+ƒ[TRACE] 2022-01-05 00:20:29.920 [Test worker] BasicBinder - binding parameter [1] as [TIMESTAMP] - [Sun Jan 04 00:00:00 EET 1970]
+i[TRACE] 2022-01-05 00:20:29.920 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Ivan]
+k[TRACE] 2022-01-05 00:20:29.921 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Looner]
+o[TRACE] 2022-01-05 00:20:29.921 [Test worker] BasicBinder - binding parameter [4] as [VARCHAR] - [7001041162]
+‡[DEBUG] 2022-01-05 00:20:29.923 [Test worker] SQL - insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+^Hibernate: insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+ƒ[TRACE] 2022-01-05 00:20:29.923 [Test worker] BasicBinder - binding parameter [1] as [TIMESTAMP] - [Mon Feb 02 00:00:00 EET 1970]
+j[TRACE] 2022-01-05 00:20:29.924 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Petar]
+k[TRACE] 2022-01-05 00:20:29.924 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Darius]
+o[TRACE] 2022-01-05 00:20:29.924 [Test worker] BasicBinder - binding parameter [4] as [VARCHAR] - [7002020170]
+‡[DEBUG] 2022-01-05 00:20:29.926 [Test worker] SQL - insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+^Hibernate: insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+ƒ[TRACE] 2022-01-05 00:20:29.926 [Test worker] BasicBinder - binding parameter [1] as [TIMESTAMP] - [Thu Feb 20 00:00:00 EET 1964]
+j[TRACE] 2022-01-05 00:20:29.927 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Vanya]
+l[TRACE] 2022-01-05 00:20:29.927 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Zaralik]
+o[TRACE] 2022-01-05 00:20:29.927 [Test worker] BasicBinder - binding parameter [4] as [VARCHAR] - [6402206837]
+‡[DEBUG] 2022-01-05 00:20:29.929 [Test worker] SQL - insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+^Hibernate: insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+„[TRACE] 2022-01-05 00:20:29.929 [Test worker] BasicBinder - binding parameter [1] as [TIMESTAMP] - [Mon May 12 00:00:00 EEST 1986]
+j[TRACE] 2022-01-05 00:20:29.930 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Loren]
+k[TRACE] 2022-01-05 00:20:29.930 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Potter]
+o[TRACE] 2022-01-05 00:20:29.931 [Test worker] BasicBinder - binding parameter [4] as [VARCHAR] - [8605121040]
+‡[DEBUG] 2022-01-05 00:20:29.933 [Test worker] SQL - insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+^Hibernate: insert into person (date_of_birth, f_name, l_name, person_id) values (?, ?, ?, ?)
+„[TRACE] 2022-01-05 00:20:29.933 [Test worker] BasicBinder - binding parameter [1] as [TIMESTAMP] - [Thu Jun 08 00:00:00 EEST 1995]
+k[TRACE] 2022-01-05 00:20:29.934 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Spider]
+h[TRACE] 2022-01-05 00:20:29.934 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Man]
+o[TRACE] 2022-01-05 00:20:29.935 [Test worker] BasicBinder - binding parameter [4] as [VARCHAR] - [9506089805]
+t[DEBUG] 2022-01-05 00:20:29.949 [Test worker] SQL - insert into owner_company (company_id, owner_id) values (?, ?)
+KHibernate: insert into owner_company (company_id, owner_id) values (?, ?)
+e[TRACE] 2022-01-05 00:20:29.950 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [3]
+e[TRACE] 2022-01-05 00:20:29.950 [Test worker] BasicBinder - binding parameter [2] as [BIGINT] - [1]
+e[WARN ] 2022-01-05 00:20:29.953 [Test worker] SqlExceptionHelper - SQL Error: 1452, SQLState: 23000
+›[ERROR] 2022-01-05 00:20:29.953 [Test worker] SqlExceptionHelper - Cannot add or update a child row: a foreign key constraint fails (`electronic_house`.`owner_company`, CONSTRAINT `fk_owner_company_owner1` FOREIGN KEY (`owner_id`) REFERENCES `owner` (`owner_id`) ON UPDATE CASCADE)
+Sorg.hibernate.exception.ConstraintViolationException: could not execute statement
+	Œ[DEBUG] 2022-01-05 00:20:29.964 [Test worker] SQL - select count(*) as col_0_0_ from apartment apartment0_ where apartment0_.building_id=?
+	cHibernate: select count(*) as col_0_0_ from apartment apartment0_ where apartment0_.building_id=?
+	e[TRACE] 2022-01-05 00:20:29.964 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [3]
+	n[TRACE] 2022-01-05 00:20:29.967 [Test worker] BasicExtractor - extracted value ([col_0_0_] : [BIGINT]) - [0]
+	÷[DEBUG] 2022-01-05 00:20:29.972 [Test worker] SQL - select building0_.building_id as building1_1_0_, building0_.address as address2_1_0_, building0_.area_common as area_com3_1_0_, building0_.area_total as area_tot4_1_0_, building0_.number_of_apartments as number_o5_1_0_, building0_.number_of_floors as number_o6_1_0_ from building building0_ where building0_.building_id=?
+	ÎHibernate: select building0_.building_id as building1_1_0_, building0_.address as address2_1_0_, building0_.area_common as area_com3_1_0_, building0_.area_total as area_tot4_1_0_, building0_.number_of_apartments as number_o5_1_0_, building0_.number_of_floors as number_o6_1_0_ from building building0_ where building0_.building_id=?
+	e[TRACE] 2022-01-05 00:20:29.972 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [3]
+	x[TRACE] 2022-01-05 00:20:29.977 [Test worker] BasicExtractor - extracted value ([address2_1_0_] : [VARCHAR]) - [Sofia]
+	w[TRACE] 2022-01-05 00:20:29.978 [Test worker] BasicExtractor - extracted value ([area_com3_1_0_] : [DOUBLE]) - [35.0]
+	y[TRACE] 2022-01-05 00:20:29.978 [Test worker] BasicExtractor - extracted value ([area_tot4_1_0_] : [DOUBLE]) - [1536.0]
+	u[TRACE] 2022-01-05 00:20:29.979 [Test worker] BasicExtractor - extracted value ([number_o5_1_0_] : [BIGINT]) - [15]
+	u[TRACE] 2022-01-05 00:20:29.979 [Test worker] BasicExtractor - extracted value ([number_o6_1_0_] : [BIGINT]) - [15]
+	Ü	[DEBUG] 2022-01-05 00:20:29.995 [Test worker] SQL - select employeebu0_.building_id as building1_4_3_, employeebu0_.company_id as company_2_4_3_, employeebu0_.employee_id as employee3_4_3_, employeebu0_.owner_id as owner_id4_4_3_, building1_.building_id as building1_1_0_, building1_.address as address2_1_0_, building1_.area_common as area_com3_1_0_, building1_.area_total as area_tot4_1_0_, building1_.number_of_apartments as number_o5_1_0_, building1_.number_of_floors as number_o6_1_0_, employee2_.company_id as company_1_3_1_, employee2_.employee_id as employee2_3_1_, employee2_.owner_id as owner_id3_3_1_, employee2_.f_name as f_name4_3_1_, employee2_.l_name as l_name5_3_1_, ownercompa3_.company_id as company_1_8_2_, ownercompa3_.owner_id as owner_id2_8_2_ from employee_building employeebu0_ left outer join building building1_ on employeebu0_.building_id=building1_.building_id left outer join employee employee2_ on employeebu0_.company_id=employee2_.company_id and employeebu0_.employee_id=employee2_.employee_id and employeebu0_.owner_id=employee2_.owner_id left outer join owner_company ownercompa3_ on employee2_.company_id=ownercompa3_.company_id and employee2_.owner_id=ownercompa3_.owner_id where employeebu0_.building_id=?
+	³	Hibernate: select employeebu0_.building_id as building1_4_3_, employeebu0_.company_id as company_2_4_3_, employeebu0_.employee_id as employee3_4_3_, employeebu0_.owner_id as owner_id4_4_3_, building1_.building_id as building1_1_0_, building1_.address as address2_1_0_, building1_.area_common as area_com3_1_0_, building1_.area_total as area_tot4_1_0_, building1_.number_of_apartments as number_o5_1_0_, building1_.number_of_floors as number_o6_1_0_, employee2_.company_id as company_1_3_1_, employee2_.employee_id as employee2_3_1_, employee2_.owner_id as owner_id3_3_1_, employee2_.f_name as f_name4_3_1_, employee2_.l_name as l_name5_3_1_, ownercompa3_.company_id as company_1_8_2_, ownercompa3_.owner_id as owner_id2_8_2_ from employee_building employeebu0_ left outer join building building1_ on employeebu0_.building_id=building1_.building_id left outer join employee employee2_ on employeebu0_.company_id=employee2_.company_id and employeebu0_.employee_id=employee2_.employee_id and employeebu0_.owner_id=employee2_.owner_id left outer join owner_company ownercompa3_ on employee2_.company_id=ownercompa3_.company_id and employee2_.owner_id=ownercompa3_.owner_id where employeebu0_.building_id=?
+	e[TRACE] 2022-01-05 00:20:29.995 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [3]
+	±[DEBUG] 2022-01-05 00:20:29.998 [Test worker] SQL - select taxes0_.building_id as building1_11_0_, taxes0_.app_base_tax as app_base2_11_0_, taxes0_.app_pet_tax as app_pet_3_11_0_, taxes0_.base_tax as base_tax4_11_0_, taxes0_.tax_due_date as tax_due_5_11_0_ from taxes taxes0_ where taxes0_.building_id=?
+	ˆHibernate: select taxes0_.building_id as building1_11_0_, taxes0_.app_base_tax as app_base2_11_0_, taxes0_.app_pet_tax as app_pet_3_11_0_, taxes0_.base_tax as base_tax4_11_0_, taxes0_.tax_due_date as tax_due_5_11_0_ from taxes taxes0_ where taxes0_.building_id=?
+	e[TRACE] 2022-01-05 00:20:29.998 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [3]
+	WHAAAAAAT
+	15
+	WHAAAAAAT
+	Œ[DEBUG] 2022-01-05 00:20:30.012 [Test worker] SQL - select count(*) as col_0_0_ from apartment apartment0_ where apartment0_.building_id=?
+	cHibernate: select count(*) as col_0_0_ from apartment apartment0_ where apartment0_.building_id=?
+	e[TRACE] 2022-01-05 00:20:30.012 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [1]
+	n[TRACE] 2022-01-05 00:20:30.014 [Test worker] BasicExtractor - extracted value ([col_0_0_] : [BIGINT]) - [0]
+	÷[DEBUG] 2022-01-05 00:20:30.020 [Test worker] SQL - select building0_.building_id as building1_1_0_, building0_.address as address2_1_0_, building0_.area_common as area_com3_1_0_, building0_.area_total as area_tot4_1_0_, building0_.number_of_apartments as number_o5_1_0_, building0_.number_of_floors as number_o6_1_0_ from building building0_ where building0_.building_id=?
+	ÎHibernate: select building0_.building_id as building1_1_0_, building0_.address as address2_1_0_, building0_.area_common as area_com3_1_0_, building0_.area_total as area_tot4_1_0_, building0_.number_of_apartments as number_o5_1_0_, building0_.number_of_floors as number_o6_1_0_ from building building0_ where building0_.building_id=?
+	e[TRACE] 2022-01-05 00:20:30.021 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [1]
+	x[TRACE] 2022-01-05 00:20:30.024 [Test worker] BasicExtractor - extracted value ([address2_1_0_] : [VARCHAR]) - [Sofia]
+	w[TRACE] 2022-01-05 00:20:30.024 [Test worker] BasicExtractor - extracted value ([area_com3_1_0_] : [DOUBLE]) - [40.0]
+	y[TRACE] 2022-01-05 00:20:30.024 [Test worker] BasicExtractor - extracted value ([area_tot4_1_0_] : [DOUBLE]) - [1000.0]
+	u[TRACE] 2022-01-05 00:20:30.024 [Test worker] BasicExtractor - extracted value ([number_o5_1_0_] : [BIGINT]) - [10]
+	t[TRACE] 2022-01-05 00:20:30.024 [Test worker] BasicExtractor - extracted value ([number_o6_1_0_] : [BIGINT]) - [2]
+	Ü	[DEBUG] 2022-01-05 00:20:30.024 [Test worker] SQL - select employeebu0_.building_id as building1_4_3_, employeebu0_.company_id as company_2_4_3_, employeebu0_.employee_id as employee3_4_3_, employeebu0_.owner_id as owner_id4_4_3_, building1_.building_id as building1_1_0_, building1_.address as address2_1_0_, building1_.area_common as area_com3_1_0_, building1_.area_total as area_tot4_1_0_, building1_.number_of_apartments as number_o5_1_0_, building1_.number_of_floors as number_o6_1_0_, employee2_.company_id as company_1_3_1_, employee2_.employee_id as employee2_3_1_, employee2_.owner_id as owner_id3_3_1_, employee2_.f_name as f_name4_3_1_, employee2_.l_name as l_name5_3_1_, ownercompa3_.company_id as company_1_8_2_, ownercompa3_.owner_id as owner_id2_8_2_ from employee_building employeebu0_ left outer join building building1_ on employeebu0_.building_id=building1_.building_id left outer join employee employee2_ on employeebu0_.company_id=employee2_.company_id and employeebu0_.employee_id=employee2_.employee_id and employeebu0_.owner_id=employee2_.owner_id left outer join owner_company ownercompa3_ on employee2_.company_id=ownercompa3_.company_id and employee2_.owner_id=ownercompa3_.owner_id where employeebu0_.building_id=?
+	³	Hibernate: select employeebu0_.building_id as building1_4_3_, employeebu0_.company_id as company_2_4_3_, employeebu0_.employee_id as employee3_4_3_, employeebu0_.owner_id as owner_id4_4_3_, building1_.building_id as building1_1_0_, building1_.address as address2_1_0_, building1_.area_common as area_com3_1_0_, building1_.area_total as area_tot4_1_0_, building1_.number_of_apartments as number_o5_1_0_, building1_.number_of_floors as number_o6_1_0_, employee2_.company_id as company_1_3_1_, employee2_.employee_id as employee2_3_1_, employee2_.owner_id as owner_id3_3_1_, employee2_.f_name as f_name4_3_1_, employee2_.l_name as l_name5_3_1_, ownercompa3_.company_id as company_1_8_2_, ownercompa3_.owner_id as owner_id2_8_2_ from employee_building employeebu0_ left outer join building building1_ on employeebu0_.building_id=building1_.building_id left outer join employee employee2_ on employeebu0_.company_id=employee2_.company_id and employeebu0_.employee_id=employee2_.employee_id and employeebu0_.owner_id=employee2_.owner_id left outer join owner_company ownercompa3_ on employee2_.company_id=ownercompa3_.company_id and employee2_.owner_id=ownercompa3_.owner_id where employeebu0_.building_id=?
+	e[TRACE] 2022-01-05 00:20:30.025 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [1]
+	±[DEBUG] 2022-01-05 00:20:30.027 [Test worker] SQL - select taxes0_.building_id as building1_11_0_, taxes0_.app_base_tax as app_base2_11_0_, taxes0_.app_pet_tax as app_pet_3_11_0_, taxes0_.base_tax as base_tax4_11_0_, taxes0_.tax_due_date as tax_due_5_11_0_ from taxes taxes0_ where taxes0_.building_id=?
+	ˆHibernate: select taxes0_.building_id as building1_11_0_, taxes0_.app_base_tax as app_base2_11_0_, taxes0_.app_pet_tax as app_pet_3_11_0_, taxes0_.base_tax as base_tax4_11_0_, taxes0_.tax_due_date as tax_due_5_11_0_ from taxes taxes0_ where taxes0_.building_id=?
+	e[TRACE] 2022-01-05 00:20:30.027 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [1]
+	WHAAAAAAT
+	10
+	WHAAAAAAT
+	œ[DEBUG] 2022-01-05 00:20:30.034 [Test worker] SQL - insert into apartment (area, family_id, landlord_id, apartment_id, building_id) values (?, ?, ?, ?, ?)
+	sHibernate: insert into apartment (area, family_id, landlord_id, apartment_id, building_id) values (?, ?, ?, ?, ?)
+	h[TRACE] 2022-01-05 00:20:30.034 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [30.0]
+	e[TRACE] 2022-01-05 00:20:30.035 [Test worker] BasicBinder - binding parameter [2] as [BIGINT] - [1]
+	o[TRACE] 2022-01-05 00:20:30.035 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [3511083276]
+	e[TRACE] 2022-01-05 00:20:30.036 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [2]
+	e[TRACE] 2022-01-05 00:20:30.036 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [3]
+	e[WARN ] 2022-01-05 00:20:30.038 [Test worker] SqlExceptionHelper - SQL Error: 1452, SQLState: 23000
+	©[ERROR] 2022-01-05 00:20:30.038 [Test worker] SqlExceptionHelper - Cannot add or update a child row: a foreign key constraint fails (`electronic_house`.`apartment`, CONSTRAINT `fk_apartment_family1` FOREIGN KEY (`family_id`) REFERENCES `family` (`family_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+	Sorg.hibernate.exception.ConstraintViolationException: could not execute statement
+
+t[DEBUG] 2022-01-05 00:20:30.059 [Test worker] SQL - insert into person_family (family_id, person_id) values (?, ?)
+
+KHibernate: insert into person_family (family_id, person_id) values (?, ?)
+
+e[TRACE] 2022-01-05 00:20:30.060 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [1]
+
+o[TRACE] 2022-01-05 00:20:30.060 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [5405243487]
+
+e[WARN ] 2022-01-05 00:20:30.063 [Test worker] SqlExceptionHelper - SQL Error: 1452, SQLState: 23000
+
+±[ERROR] 2022-01-05 00:20:30.063 [Test worker] SqlExceptionHelper - Cannot add or update a child row: a foreign key constraint fails (`electronic_house`.`person_family`, CONSTRAINT `fk_person_family_family1` FOREIGN KEY (`family_id`) REFERENCES `family` (`family_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+
+Sorg.hibernate.exception.ConstraintViolationException: could not execute statement
+¡[DEBUG] 2022-01-05 00:20:30.088 [Test worker] SQL - insert into taxes_history (amount, date, paid, apartment_id, building_id, tax_id) values (?, ?, ?, ?, ?, ?)
+xHibernate: insert into taxes_history (amount, date, paid, apartment_id, building_id, tax_id) values (?, ?, ?, ?, ?, ?)
+g[TRACE] 2022-01-05 00:20:30.089 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [0.0]
+~[TRACE] 2022-01-05 00:20:30.089 [Test worker] BasicBinder - binding parameter [2] as [TIMESTAMP] - [2022-01-05 00:20:30.087]
+j[TRACE] 2022-01-05 00:20:30.090 [Test worker] BasicBinder - binding parameter [3] as [BOOLEAN] - [false]
+e[TRACE] 2022-01-05 00:20:30.091 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [2]
+e[TRACE] 2022-01-05 00:20:30.091 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [3]
+j[TRACE] 2022-01-05 00:20:30.091 [Test worker] BasicBinder - binding parameter [6] as [BIGINT] - [202200]
+e[WARN ] 2022-01-05 00:20:30.099 [Test worker] SqlExceptionHelper - SQL Error: 1452, SQLState: 23000
+·[ERROR] 2022-01-05 00:20:30.099 [Test worker] SqlExceptionHelper - Cannot add or update a child row: a foreign key constraint fails (`electronic_house`.`taxes_history`, CONSTRAINT `fk_taxes_history_apartment1` FOREIGN KEY (`apartment_id`, `building_id`) REFERENCES `apartment` (`apartment_id`, `building_id`))
+Sorg.hibernate.exception.ConstraintViolationException: could not execute statement
+¡[DEBUG] 2022-01-05 00:20:30.108 [Test worker] SQL - insert into taxes_history (amount, date, paid, apartment_id, building_id, tax_id) values (?, ?, ?, ?, ?, ?)
+xHibernate: insert into taxes_history (amount, date, paid, apartment_id, building_id, tax_id) values (?, ?, ?, ?, ?, ?)
+g[TRACE] 2022-01-05 00:20:30.109 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [0.0]
+~[TRACE] 2022-01-05 00:20:30.109 [Test worker] BasicBinder - binding parameter [2] as [TIMESTAMP] - [2022-01-05 00:20:30.107]
+j[TRACE] 2022-01-05 00:20:30.109 [Test worker] BasicBinder - binding parameter [3] as [BOOLEAN] - [false]
+e[TRACE] 2022-01-05 00:20:30.109 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [2]
+e[TRACE] 2022-01-05 00:20:30.109 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [3]
+j[TRACE] 2022-01-05 00:20:30.109 [Test worker] BasicBinder - binding parameter [6] as [BIGINT] - [202199]
+e[WARN ] 2022-01-05 00:20:30.111 [Test worker] SqlExceptionHelper - SQL Error: 1452, SQLState: 23000
+·[ERROR] 2022-01-05 00:20:30.112 [Test worker] SqlExceptionHelper - Cannot add or update a child row: a foreign key constraint fails (`electronic_house`.`taxes_history`, CONSTRAINT `fk_taxes_history_apartment1` FOREIGN KEY (`apartment_id`, `building_id`) REFERENCES `apartment` (`apartment_id`, `building_id`))
+Sorg.hibernate.exception.ConstraintViolationException: could not execute statement
+¡[DEBUG] 2022-01-05 00:20:30.122 [Test worker] SQL - insert into taxes_history (amount, date, paid, apartment_id, building_id, tax_id) values (?, ?, ?, ?, ?, ?)
+xHibernate: insert into taxes_history (amount, date, paid, apartment_id, building_id, tax_id) values (?, ?, ?, ?, ?, ?)
+g[TRACE] 2022-01-05 00:20:30.123 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [0.0]
+~[TRACE] 2022-01-05 00:20:30.123 [Test worker] BasicBinder - binding parameter [2] as [TIMESTAMP] - [2022-01-05 00:20:30.122]
+j[TRACE] 2022-01-05 00:20:30.123 [Test worker] BasicBinder - binding parameter [3] as [BOOLEAN] - [false]
+e[TRACE] 2022-01-05 00:20:30.124 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [2]
+e[TRACE] 2022-01-05 00:20:30.124 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [3]
+j[TRACE] 2022-01-05 00:20:30.124 [Test worker] BasicBinder - binding parameter [6] as [BIGINT] - [202198]
+e[WARN ] 2022-01-05 00:20:30.126 [Test worker] SqlExceptionHelper - SQL Error: 1452, SQLState: 23000
+·[ERROR] 2022-01-05 00:20:30.127 [Test worker] SqlExceptionHelper - Cannot add or update a child row: a foreign key constraint fails (`electronic_house`.`taxes_history`, CONSTRAINT `fk_taxes_history_apartment1` FOREIGN KEY (`apartment_id`, `building_id`) REFERENCES `apartment` (`apartment_id`, `building_id`))
+Sorg.hibernate.exception.ConstraintViolationException: could not execute statement
+¡[DEBUG] 2022-01-05 00:20:30.137 [Test worker] SQL - insert into taxes_history (amount, date, paid, apartment_id, building_id, tax_id) values (?, ?, ?, ?, ?, ?)
+xHibernate: insert into taxes_history (amount, date, paid, apartment_id, building_id, tax_id) values (?, ?, ?, ?, ?, ?)
+g[TRACE] 2022-01-05 00:20:30.138 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [0.0]
+~[TRACE] 2022-01-05 00:20:30.138 [Test worker] BasicBinder - binding parameter [2] as [TIMESTAMP] - [2022-01-05 00:20:30.137]
+j[TRACE] 2022-01-05 00:20:30.139 [Test worker] BasicBinder - binding parameter [3] as [BOOLEAN] - [false]
+e[TRACE] 2022-01-05 00:20:30.139 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [2]
+e[TRACE] 2022-01-05 00:20:30.139 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [3]
+j[TRACE] 2022-01-05 00:20:30.139 [Test worker] BasicBinder - binding parameter [6] as [BIGINT] - [202197]
+e[WARN ] 2022-01-05 00:20:30.141 [Test worker] SqlExceptionHelper - SQL Error: 1452, SQLState: 23000
+·[ERROR] 2022-01-05 00:20:30.141 [Test worker] SqlExceptionHelper - Cannot add or update a child row: a foreign key constraint fails (`electronic_house`.`taxes_history`, CONSTRAINT `fk_taxes_history_apartment1` FOREIGN KEY (`apartment_id`, `building_id`) REFERENCES `apartment` (`apartment_id`, `building_id`))
+Sorg.hibernate.exception.ConstraintViolationException: could not execute statement
+¡[DEBUG] 2022-01-05 00:20:30.151 [Test worker] SQL - insert into taxes_history (amount, date, paid, apartment_id, building_id, tax_id) values (?, ?, ?, ?, ?, ?)
+xHibernate: insert into taxes_history (amount, date, paid, apartment_id, building_id, tax_id) values (?, ?, ?, ?, ?, ?)
+g[TRACE] 2022-01-05 00:20:30.151 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [0.0]
+~[TRACE] 2022-01-05 00:20:30.152 [Test worker] BasicBinder - binding parameter [2] as [TIMESTAMP] - [2022-01-05 00:20:30.151]
+j[TRACE] 2022-01-05 00:20:30.152 [Test worker] BasicBinder - binding parameter [3] as [BOOLEAN] - [false]
+e[TRACE] 2022-01-05 00:20:30.152 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [2]
+e[TRACE] 2022-01-05 00:20:30.152 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [3]
+j[TRACE] 2022-01-05 00:20:30.152 [Test worker] BasicBinder - binding parameter [6] as [BIGINT] - [202196]
+e[WARN ] 2022-01-05 00:20:30.155 [Test worker] SqlExceptionHelper - SQL Error: 1452, SQLState: 23000
+·[ERROR] 2022-01-05 00:20:30.155 [Test worker] SqlExceptionHelper - Cannot add or update a child row: a foreign key constraint fails (`electronic_house`.`taxes_history`, CONSTRAINT `fk_taxes_history_apartment1` FOREIGN KEY (`apartment_id`, `building_id`) REFERENCES `apartment` (`apartment_id`, `building_id`))
+Sorg.hibernate.exception.ConstraintViolationException: could not execute statement
+Ÿ[DEBUG] 2022-01-05 00:20:30.170 [Test worker] SQL - insert into taxes (app_base_tax, app_pet_tax, base_tax, tax_due_date, building_id) values (?, ?, ?, ?, ?)
+vHibernate: insert into taxes (app_base_tax, app_pet_tax, base_tax, tax_due_date, building_id) values (?, ?, ?, ?, ?)
+h[TRACE] 2022-01-05 00:20:30.170 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [20.0]
+h[TRACE] 2022-01-05 00:20:30.171 [Test worker] BasicBinder - binding parameter [2] as [DOUBLE] - [10.0]
+h[TRACE] 2022-01-05 00:20:30.171 [Test worker] BasicBinder - binding parameter [3] as [DOUBLE] - [20.0]
+g[TRACE] 2022-01-05 00:20:30.172 [Test worker] BasicBinder - binding parameter [4] as [INTEGER] - [25]
+e[TRACE] 2022-01-05 00:20:30.172 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [1]
+Ÿ[DEBUG] 2022-01-05 00:20:30.174 [Test worker] SQL - insert into taxes (app_base_tax, app_pet_tax, base_tax, tax_due_date, building_id) values (?, ?, ?, ?, ?)
+vHibernate: insert into taxes (app_base_tax, app_pet_tax, base_tax, tax_due_date, building_id) values (?, ?, ?, ?, ?)
+h[TRACE] 2022-01-05 00:20:30.175 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [20.0]
+h[TRACE] 2022-01-05 00:20:30.175 [Test worker] BasicBinder - binding parameter [2] as [DOUBLE] - [10.0]
+h[TRACE] 2022-01-05 00:20:30.175 [Test worker] BasicBinder - binding parameter [3] as [DOUBLE] - [20.0]
+g[TRACE] 2022-01-05 00:20:30.176 [Test worker] BasicBinder - binding parameter [4] as [INTEGER] - [25]
+e[TRACE] 2022-01-05 00:20:30.176 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [2]
+Ÿ[DEBUG] 2022-01-05 00:20:30.178 [Test worker] SQL - insert into taxes (app_base_tax, app_pet_tax, base_tax, tax_due_date, building_id) values (?, ?, ?, ?, ?)
+vHibernate: insert into taxes (app_base_tax, app_pet_tax, base_tax, tax_due_date, building_id) values (?, ?, ?, ?, ?)
+h[TRACE] 2022-01-05 00:20:30.178 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [22.0]
+h[TRACE] 2022-01-05 00:20:30.179 [Test worker] BasicBinder - binding parameter [2] as [DOUBLE] - [15.0]
+h[TRACE] 2022-01-05 00:20:30.179 [Test worker] BasicBinder - binding parameter [3] as [DOUBLE] - [22.0]
+g[TRACE] 2022-01-05 00:20:30.180 [Test worker] BasicBinder - binding parameter [4] as [INTEGER] - [25]
+e[TRACE] 2022-01-05 00:20:30.180 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [3]
+Ÿ[DEBUG] 2022-01-05 00:20:30.184 [Test worker] SQL - insert into taxes (app_base_tax, app_pet_tax, base_tax, tax_due_date, building_id) values (?, ?, ?, ?, ?)
+vHibernate: insert into taxes (app_base_tax, app_pet_tax, base_tax, tax_due_date, building_id) values (?, ?, ?, ?, ?)
+h[TRACE] 2022-01-05 00:20:30.185 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [26.0]
+h[TRACE] 2022-01-05 00:20:30.185 [Test worker] BasicBinder - binding parameter [2] as [DOUBLE] - [12.0]
+h[TRACE] 2022-01-05 00:20:30.185 [Test worker] BasicBinder - binding parameter [3] as [DOUBLE] - [26.0]
+g[TRACE] 2022-01-05 00:20:30.185 [Test worker] BasicBinder - binding parameter [4] as [INTEGER] - [25]
+e[TRACE] 2022-01-05 00:20:30.185 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [4]
+Ÿ[DEBUG] 2022-01-05 00:20:30.188 [Test worker] SQL - insert into taxes (app_base_tax, app_pet_tax, base_tax, tax_due_date, building_id) values (?, ?, ?, ?, ?)
+vHibernate: insert into taxes (app_base_tax, app_pet_tax, base_tax, tax_due_date, building_id) values (?, ?, ?, ?, ?)
+h[TRACE] 2022-01-05 00:20:30.189 [Test worker] BasicBinder - binding parameter [1] as [DOUBLE] - [13.0]
+h[TRACE] 2022-01-05 00:20:30.189 [Test worker] BasicBinder - binding parameter [2] as [DOUBLE] - [11.0]
+h[TRACE] 2022-01-05 00:20:30.189 [Test worker] BasicBinder - binding parameter [3] as [DOUBLE] - [13.0]
+g[TRACE] 2022-01-05 00:20:30.189 [Test worker] BasicBinder - binding parameter [4] as [INTEGER] - [25]
+e[TRACE] 2022-01-05 00:20:30.190 [Test worker] BasicBinder - binding parameter [5] as [BIGINT] - [5]
+c[DEBUG] 2022-01-05 00:20:30.209 [Test worker] SQL - insert into landlord (landlord_id) values (?)
+:Hibernate: insert into landlord (landlord_id) values (?)
+o[TRACE] 2022-01-05 00:20:30.209 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [3511083276]
+c[DEBUG] 2022-01-05 00:20:30.212 [Test worker] SQL - insert into landlord (landlord_id) values (?)
+:Hibernate: insert into landlord (landlord_id) values (?)
+o[TRACE] 2022-01-05 00:20:30.213 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [6402206837]
+¦	[DEBUG] 2022-01-05 00:20:30.229 [Test worker] SQL - select apartment0_.apartment_id as apartmen1_0_0_, apartment0_.building_id as building2_0_0_, apartment0_.area as area3_0_0_, apartment0_.family_id as family_i4_0_0_, apartment0_.landlord_id as landlord5_0_0_, building1_.building_id as building1_1_1_, building1_.address as address2_1_1_, building1_.area_common as area_com3_1_1_, building1_.area_total as area_tot4_1_1_, building1_.number_of_apartments as number_o5_1_1_, building1_.number_of_floors as number_o6_1_1_, family2_.family_id as family_i1_5_2_, family2_.pet as pet2_5_2_, landlord3_.landlord_id as landlord1_6_3_, person4_.person_id as person_i1_9_4_, person4_.date_of_birth as date_of_2_9_4_, person4_.f_name as f_name3_9_4_, person4_.l_name as l_name4_9_4_ from apartment apartment0_ left outer join building building1_ on apartment0_.building_id=building1_.building_id left outer join family family2_ on apartment0_.family_id=family2_.family_id left outer join landlord landlord3_ on apartment0_.landlord_id=landlord3_.landlord_id left outer join person person4_ on landlord3_.landlord_id=person4_.person_id where apartment0_.apartment_id=? and apartment0_.building_id=?
+ýHibernate: select apartment0_.apartment_id as apartmen1_0_0_, apartment0_.building_id as building2_0_0_, apartment0_.area as area3_0_0_, apartment0_.family_id as family_i4_0_0_, apartment0_.landlord_id as landlord5_0_0_, building1_.building_id as building1_1_1_, building1_.address as address2_1_1_, building1_.area_common as area_com3_1_1_, building1_.area_total as area_tot4_1_1_, building1_.number_of_apartments as number_o5_1_1_, building1_.number_of_floors as number_o6_1_1_, family2_.family_id as family_i1_5_2_, family2_.pet as pet2_5_2_, landlord3_.landlord_id as landlord1_6_3_, person4_.person_id as person_i1_9_4_, person4_.date_of_birth as date_of_2_9_4_, person4_.f_name as f_name3_9_4_, person4_.l_name as l_name4_9_4_ from apartment apartment0_ left outer join building building1_ on apartment0_.building_id=building1_.building_id left outer join family family2_ on apartment0_.family_id=family2_.family_id left outer join landlord landlord3_ on apartment0_.landlord_id=landlord3_.landlord_id left outer join person person4_ on landlord3_.landlord_id=person4_.person_id where apartment0_.apartment_id=? and apartment0_.building_id=?
+e[TRACE] 2022-01-05 00:20:30.229 [Test worker] BasicBinder - binding parameter [1] as [BIGINT] - [2]
+e[TRACE] 2022-01-05 00:20:30.229 [Test worker] BasicBinder - binding parameter [2] as [BIGINT] - [3]
+null
+p[DEBUG] 2022-01-05 00:20:30.249 [Test worker] SQL - select next_val as id_val from _generatorowners for update
+GHibernate: select next_val as id_val from _generatorowners for update
+n[DEBUG] 2022-01-05 00:20:30.252 [Test worker] SQL - update _generatorowners set next_val= ? where next_val=?
+EHibernate: update _generatorowners set next_val= ? where next_val=?
+p[DEBUG] 2022-01-05 00:20:30.264 [Test worker] SQL - select next_val as id_val from _generatorowners for update
+GHibernate: select next_val as id_val from _generatorowners for update
+n[DEBUG] 2022-01-05 00:20:30.267 [Test worker] SQL - update _generatorowners set next_val= ? where next_val=?
+EHibernate: update _generatorowners set next_val= ? where next_val=?
+{[DEBUG] 2022-01-05 00:20:30.278 [Test worker] SQL - insert into owner (egn, f_name, l_name, owner_id) values (?, ?, ?, ?)
+RHibernate: insert into owner (egn, f_name, l_name, owner_id) values (?, ?, ?, ?)
+o[TRACE] 2022-01-05 00:20:30.278 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [7602040567]
+k[TRACE] 2022-01-05 00:20:30.279 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Stefan]
+m[TRACE] 2022-01-05 00:20:30.279 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Landzhev]
+e[TRACE] 2022-01-05 00:20:30.279 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [1]
+{[DEBUG] 2022-01-05 00:20:30.283 [Test worker] SQL - insert into owner (egn, f_name, l_name, owner_id) values (?, ?, ?, ?)
+RHibernate: insert into owner (egn, f_name, l_name, owner_id) values (?, ?, ?, ?)
+o[TRACE] 2022-01-05 00:20:30.283 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [7503040567]
+j[TRACE] 2022-01-05 00:20:30.284 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Angel]
+l[TRACE] 2022-01-05 00:20:30.284 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Krustev]
+e[TRACE] 2022-01-05 00:20:30.284 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [2]
+{[DEBUG] 2022-01-05 00:20:30.288 [Test worker] SQL - insert into owner (egn, f_name, l_name, owner_id) values (?, ?, ?, ?)
+RHibernate: insert into owner (egn, f_name, l_name, owner_id) values (?, ?, ?, ?)
+o[TRACE] 2022-01-05 00:20:30.289 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [6505232367]
+j[TRACE] 2022-01-05 00:20:30.289 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Petar]
+k[TRACE] 2022-01-05 00:20:30.289 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Petkov]
+e[TRACE] 2022-01-05 00:20:30.289 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [3]
+{[DEBUG] 2022-01-05 00:20:30.292 [Test worker] SQL - insert into owner (egn, f_name, l_name, owner_id) values (?, ?, ?, ?)
+RHibernate: insert into owner (egn, f_name, l_name, owner_id) values (?, ?, ?, ?)
+o[TRACE] 2022-01-05 00:20:30.292 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [8512234456]
+k[TRACE] 2022-01-05 00:20:30.292 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Stefan]
+k[TRACE] 2022-01-05 00:20:30.293 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Ivanov]
+e[TRACE] 2022-01-05 00:20:30.293 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [4]
+{[DEBUG] 2022-01-05 00:20:30.296 [Test worker] SQL - insert into owner (egn, f_name, l_name, owner_id) values (?, ?, ?, ?)
+RHibernate: insert into owner (egn, f_name, l_name, owner_id) values (?, ?, ?, ?)
+o[TRACE] 2022-01-05 00:20:30.296 [Test worker] BasicBinder - binding parameter [1] as [VARCHAR] - [7702054456]
+j[TRACE] 2022-01-05 00:20:30.296 [Test worker] BasicBinder - binding parameter [2] as [VARCHAR] - [Isaac]
+k[TRACE] 2022-01-05 00:20:30.297 [Test worker] BasicBinder - binding parameter [3] as [VARCHAR] - [Clarke]
+e[TRACE] 2022-01-05 00:20:30.297 [Test worker] BasicBinder - binding parameter [4] as [BIGINT] - [5]
+r[DEBUG] 2022-01-05 00:20:30.322 [Test worker] SQL - select next_val as id_val from _generatorfamilies for update
+IHibernate: select next_val as id_val from _generatorfamilies for update
+p[DEBUG] 2022-01-05 00:20:30.324 [Test worker] SQL - update _generatorfamilies set next_val= ? where next_val=?
+GHibernate: update _generatorfamilies set next_val= ? where next_val=?
+r[DEBUG] 2022-01-05 00:20:30.337 [Test worker] SQL - select next_val as id_val from _generatorfamilies for update
+IHibernate: select next_val as id_val from _generatorfamilies for update
+p[DEBUG] 2022-01-05 00:20:30.340 [Test worker] SQL - update _generatorfamilies set next_val= ? where next_val=?
+GHibernate: update _generatorfamilies set next_val= ? where next_val=?
+g[DEBUG] 2022-01-05 00:20:30.357 [Test worker] SQL - insert into family (pet, family_id) values (?, ?)
+>Hibernate: insert into family (pet, family_id) values (?, ?)
+j[TRACE] 2022-01-05 00:20:30.358 [Test worker] BasicBinder - binding parameter [1] as [BOOLEAN] - [false]
+e[TRACE] 2022-01-05 00:20:30.358 [Test worker] BasicBinder - binding parameter [2] as [BIGINT] - [1]
+g[DEBUG] 2022-01-05 00:20:30.361 [Test worker] SQL - insert into family (pet, family_id) values (?, ?)
+>Hibernate: insert into family (pet, family_id) values (?, ?)
+j[TRACE] 2022-01-05 00:20:30.361 [Test worker] BasicBinder - binding parameter [1] as [BOOLEAN] - [false]
+e[TRACE] 2022-01-05 00:20:30.362 [Test worker] BasicBinder - binding parameter [2] as [BIGINT] - [2]
+g[DEBUG] 2022-01-05 00:20:30.363 [Test worker] SQL - insert into family (pet, family_id) values (?, ?)
+>Hibernate: insert into family (pet, family_id) values (?, ?)
+j[TRACE] 2022-01-05 00:20:30.364 [Test worker] BasicBinder - binding parameter [1] as [BOOLEAN] - [false]
+e[TRACE] 2022-01-05 00:20:30.364 [Test worker] BasicBinder - binding parameter [2] as [BIGINT] - [3]
+g[DEBUG] 2022-01-05 00:20:30.367 [Test worker] SQL - insert into family (pet, family_id) values (?, ?)
+>Hibernate: insert into family (pet, family_id) values (?, ?)
+j[TRACE] 2022-01-05 00:20:30.368 [Test worker] BasicBinder - binding parameter [1] as [BOOLEAN] - [false]
+e[TRACE] 2022-01-05 00:20:30.368 [Test worker] BasicBinder - binding parameter [2] as [BIGINT] - [4]

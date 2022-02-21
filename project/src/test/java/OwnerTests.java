@@ -1,0 +1,319 @@
+import dao.*;
+import entity.*;
+import org.hibernate.annotations.OnDelete;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import special_validators.egn_validator;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class OwnerTests {
+
+    @Test
+    public void checkEgn(){
+        Assertions.assertTrue(egn_validator.checkId("9803200056"));
+        Assertions.assertFalse(egn_validator.checkId("asgs203200056"));
+        Assertions.assertFalse(egn_validator.checkId("103200056"));
+        Assertions.assertFalse(egn_validator.checkId("9820030056"));
+    }
+
+
+    @Test
+    public void preloadOwners(){
+        boolean mytest=false;
+        try {
+            Owner owner = new Owner(1, "7602040567", "Stefan", "Landzhev");
+            Owner owner2 = new Owner(2, "7503040567", "Angel", "Krustev");
+            Owner owner3 = new Owner(3, "6505232367", "Petar", "Petkov");
+            Owner owner4 = new Owner(4, "8512234456", "Stefan", "Ivanov");
+            Owner owner5 = new Owner(5, "7702054456", "Isaac", "Clarke");
+
+            List<Owner> list = Arrays.asList(owner, owner2, owner3, owner4, owner5);
+            OwnerDAO.saveOwners(list);
+            mytest=true;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        Assertions.assertTrue(mytest);
+    }
+
+    @Test
+    public void preloadCompanies(){
+        boolean mytest=false;
+        try {
+            Company company = new Company(1, "Cisco", "Sofia");
+            Company company2 = new Company(2, "DXC", "Sofia");
+            Company company3 = new Company(3, "Hyperscience", "Sofia");
+            Company company4 = new Company(4, "Uber", "Sofia");
+            Company company5 = new Company(5, "IBM", "Sofia");
+
+            List<Company> list = Arrays.asList(company, company2, company3, company4, company5);
+            CompanyDAO.saveCompanies(list);
+            mytest=true;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        Assertions.assertTrue(mytest);
+    }
+
+    @Test
+    public void preloadOwnerCompanies(){
+        boolean mytest=false;
+        try {
+            OwnerCompany oc = new OwnerCompany(3, 1);
+            OwnerCompany oc2 = new OwnerCompany(4, 1);
+            OwnerCompany oc3 = new OwnerCompany(1, 2);
+            OwnerCompany oc4 = new OwnerCompany(5, 1);
+            OwnerCompany oc5 = new OwnerCompany(2, 5);
+
+            List<OwnerCompany> list = Arrays.asList(oc, oc2, oc3, oc4, oc5);
+            OwnerCompanyDAO.saveOwnerCompanies(list);
+            mytest=true;
+        }
+        catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+            Assertions.assertTrue(mytest);
+    }
+
+    @Test
+    public void preloadEmployees(){
+        boolean mytest = false;
+        try {
+            Employee e = new Employee(1, 1, 2, "Larry", "Gasparov");
+            Employee e2 = new Employee(2, 1, 2, "Garry", "Saddov");
+            Employee e3 = new Employee(3, 1, 2, "Sad", "Lothar");
+            Employee e4 = new Employee(4, 1, 2, "Sad", "Lothar");
+            Employee e5 = new Employee(5, 5, 1, "Looper", "Dooper");
+
+            List<Employee> list = Arrays.asList(e, e2, e3, e4, e5);
+            EmployeeDAO.saveEmployees(list);
+            mytest = true;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        Assertions.assertTrue(mytest);
+    }
+
+    @Test
+    public void preloadBuildings(){
+        boolean mytest=false;
+        try {
+            Building b = new Building(1, "Sofia", 10, 2, 1000, 40);
+            Building b2 = new Building(2, "Sofia", 12, 4, 1200, 10);
+            Building b3 = new Building(3, "Sofia", 15, 15, 1536, 35);
+            Building b4 = new Building(4, "Sofia", 3, 2, 290, 32);
+            Building b5 = new Building(5, "Sofia", 10, 10, 2903, 47);
+
+            List<Building> list = Arrays.asList(b, b2, b3, b4, b5);
+            BuildingDAO.saveBuildings(list);
+            mytest=true;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        Assertions.assertTrue(mytest);
+    }
+
+    @Test
+    public void preloadTaxes(){
+        boolean mytest=false;
+        try {
+            Taxes t = new Taxes(1, 20, 0.5, 10, 25);
+            Taxes t2 = new Taxes(2, 20, 0.5, 10, 25);
+            Taxes t3 = new Taxes(3, 22, 0.8, 15, 25);
+            Taxes t4 = new Taxes(4, 26, 0.45, 12, 25);
+            Taxes t5 = new Taxes(5, 13, 1, 11, 25);
+
+            List<Taxes> list = Arrays.asList(t, t2, t3, t4, t5);
+            TaxesDAO.saveTaxess(list);
+            mytest=true;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        Assertions.assertTrue(mytest);
+    }
+
+    @Test
+    public void preloadEmployeeBuildings(){
+        boolean mytest=false;
+        try {
+            EmployeeBuilding eb = new EmployeeBuilding(1, 4, 1, 2);
+            EmployeeBuilding eb2 = new EmployeeBuilding(2, 2, 1, 2);
+            EmployeeBuilding eb3 = new EmployeeBuilding(3, 5, 5, 1);
+            EmployeeBuilding eb4 = new EmployeeBuilding(5, 3, 1, 2);
+            EmployeeBuilding eb5 = new EmployeeBuilding(4, 4, 1, 2);
+
+            List<EmployeeBuilding> list = Arrays.asList(eb, eb2, eb3, eb4, eb5);
+            EmployeeBuildingDAO.saveEmployeeBuildings(list);
+            mytest=true;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        Assertions.assertTrue(mytest);
+    }
+
+    @Test
+    public void preloadApartments(){
+        boolean mytest=false;
+        try {
+            Apartment a = new Apartment(1, 1, 30, null, null);
+            Apartment a2 = new Apartment(1, 3, 53, null, null);
+            Apartment a3 = new Apartment(2, 1, 55, null, null);
+            Apartment a4 = new Apartment(1, 2, 65, null, null);
+            Apartment a5 = new Apartment(2, 2, 87, null, null);
+            Apartment a6 = new Apartment(3, 2, 103, null, null);
+
+            List<Apartment> list = Arrays.asList(a, a2, a3, a4, a5, a6);
+            ApartmentDAO.saveApartments(list);
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        Assertions.assertTrue(mytest);
+    }
+
+    @Test
+    public void preloadPersons(){
+        boolean mytest = false;
+        try {
+            Person p = new Person("5405243487", "Lazar", "Looner", "24/05/1954");
+            Person p2 = new Person("2607133566", "Eugene", "Darius", "13/07/1926");
+            Person p3 = new Person("6505063276", "Sandra", "Zaralik", "06/05/1965");
+            Person p4 = new Person("3511083276", "Harry", "Potter", "08/11/1935");
+            Person p5 = new Person("4403243276", "Peter", "Parker", "24/03/1944");
+            Person p6 = new Person("7001041162", "Ivan", "Looner", "04/01/1970");
+            Person p7 = new Person("7002020170", "Petar", "Darius", "02/02/1970");
+            Person p8 = new Person("6402206837", "Vanya", "Zaralik", "20/02/1964");
+            Person p9 = new Person("8605121040", "Loren", "Potter", "12/05/1986");
+            Person p10 = new Person("9506089805", "Spider", "Man", "08/06/1995");
+
+            List<Person> list = Arrays.asList(p, p2, p3, p4, p5, p6, p7, p8, p9, p10);
+            PersonDAO.savePersons(list);
+            mytest=true;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        Assertions.assertTrue(mytest);
+    }
+
+    @Test
+    public void preloadFamilies(){
+        boolean mytest=false;
+        try {
+            Family f = new Family(1, false);
+            Family f2 = new Family(2, true);
+            Family f3 = new Family(3, true);
+            Family f4 = new Family(4, true);
+
+            List<Family> list = Arrays.asList(f, f2, f3, f4);
+            FamilyDAO.saveFamilys(list);
+            mytest=true;
+        }
+        catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        Assertions.assertTrue(mytest);
+    }
+
+    @Test
+    public void preloadPersonFamilies(){
+        boolean mytest=false;
+        try {
+            PersonFamily f = new PersonFamily("5405243487", 1);
+            PersonFamily f1 = new PersonFamily("2607133566", 1);
+            PersonFamily f2 = new PersonFamily("6505063276", 1);
+            PersonFamily f3 = new PersonFamily("6402206837", 2);
+
+            List<PersonFamily> list = Arrays.asList(f, f1, f2, f3);
+            PersonFamilyDAO.savePersonFamilys(list);
+            mytest=true;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        Assertions.assertTrue(mytest);
+    }
+
+    @Test
+    public void preloadLandlords(){
+        boolean mytest=false;
+        try {
+            Landlord l = new Landlord("3511083276");
+            Landlord l2 = new Landlord("6402206837");
+
+            List<Landlord> list = Arrays.asList(l, l2);
+            LandlordDAO.saveLandlords(list);
+            mytest=true;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        Assertions.assertTrue(mytest);
+    }
+
+    @Test
+    public void preloadApartmentsWithFamilies(){
+        boolean mytest=false;
+        try {
+            Apartment a = new Apartment(2, 3, 30, "3511083276", 1);
+            Apartment a2 = new Apartment(3, 1, 45, "6402206837", 2);
+
+            List<Apartment> list = Arrays.asList(a, a2);
+            ApartmentDAO.saveApartments(list);
+            mytest=true;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        Assertions.assertTrue(mytest);
+    }
+
+    @Test
+    public void preloadTaxesHistory(){
+        boolean mytest=false;
+        try {
+            BuildingDAO.paySpecificTax(2, 3);
+            mytest=true;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        Assertions.assertTrue(mytest);
+    }
+
+    @Test
+    public void preloadUnpaidTaxesHistory() {
+        List<Long> arr = new ArrayList<>();
+        long uid = LocalDate.now().getYear()*100-1+LocalDate.now().getMonthValue();
+        long uid2 = LocalDate.now().getYear()*100-2+LocalDate.now().getMonthValue();
+        long uid3 = LocalDate.now().getYear()*100-3+LocalDate.now().getMonthValue();
+        long uid4 = LocalDate.now().getYear()*100-4+LocalDate.now().getMonthValue();
+        long uid5 = LocalDate.now().getYear()*100-5+LocalDate.now().getMonthValue();
+        arr.addAll(Arrays.asList(uid,uid2, uid3, uid4, uid5));
+
+        boolean mytest=false;
+        for(int i=0; i<arr.size(); i++){
+            try {
+                TaxesHistory th = new TaxesHistory(arr.get(i), 2, 3, 0, false);
+                TaxesHistoryDAO.saveTaxesHistory(th);
+                mytest=true;
+            }
+            catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        }
+
+        Assertions.assertTrue(mytest);
+    }
+
+}
